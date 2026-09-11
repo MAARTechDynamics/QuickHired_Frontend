@@ -1,0 +1,184 @@
+<div class="modern-interview-page">
+  <div class="page-container">
+    
+    <!-- Premium Hero Section -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title"><span class="emoji-icon">🤖</span> <span class="gradient-title-text">{{ 'interview.title' | translate }}</span> <span class="hero-badge-inline">{{ 'interview.powered' | translate }}</span></h1>
+        <p class="hero-subtitle">
+          {{ 'interview.subtitle' | translate }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-container">
+      <div class="form-wrapper">
+        <form [formGroup]="personaForm" (ngSubmit)="submitPersonaForm()" class="interview-form">
+          
+          <!-- Resume Upload Section -->
+          <div class="form-group">
+            <label class="form-label">
+              <span class="label-icon">📄</span>
+              {{ 'form.upload.resume' | translate }}
+              <span class="required">{{ 'form.upload.required' | translate }}</span>
+            </label>
+            <div class="upload-zone" 
+                 [class.error]="shouldShowError('unique_cv')"
+                 [class.uploaded]="uploadedFileName">
+              <input type="file" id="resumeUpload"
+                     (change)="onFileChange($event)"
+                     class="upload-input"
+                     accept=".pdf,.doc,.docx">
+              <div class="upload-content" *ngIf="!uploadedFileName">
+                <div class="upload-icon">☁️</div>
+                <div class="upload-text">
+                  <span class="primary-text">{{ 'form.upload.click' | translate }}</span>
+                  <span class="secondary-text">{{ 'form.upload.drag' | translate }}</span>
+                </div>
+                <div class="upload-formats">{{ 'form.upload.formats' | translate }}</div>
+              </div>
+              <div class="upload-success" *ngIf="uploadedFileName">
+                <div class="success-icon">✓</div>
+                <div class="file-details">
+                  <span class="file-name">{{ uploadedFileName }}</span>
+                  <span class="file-change">{{ 'form.upload.change' | translate }}</span>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="shouldShowError('unique_cv')" class="error-text">
+              {{ getErrorMessage('unique_cv') }}
+            </div>
+          </div>
+
+          <!-- Company & Job Title Row -->
+          <div class="form-row">
+            <div class="form-group half-width">
+              <label for="companyName" class="form-label">
+                {{ 'form.company.name' | translate }} <span class="required">*</span>
+              </label>
+              <input type="text" 
+                     id="companyName" 
+                     formControlName="company_name"
+                     class="form-input"
+                     [class.error]="shouldShowError('company_name')"
+                     placeholder="e.g., Google">
+              <div *ngIf="shouldShowError('company_name')" class="error-text">
+                {{ getErrorMessage('company_name') }}
+              </div>
+            </div>
+
+            <div class="form-group half-width">
+              <label for="jobTitle" class="form-label">
+                {{ 'form.job.title' | translate }} <span class="required">*</span>
+              </label>
+              <input type="text" 
+                     id="jobTitle" 
+                     formControlName="job_title"
+                     class="form-input"
+                     [class.error]="shouldShowError('job_title')"
+                     placeholder="e.g., Software Engineer">
+              <div *ngIf="shouldShowError('job_title')" class="error-text">
+                {{ getErrorMessage('job_title') }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Description -->
+          <div class="form-group">
+            <label for="jobDescription" class="form-label">
+              {{ 'form.job.description' | translate }} <span class="required">*</span>
+            </label>
+            <textarea id="jobDescription" 
+                      formControlName="job_description"
+                      rows="4"
+                      class="form-textarea"
+                      [class.error]="shouldShowError('job_description')"
+                      [placeholder]="'form.job.description.placeholder' | translate"></textarea>
+            <div *ngIf="shouldShowError('job_description')" class="error-text">
+              {{ getErrorMessage('job_description') }}
+            </div>
+          </div>
+
+          <!-- Interview Domain Selection -->
+          <div class="form-group">
+            <label class="form-label">
+              <span class="label-icon">🎯</span>
+              {{ 'form.domain' | translate }}
+              <span class="required">*</span>
+            </label>
+            <div class="selection-grid">
+              <button type="button"
+                      *ngFor="let domain of domains"
+                      (click)="selectDomain(domain.id)"
+                      [class.selected]="personaForm.value.domain === domain.id"
+                      class="option-card">
+                <span class="card-icon">{{ domain.icon }}</span>
+                <span class="card-text">{{ ('domain.' + domain.id) | translate }}</span>
+              </button>
+            </div>
+            <div *ngIf="shouldShowError('domain')" class="error-text">
+              {{ getErrorMessage('domain') }}
+            </div>
+          </div>
+
+          <!-- Session Duration Selection -->
+          <div class="form-group">
+            <label class="form-label">
+              <span class="label-icon">⏱️</span>
+              {{ 'form.duration' | translate }}
+              <span class="required">*</span>
+            </label>
+            <div class="duration-grid">
+              <button *ngFor="let d of durations" 
+                      type="button"
+                      [disabled]="!isDurationEnabled(parseInt10(d.id.replace('m','')))"
+                      (click)="isDurationEnabled(parseInt10(d.id.replace('m',''))) && selectDuration(d.id)"
+                      [class.selected]="personaForm.value.sessionDuration === parseInt10(d.id.replace('m',''))"
+                      [class.locked]="!isDurationEnabled(parseInt10(d.id.replace('m','')))"
+                      class="duration-card">
+                <span class="duration-time">{{ ('duration.' + d.id) | translate }}</span>
+                <span class="duration-label">{{ ('duration.' + d.label.toLowerCase()) | translate }}</span>
+                <span *ngIf="!isDurationEnabled(parseInt10(d.id.replace('m','')))" class="lock-icon">🔒</span>
+              </button>
+            </div>
+            <div *ngIf="shouldShowError('sessionDuration')" class="error-text">
+              {{ getErrorMessage('sessionDuration') }}
+            </div>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="button" 
+                    class="btn-reset" 
+                    (click)="resetForm()">
+              <span class="btn-icon">↻</span>
+              {{ 'button.reset' | translate }}
+            </button>
+
+            <button type="submit" 
+                    class="btn-primary" 
+                    [disabled]="isSubmitting">
+              <span *ngIf="!isSubmitting" class="btn-content">
+                {{ 'button.start' | translate }}
+                <span class="btn-arrow">→</span>
+              </span>
+              <span *ngIf="isSubmitting" class="btn-loading">
+                <span class="spinner"></span>
+                {{ 'button.please.wait' | translate }}
+              </span>
+            </button>
+          </div>
+
+          <!-- Error Message -->
+          <div *ngIf="submitErrorMessage" class="error-alert">
+            <span class="alert-icon">⚠️</span>
+            <span class="alert-text">{{ submitErrorMessage }}</span>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,127 @@
+
+
+
+/* @media (min-width: 992px) {
+    .header-fixed.toolbar-fixed .wrapper {
+        padding-top: calc(10px + 25px) !important;
+    }
+} */
+
+
+
+/* Reduce offcanvas width */
+#kt_aside_mobile {
+  width: 250px !important;
+}
+
+/* Ensure backdrop doesn't keep full-page blur */
+body.offcanvas-backdrop {
+  backdrop-filter: none !important;
+  background-color: rgba(0, 0, 0, 0.3); /* soft dim only */
+}
+
+/* Ensure offcanvas is above backdrop and visible */
+.offcanvas {
+  z-index: 1095 !important;
+  visibility: visible !important;
+  transform: none;
+}
+
+/* Proper display when shown */
+.offcanvas.show {
+  display: block !important;
+  transform: translateX(0%) !important;
+  opacity: 1 !important;
+}
+
+/* Allow click outside to close */
+.offcanvas-backdrop {
+  pointer-events: auto !important;
+}
+.dropdown-menu-custom {
+  position: absolute;
+  top: 150%; /* Right below the button */
+  left: -450%; /* Align left to the button */
+  min-width: 325px;
+  z-index: 1050;
+  background-color: #fff;
+  border-radius: 0.375rem;
+}
+.search-result-item:hover {
+  background-color: #f1f4f9; 
+  cursor: pointer;
+}
+button:hover .bi-search {
+  color: #ffffff !important;
+}
+.custom-blue {
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.25); /* Light Blue shadow */
+  border: 1px solid rgba(0, 123, 255, 0.1); /* optional: soft border */
+}
+.shad-sm {
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.25); /* Light Blue shadow */
+  border: 1px solid rgba(0, 123, 255, 0.1); /* optional: soft border */
+}
+.custom-blue-sh {
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.25) !important;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  position: absolute;
+  top: 140%; /* Right below the button */
+  left: -450%; /* Align left to the button */
+  min-width: 325px;
+  z-index: 1050;
+  border-radius: 1rem;
+
+  /* NEW: add inner spacing */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (max-width: 576px) {
+  .custom-blue-sh {
+    left: -600%; /* Shift more left on small screens */
+  }
+}
+.dropdown-item {
+  padding: 2rem 3rem; /* NEW: extra horizontal space */
+  font-size: 1.05rem;        /* Slightly larger text */
+  transition: background-color 0.2s ease;
+}
+
+.color:hover {
+ color: #160588; /* light gray */
+}
+
+.custom-blue-shadow {
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.25) !important;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  position: absolute;
+    top: 140%; /* Right below the button */
+    left: -100%; /* Align left to the button */
+    min-width: 325px;
+    z-index: 1050;
+     min-width: 120px; /* Increase width */
+    border-radius: 1rem;
+}
+
+
+.dropdown-item {
+  padding: 0.75rem 1rem; /* spacing for better size */
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0; /* light gray */
+  color: #212529 !important; /* dark text */
+}
+
+.dropdown-item:hover span,
+.dropdown-item:hover i {
+  color: #212529 !important; /* apply to icons and text */
+}
+
+
+
+.lang-pill:hover {
+  background-color: #f5f5f5 !important; /* keep it same on hover */
+}

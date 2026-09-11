@@ -1,0 +1,86 @@
+<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+  <!--begin::Content-->
+  <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+      <!--begin::Container-->
+      <div id="kt_content_container" class="container-xxl">
+        <div class="d-flex flex-column flex-column-fluid">
+
+          <!--begin::Toolbar-->
+          <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6 mt-8">
+            <div class="app-container container-xxl d-flex flex-stack">
+              <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ms-10">
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-2 flex-column justify-content-center my-0">
+                  Generate Monthly Report
+                </h1>
+
+                <!-- Custom Notice Box -->
+                <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed p-6 mb-10 mt-5 mx-auto" style="max-width: 650px;">
+                  <div class="d-flex flex-grow-1 flex-wrap flex-md-nowrap text-start">
+                    <div class="fw-semibold mb-3 mb-md-0">
+                      <div class="fs-6 text-primary">
+                        Select the month, year, and subscription plan to generate a detailed report of user subscriptions.
+                        <br />
+                        The report will be downloaded as an Excel file.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Toolbar-->
+
+          <!-- Report Form Card -->
+          <div class="card shadow-sm p-4 ms-10 me-10" style="height:330px;">
+            <div class="card-header text-center border-0 py-5" style="background-color: #c3dfff !important;">
+              <h3 class="fw-bold text-dark mb-0"><i class="fas fa-chart-line me-2"></i> Generate Monthly Report</h3>
+            </div>
+
+            <div class="card-body py-5">
+              <form [formGroup]="reportForm">
+                <div class="row g-4">
+
+                  <!-- Year -->
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold"><i class="fas fa-calendar me-1"></i> Select Year</label>
+                    <select class="form-select form-control-lg" formControlName="year">
+                      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                    </select>
+                  </div>
+
+                  <!-- Month -->
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold"><i class="fas fa-calendar-alt me-1"></i> Select Month</label>
+                    <select class="form-select form-control-lg" formControlName="month">
+                      <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+                    </select>
+                  </div>
+
+                  <!-- Subscription -->
+                  <div class="col-md-4">
+                    <label class="form-label fw-semibold"><i class="fas fa-user-tag me-1"></i> Select Subscription</label>
+                    <select class="form-select form-control-lg" formControlName="subscriptionName">
+                      <option *ngFor="let sub of subscriptions" [value]="sub">{{ sub }}</option>
+                    </select>
+                  </div>
+
+                  <!-- Generate Button -->
+                  <div class="col-12 text-end mt-4">
+                    <button type="button" class="btn btn-light-primary btn-lg" (click)="generateReport()">
+                      <i class="fas fa-file-excel me-2"></i> Generate Report
+                    </button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- End Report Form Card -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

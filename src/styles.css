@@ -1,0 +1,136 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+/* ====================================
+   GLOBAL NAV THEME OVERRIDES
+   ==================================== */
+:root {
+  --nav-bg-primary: #075a73;
+  --nav-bg-secondary: #064a60;
+  --nav-accent: #ffb703;
+  --nav-text-primary: #ffffff;
+  --nav-text-muted: rgba(255, 255, 255, 0.85);
+  --nav-hover-bg: #0a6f8f;
+  --nav-border: rgba(255, 255, 255, 0.15);
+  --nav-icon-inactive: rgba(255, 255, 255, 0.7);
+}
+
+/* Override Aside Background */
+.aside,
+.aside.aside-dark,
+body .aside {
+  background: linear-gradient(180deg, #075a73, #064a60) !important;
+}
+
+/* Override Header Background */
+.header,
+body .header {
+  background: #075a73 !important;
+}
+
+/* Menu Active States */
+.menu-link.active {
+  background: #064a60 !important;
+}
+
+/* Menu Hover States */
+.menu-link:hover {
+  background: #0a6f8f !important;
+}
+
+/* Header Menu Items */
+.header-menu .menu-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.header-menu .menu-link:hover {
+  color: #ffffff !important;
+  background: #0a6f8f !important;
+}
+
+/* Aside Menu Items */
+.aside .menu-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.aside .menu-link:hover {
+  color: #ffffff !important;
+}
+
+/* Menu Icons */
+.aside .menu-icon i,
+.header-menu .menu-icon i {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.aside .menu-link:hover .menu-icon i,
+.header-menu .menu-link:hover .menu-icon i {
+  color: #ffb703 !important;
+}
+
+/* Active Menu Items */
+.aside .menu-link.active .menu-icon i,
+.header-menu .menu-link.active .menu-icon i {
+  color: #ffb703 !important;
+}
+
+/* Menu Headings */
+.menu-heading {
+  color: #ffb703 !important;
+}
+
+/* Dropdown Menus */
+.menu-sub {
+  background: #064a60 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Buttons in Nav */
+.aside-footer .btn-primary,
+.header .btn-primary {
+  background: #ffb703 !important;
+  color: #075a73 !important;
+  border: none !important;
+}
+
+.aside-footer .btn-primary:hover,
+.header .btn-primary:hover {
+  background: #ffc933 !important;
+}
+
+/* ====================================
+   GLOBAL Z-INDEX FIX FOR MODALS
+   ==================================== */
+
+/* Ensure Bootstrap modals have highest z-index */
+.modal {
+  z-index: 10000 !important;
+}
+
+.modal-backdrop {
+  z-index: 9999 !important;
+}
+
+/* Language dropdowns should stay below modals */
+.language-dropdown,
+.language-dropdown-up,
+[class*="language-dropdown"] {
+  z-index: 1000 !important;
+}
+
+/* Ensure language selector containers stay below modals */
+[style*="z-index: 9999"] {
+  z-index: 1000 !important;
+}
+
+/* Additional dropdown elements */
+.dropdown-menu {
+  z-index: 1050;
+}
+
+/* When modal is open, adjust dropdown z-index */
+.modal-open .language-dropdown,
+.modal-open .language-dropdown-up,
+.modal-open [class*="language-dropdown"] {
+  z-index: 1 !important;
+}

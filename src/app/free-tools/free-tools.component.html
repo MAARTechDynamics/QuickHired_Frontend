@@ -1,0 +1,328 @@
+<!-- Premium Career Tools Page -->
+<div class="career-tools-container">
+  
+  <!-- Premium Header -->
+  <header class="premium-header">
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo-wrapper">
+          <img alt="QuickHired Logo" src="assets/media/logos/QuickHireWhited.png" class="logo" />
+        </div>
+      </div>
+      
+      <div class="header-center">
+        <div class="title-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 7h-9"></path>
+            <path d="M14 17H5"></path>
+            <circle cx="17" cy="17" r="3"></circle>
+            <circle cx="7" cy="7" r="3"></circle>
+          </svg>
+          <span>AI-POWERED CAREER TOOLS</span>
+        </div>
+        <h1 class="header-title">Professional Career Documents</h1>
+      </div>
+      
+      <div class="header-actions">
+        <button class="btn-secondary" routerLink="/multi-step-interview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </button>
+        <button class="btn-action" routerLink="/job-finder">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+            <path d="M11 8v6m3-3H8"></path>
+          </svg>
+          Job Finder
+        </button>
+        <button class="btn-action" (click)="copy()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          Copy
+        </button>
+        <button class="btn-action" (click)="downloadTxt()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="content-grid">
+      
+      <!-- Left Panel - Input Form -->
+      <div class="input-panel">
+        
+        <!-- Tool Selection Tabs -->
+        <div class="tool-tabs">
+          <button class="tool-tab" [class.active]="selectedTool==='cover'" (click)="setTool('cover')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Cover Letter</span>
+          </button>
+          <button class="tool-tab" [class.active]="selectedTool==='thanks'" (click)="setTool('thanks')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>Thank You</span>
+          </button>
+          <button class="tool-tab" [class.active]="selectedTool==='follow'" (click)="setTool('follow')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Follow-Up</span>
+          </button>
+          <button class="tool-tab" [class.active]="selectedTool==='recruit'" (click)="setTool('recruit')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Recruiter Outreach</span>
+          </button>
+        </div>
+
+        <!-- Common Form -->
+        <div class="form-section">
+          <div class="section-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <h3>Personal Information</h3>
+          </div>
+          
+          <form [formGroup]="commonForm">
+            <div class="form-grid">
+              <div class="form-field">
+                <label>Your Name</label>
+                <input type="text" formControlName="name" placeholder="John Doe">
+                <div class="error-message" *ngIf="commonForm.get('name')?.invalid && (commonForm.get('name')?.dirty || commonForm.get('name')?.touched)">
+                  Please enter your name
+                </div>
+              </div>
+              
+              <div class="form-field">
+                <label>Your Email</label>
+                <input type="email" formControlName="email" placeholder="john@example.com">
+                <div class="error-message" *ngIf="commonForm.get('email')?.invalid && (commonForm.get('email')?.dirty || commonForm.get('email')?.touched)">
+                  Please enter a valid email
+                </div>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label>Target Role</label>
+                <input type="text" formControlName="role" placeholder="Senior Software Engineer">
+                <div class="error-message" *ngIf="commonForm.get('role')?.invalid && (commonForm.get('role')?.dirty || commonForm.get('role')?.touched)">
+                  Please enter the target role
+                </div>
+              </div>
+              
+              <div class="form-field">
+                <label>Company</label>
+                <input type="text" formControlName="company" placeholder="Acme Corporation">
+                <div class="error-message" *ngIf="commonForm.get('company')?.invalid && (commonForm.get('company')?.dirty || commonForm.get('company')?.touched)">
+                  Please enter the company name
+                </div>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label>Hiring Manager / Recruiter <span class="optional">(optional)</span></label>
+                <input type="text" formControlName="contact" placeholder="Jane Smith">
+              </div>
+              
+              <div class="form-field">
+                <label>Tone</label>
+                <div class="select-wrapper">
+                  <select formControlName="tone">
+                    <option value="concise">Concise & Professional</option>
+                    <option value="warm">Warm & Friendly</option>
+                    <option value="formal">Formal & Traditional</option>
+                  </select>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Tool-Specific Forms -->
+        <div class="form-section">
+          <ng-container [ngSwitch]="selectedTool">
+            
+            <!-- Cover Letter -->
+            <form *ngSwitchCase="'cover'" [formGroup]="coverForm">
+              <div class="section-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <h3>Cover Letter Details</h3>
+              </div>
+              
+              <div class="form-grid">
+                <div class="form-field full-width">
+                  <label>Job Description</label>
+                  <textarea rows="8" formControlName="jd" placeholder="Paste the complete job description here..."></textarea>
+                </div>
+                
+                <div class="form-field full-width">
+                  <label>Your Key Highlights <span class="hint">(one per line)</span></label>
+                  <textarea rows="8" formControlName="highlights" placeholder="• 5+ years in software development&#10;• Led team of 8 engineers&#10;• Built scalable microservices"></textarea>
+                </div>
+              </div>
+            </form>
+            
+            <!-- Thank-You Email -->
+            <form *ngSwitchCase="'thanks'" [formGroup]="thanksForm">
+              <div class="section-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <h3>Thank-You Email Details</h3>
+              </div>
+              
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Interviewer(s)</label>
+                  <input type="text" formControlName="to" placeholder="Sarah Johnson">
+                </div>
+                
+                <div class="form-field">
+                  <label>Interview Focus</label>
+                  <input type="text" formControlName="focus" placeholder="System Design & Architecture">
+                </div>
+              </div>
+              
+              <div class="form-field full-width">
+                <label>Specific Moment to Mention</label>
+                <input type="text" formControlName="moment" placeholder="Discussion about microservices scalability">
+              </div>
+            </form>
+
+            <!-- Follow-Up Email -->
+            <form *ngSwitchCase="'follow'" [formGroup]="followForm">
+              <div class="section-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <h3>Follow-Up Email Details</h3>
+              </div>
+              
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Recipient</label>
+                  <input type="text" formControlName="to" placeholder="Michael Chen">
+                </div>
+                
+                <div class="form-field">
+                  <label>When You Last Spoke</label>
+                  <input type="text" formControlName="when" placeholder="Two weeks ago">
+                </div>
+              </div>
+              
+              <div class="form-field full-width">
+                <label>Update You're Seeking</label>
+                <input type="text" formControlName="ask" placeholder="Status of the application process">
+              </div>
+            </form>
+
+            <!-- Recruiter Outreach -->
+            <form *ngSwitchCase="'recruit'" [formGroup]="recruitForm">
+              <div class="section-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <h3>Recruiter Outreach Details</h3>
+              </div>
+              
+              <div class="form-grid">
+                <div class="form-field">
+                  <label>Recruiter Name</label>
+                  <input type="text" formControlName="to" placeholder="Emily Rodriguez">
+                </div>
+                
+                <div class="form-field">
+                  <label>Target Team or Role</label>
+                  <input type="text" formControlName="targetRole" placeholder="Engineering Manager">
+                </div>
+              </div>
+              
+              <div class="form-field full-width">
+                <label>Why You Fit</label>
+                <textarea rows="4" formControlName="fit" placeholder="Explain your relevant experience and why you're a great match..."></textarea>
+              </div>
+            </form>
+          </ng-container>
+
+          <!-- Generate Button -->
+          <div class="form-actions">
+            <button type="button" class="btn-generate" (click)="generate()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              Generate AI Content
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel - Output -->
+      <div class="output-panel">
+        <div class="output-header">
+          <div class="output-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <h3>Generated Output</h3>
+          </div>
+          <div class="output-info" *ngIf="output">
+            <span class="word-count">{{ output.split(' ').length }} words</span>
+          </div>
+        </div>
+        
+        <div class="output-content">
+          <textarea 
+            class="output-textarea" 
+            rows="30" 
+            [ngModel]="output" 
+            (ngModelChange)="output=$event"
+            placeholder="Your AI-generated content will appear here...&#10;&#10;Fill in the form and click 'Generate AI Content' to get started."></textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

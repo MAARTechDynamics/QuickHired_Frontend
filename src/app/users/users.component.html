@@ -1,0 +1,100 @@
+<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+  <!--begin::Content-->
+  <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+      <!--begin::Container-->
+      <div id="kt_content_container" class="container-xxl">
+        <div class="d-flex flex-column flex-column-fluid">
+          <!--begin::Toolbar-->
+          <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6 mt-8">
+            <div class="app-container container-xxl d-flex flex-stack">
+              <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ms-10">
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-2 flex-column justify-content-center my-0">
+                  Users
+                </h1>
+
+                <!-- Custom Notice Box -->
+                <div class="notice d-flex bg-light-info rounded border-info border border-dashed p-6 mb-10 mt-5 mx-auto" style="max-width: 650px;">
+                  <div class="d-flex flex-grow-1 flex-wrap flex-md-nowrap text-start">
+                    <div class="fw-semibold mb-3 mb-md-0">
+                      <div class="fs-6 text-info">
+                        Below is a list of all users and their active or inactive subscriptions.
+                        <br />
+                        You can monitor status, plan details, and cancellation history.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Toolbar-->
+
+          <!-- User Subscriptions Table -->
+          <div class="card shadow-sm p-4 ms-10 me-10">
+            <div class="table-responsive mt-3">
+              <table class="table table-bordered table-hover text-start align-middle">
+                <thead class="bg-light-primary text-dark fw-bold">
+                  <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Plan Name</th>
+                    <th>Start Date</th>
+                    <th>Status</th>
+                    <th>Cancellation Reason</th>
+                    <th>Cancelled Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let sub of userSubscriptions">
+                    <td>{{ sub.userName }}</td>
+                    <td>{{ sub.email }}</td>
+                    <td>
+                      <span class="badge rounded-pill fw-bold px-4 py-2 fs-6" [ngClass]="getBadgeClass(sub.planName)">
+                        {{ formatPlanName(sub.planName) }}
+                      </span>
+                    </td>
+                    <td>{{ sub.startDate | date: 'MMMM d, y \'at\' hh:mm a' }}</td>
+                    <td>
+                      <span class="badge rounded-pill fw-bold px-4 py-2 fs-6" [ngClass]="sub.status === 'Active' ? 'badge-light-success' : 'badge-light-danger'">
+                        {{ sub.status }}
+                      </span>
+                    </td>
+                    <td>
+                      <ng-container *ngIf="sub.cancellationReason; else noReason">
+                        <span class="dash">{{ sub.cancellationReason }}</span>
+                      </ng-container>
+                      <ng-template #noReason><span class="dash">—</span></ng-template>
+                    </td>
+
+                    <td>
+                      <ng-container *ngIf="isValidDate(sub.cancelledDate); else noDate">
+                        <span class="dash">
+                          {{ sub.cancelledDate | date: 'MMMM d, y \'at\' hh:mm a' }}
+                        </span>
+                      </ng-container>
+                      <ng-template #noDate><span class="dash">—</span></ng-template>
+                    </td>
+                  </tr>
+
+                  <!-- Empty State -->
+                  <tr *ngIf="userSubscriptions.length === 0">
+                    <td colspan="7">
+                      <div class="text-center py-10" style="margin-top: 50px; margin-bottom:40px;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/7486/7486895.png" width="80" class="mb-3" />
+                        <h5 class="text-muted">No User Subscriptions Found</h5>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- End User Subscriptions Table -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

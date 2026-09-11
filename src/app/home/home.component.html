@@ -1,0 +1,1866 @@
+
+
+		<div class="d-flex flex-column flex-root">
+				<div class="mb-0" id="home">
+					<!--begin::Wrapper-->
+						<div style="background: linear-gradient(135deg, #091C43 0%, #00779A 100%);">
+
+						<!--begin::Header-->
+						<div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+							<!--begin::Container-->
+							<div class="container">
+								<!--begin::Wrapper-->
+								<div class="d-flex align-items-center justify-content-between">
+									<!--begin::Logo-->
+									<div class="d-flex align-items-center flex-equal">
+										<!--begin::Logo image-->
+										<a routerLink="/home">
+											<img alt="Logo" src="/assets/media/logos/QuickHireWhited.png" class="logo-default h-60px h-lg-60px ms-0" />
+											<img alt="Logo" src="/assets/media/logos/QuickHireBlack.png" class="logo-sticky h-60px h-lg-50px" />
+										</a>
+										<!--end::Logo image-->
+									</div>
+									<!--end::Logo-->
+									<!--begin::Header Wrapper-->
+									<nav  class="navbar navbar-expand-lg px-4 px-lg-0" style="background-color: transparent;">
+									<div class="container-fluid">
+									   <!-- Toggler for mobile -->
+									<button
+										class="navbar-toggler  btn btn-icon btn-active-color-primary me-3 d-flex d-lg-none"
+										type="button"
+										(click)="toggleMenu()"
+										aria-label="Toggle navigation"
+										>
+										<i class="ki-outline ki-abstract-14 fs-2hx"></i>
+									</button>
+										<!--begin::Menu Wrapper-->
+										<div class="collapse navbar-collapse" id="landingNavbar" >
+										<!--begin::Menu-->
+										<ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5 fw-semibold">
+											<li class="nav-item">
+										<a
+											class="nav-link px-4 py-3"
+											routerLink="/interview-home"
+											(click)="setActiveTab('copilot')"
+											[ngClass]="[
+											isWhiteBg ? (activeTab === 'copilot' ? 'text-primary fw-bold' : 'text-dark') :
+														(activeTab === 'copilot' ? 'text-primary fw-bold' : 'text-light')
+											]"
+										>
+											AI Interview Copilot
+										</a>
+										</li>
+
+
+
+											<li class="nav-item">
+											<a routerLink="/mock-home" class="nav-link px-4 py-3 text-light " [ngClass]="isWhiteBg ? 'text-dark' : 'text-light'" href="#">AI Mock Interview</a>
+											</li>
+
+
+											<li class="nav-item dropdown position-static">
+											<a 
+											class="nav-link px-4 py-3 d-flex justify-content-between align-items-center"
+											(click)="toggleMobileDropdown('features')"
+											>
+											<span [ngClass]="isMobileView ? 'text-dark' : (isWhiteBg ? 'text-dark' : 'text-light')">
+												Features
+											</span>
+
+											<i class="bi ms-3" [ngClass]="isMobileDropdownOpen.features ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+											</a>
+
+
+
+											<div *ngIf="isMobileDropdownOpen.features || !isMobileView" class="dropdown-menu shadow border-0 mt-0 px-5 py-5 bg-white rounded-4 dropdown-animated" aria-labelledby="featuresDropdown">
+												<div class="row">
+												<!-- Column 1: Interview Copilot -->
+												<div class="col-md-6 pe-md-5 mb-4 mb-md-0">
+													<h5 class="text-muted fw-bold text-uppercase mb-4 fs-5">Interview Copilot</h5>
+
+													<!-- Coding Copilot -->
+													<a routerLink="/coding-copilot"  class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-terminal me-3 text-primary fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-6">Coding Copilot</div>
+															<div class="text-muted small text-wrap w-100">Solve real-time coding challenges with AI-driven support</div>
+														</div>
+													</a>
+
+													<!-- Online Assessment Copilot -->
+													<a  routerLink="/online-assessment-copilot" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-pc-display-horizontal me-3 text-success fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-6">Online Assessment Copilot</div>
+															<div class="text-muted small text-wrap w-100">Auto-detect and solve MCQs, logic puzzles, and quizzes</div>
+														</div>
+													</a>
+
+													<!-- Hirevue Interviews -->
+													<a routerLink="/hirevuew-interview" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-camera-video me-3 text-info fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-6">Hirevue Interviews</div>
+															<div class="text-muted small text-wrap w-100">Practice automated video interviews with instant AI feedback</div>
+														</div>
+													</a>
+
+													<!-- Question Banks -->
+													<a routerLink="/question-bank-home" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-journal-text me-4 text-warning fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-5">Question Banks</div>
+															<div class="text-muted small text-wrap w-100">Access curated questions from top companies & roles</div>
+														</div>
+													</a>
+
+													<!-- Software Engineer Copilot -->
+													<a routerLink="/login" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-cpu-fill me-4 text-danger fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-5">Software Engineer Copilot</div>
+															<div class="text-muted small text-wrap w-100">Specialized technical prep for SWE roles and system design</div>
+														</div>
+													</a>
+
+													<!-- DataScience & Analytics Copilot -->
+													<a routerLink="/login" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-bar-chart-line me-4 text-dark fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-5">DataScience & Analytics Copilot</div>
+															<div class="text-muted small text-wrap w-100">Tackle case studies, SQL tasks, and data challenges with ease</div>
+														</div>
+													</a>
+						                        </div>
+
+
+												<!-- Column 2: Free Tools -->
+											        <div class="col-md-6 ps-md-5">
+                                                   <h5 class="text-muted fw-bold text-uppercase mb-4 fs-5">Free Tools</h5>
+
+													<!-- AI Resume Builder -->
+													<a routerLink="/resume-builder" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-file-earmark-text me-3 text-danger fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">AI Resume Builder</div>
+														<div class="text-muted small text-wrap w-100">Create a professional, tailored resume with AI assistance.</div>
+														</div>
+													</a>
+
+													<!-- AI Cover Letter -->
+													<a routerLink="/ai-cover-letter" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-clipboard-data me-3 text-warning fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">AI Cover Letter</div>
+														<div class="text-muted small text-wrap w-100">Generate customized cover letters that align with job roles.</div>
+														</div>
+													</a>
+
+													<!-- AI Thank-You Email -->
+													<a routerLink="/ai-thank-you-email" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-envelope-paper-heart me-3 text-primary fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">AI Thank-You Email</div>
+														<div class="text-muted small text-wrap w-100">Send a thoughtful thank-you note after interviews instantly.</div>
+														</div>
+													</a>
+													<!-- AI Follow-Up Email -->
+													<a routerLink="/ai-follow-up-email" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-envelope-check me-3 text-success fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">AI Follow-Up Email</div>
+														<div class="text-muted small text-wrap w-100">Stay top-of-mind with recruiters by sending timely follow-ups.</div>
+														</div>
+													</a>
+
+													<!-- AI Cold Outreach Email -->
+													<a routerLink="/ai-cold-out-reach-email" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-send-check me-3 text-info fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">Recruiters Email</div>
+														<div class="text-muted small text-wrap w-100">Reach out to recruiters with confidence and personalization.</div>
+														</div>
+													</a>
+													</div>
+
+												</div>
+											</div>
+											</li>
+											<li class="nav-item">
+											<a routerLink="/pricing-home" class="nav-link px-4 py-3 text-light" [ngClass]="isWhiteBg ? 'text-dark' : 'text-light'" href="#team">Pricing</a>
+											</li>
+
+											<li class="nav-item dropdown position-static">
+											<a 
+												class="nav-link px-4 py-3 d-flex justify-content-between align-items-center"
+												(click)="toggleMobileDropdown('resources')"
+												>
+												<span [ngClass]="isMobileView ? 'text-dark' : (isWhiteBg ? 'text-dark' : 'text-light')">Resources</span>
+												<i class="bi ms-3" [ngClass]="isMobileDropdownOpen.resources ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+											</a>
+
+											<div  *ngIf="isMobileDropdownOpen.resources || !isMobileView" class="dropdown-menu shadow border-0 mt-0 px-5 py-5 bg-white rounded-4 dropdown-animated " aria-labelledby="featuresDropdown" style="min-width:450px;">
+												<div class="row">
+													<div class="col-md-12 pe-md-5 mb-4 mb-md-0">
+													<h5 class="text-muted fw-bold text-uppercase mb-4 fs-5">Resources</h5>
+
+													<!-- About Us -->
+													<a routerLink="/about-us" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-info-circle me-4 text-dark fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-5">About Us</div>
+														<div class="text-muted small text-wrap w-100">Learn more about our mission, values, and team</div>
+														</div>
+													</a>
+
+													<!-- Contact Us -->
+													<a routerLink="/contact-us" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-envelope-open me-4 text-primary fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-5">Contact Us</div>
+														<div class="text-muted small text-wrap w-100">Get in touch with our support or sales team</div>
+														</div>
+													</a>
+
+													<!-- Help Center -->
+													<a routerLink="/a-help-center" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-question-circle me-4 text-success fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-5">Help Center</div>
+														<div class="text-muted small text-wrap w-100">Browse FAQs and get guidance for using our platform</div>
+														</div>
+													</a>
+
+													</div>
+												</div>
+											</div>
+											</li>
+										</ul>
+										<!--end::Menu-->
+										</div>
+										<!--end::Menu Wrapper-->
+									</div>
+									</nav>
+									<!--end::Header Wrapper-->
+
+									<!--begin::Toolbar-->
+									<div class="flex-equal text-end ms-1">
+										<a routerLink="/login" class="btn btn-warning">Sign In</a>
+									</div>
+									<!--end::Toolbar-->
+								</div>
+								<!--end::Wrapper-->
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Header-->
+						
+						<!--begin::Hero Section-->
+						<section class="container py-20">
+							<div class="row align-items-center g-10">
+								<div class="col-lg-6">
+									<h1 class="text-white fw-bold mb-6" style="font-size: 3.5rem; line-height: 1.2;">Next-Gen AI Interview Copilot</h1>
+									<p class="text-white fs-4 mb-8 opacity-90" style="max-width: 540px;">Master every interview with real-time AI assistance. From coding challenges to behavioral rounds, get instant support tailored to your resume and target role.</p>
+									<div class="d-flex gap-4 mb-8">
+										<a routerLink="/login" class="btn btn-lg px-8 py-4 fw-bold" style="background-color: #FFD80C; color: #091C43; border-radius: 8px;">Start Free Trial</a>
+										<a href="#features" class="btn btn-lg btn-outline-light px-8 py-4 fw-bold" style="border-radius: 8px; border-width: 2px;">Explore Features</a>
+									</div>
+									<div class="d-flex gap-3 flex-wrap">
+										<span class="badge px-4 py-3 fs-6 fw-semibold" style="background-color: rgba(255,255,255,0.15); color: white; border-radius: 6px;">Job Seekers</span>
+										<span class="badge px-4 py-3 fs-6 fw-semibold" style="background-color: rgba(255,255,255,0.15); color: white; border-radius: 6px;">Engineers</span>
+										<span class="badge px-4 py-3 fs-6 fw-semibold" style="background-color: rgba(255,255,255,0.15); color: white; border-radius: 6px;">Data Scientists</span>
+										<span class="badge px-4 py-3 fs-6 fw-semibold" style="background-color: rgba(255,255,255,0.15); color: white; border-radius: 6px;">Analysts</span>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="circle-cards-container">
+										<div class="row g-4">
+											<!-- Coding Copilot Circle -->
+											<div class="col-6">
+												<div class="circle-card" style="--animation-delay: 0s; --card-color: #64B5F6;">
+													<div class="circle-border-animated"></div>
+													<div class="circle-inner">
+														<div class="circle-icon">
+															<i class="bi bi-code-slash text-white"></i>
+														</div>
+														<h6 class="circle-title">Coding Copilot</h6>
+														<p class="circle-subtitle">Real-time assistance</p>
+													</div>
+													<div class="circle-glow"></div>
+												</div>
+											</div>
+											
+											<!-- Resume Builder Circle -->
+											<div class="col-6">
+												<div class="circle-card" style="--animation-delay: 0.15s; --card-color: #4DD0E1;">
+													<div class="circle-border-animated"></div>
+													<div class="circle-inner">
+														<div class="circle-icon">
+															<i class="bi bi-file-earmark-text text-white"></i>
+														</div>
+														<h6 class="circle-title">Resume Builder</h6>
+														<p class="circle-subtitle">AI-powered</p>
+													</div>
+													<div class="circle-glow"></div>
+												</div>
+											</div>
+											
+											<!-- Mock Interview Circle -->
+											<div class="col-6">
+												<div class="circle-card" style="--animation-delay: 0.3s; --card-color: #FF8A80;">
+													<div class="circle-border-animated"></div>
+													<div class="circle-inner">
+														<div class="circle-icon">
+															<i class="bi bi-mic text-white"></i>
+														</div>
+														<h6 class="circle-title">Mock Interview</h6>
+														<p class="circle-subtitle">Instant feedback</p>
+													</div>
+													<div class="circle-glow"></div>
+												</div>
+											</div>
+											
+											<!-- Question Banks Circle -->
+											<div class="col-6">
+												<div class="circle-card" style="--animation-delay: 0.45s; --card-color: #81C784;">
+													<div class="circle-border-animated"></div>
+													<div class="circle-inner">
+														<div class="circle-icon">
+															<i class="bi bi-journal-text text-white"></i>
+														</div>
+														<h6 class="circle-title">Question Banks</h6>
+														<p class="circle-subtitle">Curated questions</p>
+													</div>
+													<div class="circle-glow"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						<!--end::Hero Section-->
+					</div>
+					
+				</div>
+			<!--end::Header Section-->
+			
+			<!--begin::Platform Compatibility-->
+			<section class="py-12 position-relative overflow-hidden" style="background: linear-gradient(135deg, #F8FAFC 0%, #E0F2FE 50%, #ECFDF5 100%);">
+				<div class="container position-relative">
+					<div class="text-center mb-8">
+						<span class="text-dark fs-4 fw-bold text-uppercase letter-spacing-2" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);">Seamlessly Integrates With</span>
+					</div>
+					
+					<div class="row g-6 align-items-center justify-content-center">
+						<!-- Zoom -->
+						<div class="col-6 col-md-3 col-lg-2">
+							<div class="platform-card p-6 text-center" style="background: rgba(255,255,255,0.95); border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; animation: floatUp 3s ease-in-out infinite; animation-delay: 0s;">
+								<div class="platform-logo-wrapper mb-3" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+									<img src="https://www.vectorlogo.zone/logos/zoomus/zoomus-ar21.svg" alt="Zoom" style="max-height: 45px; max-width: 100%; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); transition: transform 0.3s ease;" />
+								</div>
+								<div class="text-dark fw-bold fs-7">Zoom</div>
+							</div>
+						</div>
+						
+						<!-- Microsoft Teams -->
+						<div class="col-6 col-md-3 col-lg-2">
+							<div class="platform-card p-6 text-center" style="background: rgba(255,255,255,0.95); border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; animation: floatUp 3s ease-in-out infinite; animation-delay: 0.3s;">
+								<div class="platform-logo-wrapper mb-3" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+									<img src="https://www.svgrepo.com/show/448240/microsoft-teams.svg" alt="Microsoft Teams" style="max-height: 50px; max-width: 100%; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); transition: transform 0.3s ease;" />
+								</div>
+								<div class="text-dark fw-bold fs-7">Teams</div>
+							</div>
+						</div>
+						
+						<!-- Google Meet -->
+						<div class="col-6 col-md-3 col-lg-2">
+							<div class="platform-card p-6 text-center" style="background: rgba(255,255,255,0.95); border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; animation: floatUp 3s ease-in-out infinite; animation-delay: 0.6s;">
+								<div class="platform-logo-wrapper mb-3" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+									<img src="https://www.svgrepo.com/show/353820/google-meet.svg" alt="Google Meet" style="max-height: 50px; max-width: 100%; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); transition: transform 0.3s ease;" />
+								</div>
+								<div class="text-dark fw-bold fs-7">Google Meet</div>
+							</div>
+						</div>
+						
+						<!-- YouTube -->
+						<div class="col-6 col-md-3 col-lg-2">
+							<div class="platform-card p-6 text-center" style="background: rgba(255,255,255,0.95); border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; animation: floatUp 3s ease-in-out infinite; animation-delay: 0.9s;">
+								<div class="platform-logo-wrapper mb-3" style="height: 60px; display: flex; align-items: center; justify-content: center;">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159 110" style="max-height: 50px; max-width: 100%; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); transition: transform 0.3s ease;">
+										<path fill="#FF0000" d="M154 17.5c-1.82-6.73-7.07-12-13.8-13.8C128.2 0 79 0 79 0S29.8 0 17.8 3.7C11.07 5.5 5.82 10.77 4 17.5 0 29.5 0 55.02 0 55.02S0 80.53 4 92.5c1.82 6.73 7.07 12 13.8 13.8C29.8 110 79 110 79 110s49.2 0 61.2-3.7c6.73-1.8 11.98-7.07 13.8-13.8 4-12 4-37.48 4-37.48s0-25.52-4-37.52z"/>
+										<path fill="#FFF" d="M63.15 78.75V31.27L104.1 55l-40.95 23.75z"/>
+									</svg>
+								</div>
+								<div class="text-dark fw-bold fs-7">YouTube</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="text-center mt-8">
+						<span class="badge px-5 py-3 fs-6 fw-semibold" style="background: rgba(9,28,67,0.08); color: #091C43; border-radius: 50px; backdrop-filter: blur(10px);">
+							<i class="bi bi-check-circle-fill me-2" style="color: #12CE5D;"></i>
+							Works on 50+ platforms and counting
+						</span>
+					</div>
+				</div>
+				
+				<!-- Animated background elements -->
+				<div style="position: absolute; top: 20%; left: 5%; width: 80px; height: 80px; background: rgba(9,28,67,0.03); border-radius: 50%; animation: pulse 4s ease-in-out infinite;"></div>
+				<div style="position: absolute; bottom: 15%; right: 8%; width: 60px; height: 60px; background: rgba(9,28,67,0.03); border-radius: 50%; animation: pulse 5s ease-in-out infinite; animation-delay: 1s;"></div>
+				<div style="position: absolute; top: 50%; right: 15%; width: 40px; height: 40px; background: rgba(9,28,67,0.03); border-radius: 50%; animation: pulse 3.5s ease-in-out infinite; animation-delay: 0.5s;"></div>
+			</section>
+			<!--end::Platform Compatibility-->
+			
+			<style>
+				@keyframes floatUp {
+					0%, 100% {
+						transform: translateY(0px) scale(1);
+					}
+					50% {
+						transform: translateY(-10px) scale(1.02);
+					}
+				}
+				
+				@keyframes pulse {
+					0%, 100% {
+						transform: scale(1);
+						opacity: 0.3;
+					}
+					50% {
+						transform: scale(1.5);
+						opacity: 0.1;
+					}
+				}
+				
+				.platform-card:hover {
+					transform: translateY(-8px) scale(1.05) !important;
+					box-shadow: 0 16px 48px rgba(0,0,0,0.25) !important;
+					background: rgba(255,255,255,1) !important;
+				}
+				
+				.platform-card:hover img,
+				.platform-card:hover svg {
+					transform: scale(1.1) !important;
+				}
+				
+				.letter-spacing-2 {
+					letter-spacing: 2px;
+				}
+			</style>
+			
+			<!--begin::Product Overview-->
+			<section class="py-20 bg-white">
+				<div class="container">
+					<div class="row align-items-center g-10">
+						<div class="col-lg-6">
+							<div class="badge px-4 py-2 mb-4 fs-7 fw-bold" style="background-color: #F0F9FF; color: #00779A; border-radius: 6px;">PRODUCT OVERVIEW</div>
+							<h2 class="fw-bold mb-6 fs-2x text-dark">Your Complete Interview Preparation Platform</h2>
+							<p class="text-muted fs-5 mb-6 lh-lg">QuickHired replaces scattered interview prep tools with a unified AI-powered platform. Get real-time assistance during live interviews, practice with mock sessions, access curated question banks, and leverage free career tools—all in one place.</p>
+							<ul class="list-unstyled mb-0">
+								<li class="d-flex align-items-start gap-3 mb-4">
+									<i class="bi bi-check-circle-fill text-success fs-3"></i>
+									<div>
+										<div class="fw-bold text-dark fs-5 mb-1">Real-Time Interview Support</div>
+										<div class="text-muted">AI assistance during actual interviews across coding, behavioral, and technical rounds</div>
+									</div>
+								</li>
+								<li class="d-flex align-items-start gap-3 mb-4">
+									<i class="bi bi-check-circle-fill text-success fs-3"></i>
+									<div>
+										<div class="fw-bold text-dark fs-5 mb-1">Comprehensive Coverage</div>
+										<div class="text-muted">From software engineering to data science, marketing to product management</div>
+									</div>
+								</li>
+								<li class="d-flex align-items-start gap-3">
+									<i class="bi bi-check-circle-fill text-success fs-3"></i>
+									<div>
+										<div class="fw-bold text-dark fs-5 mb-1">Enterprise-Grade Quality</div>
+										<div class="text-muted">Built for professionals, trusted by job seekers at top companies</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="col-lg-6">
+							<div class="p-10" style="background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%); border-radius: 16px;">
+								<div class="row g-6">
+									<div class="col-6">
+										<div class="text-center p-6" style="background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+											<div class="fs-2x fw-bold text-primary mb-2">5,000+</div>
+											<div class="text-muted fw-semibold">Successful Interviews</div>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="text-center p-6" style="background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+											<div class="fs-2x fw-bold text-success mb-2">99%</div>
+											<div class="text-muted fw-semibold">Satisfaction Rate</div>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="text-center p-6" style="background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+											<div class="fs-2x fw-bold text-warning mb-2">20+</div>
+											<div class="text-muted fw-semibold">AI-Powered Tools</div>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="text-center p-6" style="background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+											<div class="fs-2x fw-bold text-info mb-2">3,000+</div>
+											<div class="text-muted fw-semibold">Active Users</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end::Product Overview-->
+			
+			<!--begin::Interview Copilot Features-->
+			<section class="py-20" id="features" style="background: #F8FAFC;">
+				<div class="container">
+					<div class="text-center mb-15">
+						<div class="badge px-4 py-2 mb-4 fs-7 fw-bold" style="background-color: #FFF4E6; color: #FF6B35; border-radius: 6px;">INTERVIEW COPILOT SUITE</div>
+						<h2 class="fw-bold mb-4 fs-2x text-dark">AI-Powered Interview Assistance</h2>
+						<p class="text-muted fs-5 mb-0" style="max-width: 700px; margin: 0 auto;">Comprehensive support for every interview type. Get real-time help, detailed explanations, and optimization tips tailored to your specific role and company.</p>
+					</div>
+					
+					<div class="row g-6">
+						<div class="col-lg-4 col-md-6">
+							<a routerLink="/coding-copilot" class="text-decoration-none">
+								<div class="card h-100 border-0 p-8" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; cursor: pointer;">
+									<div class="d-flex align-items-center justify-content-center mb-5" style="width: 64px; height: 64px; background: linear-gradient(135deg, #091C43 0%, #0D2A5A 100%); border-radius: 12px;">
+										<i class="bi bi-code-slash text-white fs-2x"></i>
+									</div>
+									<h3 class="fw-bold mb-3 fs-2 text-dark">Coding Copilot</h3>
+									<p class="text-muted mb-4 fs-6">Real-time coding interview assistance with detailed explanations, optimization tips, and best practices. Supports all major programming languages and data structures.</p>
+									<ul class="list-unstyled mb-0 text-muted">
+										<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> Algorithm optimization</li>
+										<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> Code explanation</li>
+										<li><i class="bi bi-dot text-primary fs-3"></i> Time complexity analysis</li>
+									</ul>
+								</div>
+							</a>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-8" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+								<div class="d-flex align-items-center justify-content-center mb-5" style="width: 64px; height: 64px; background: linear-gradient(135deg, #00779A 0%, #00A0CC 100%); border-radius: 12px;">
+									<i class="bi bi-pc-display-horizontal text-white fs-2x"></i>
+								</div>
+								<h3 class="fw-bold mb-3 fs-2 text-dark">Online Assessment Copilot</h3>
+								<p class="text-muted mb-4 fs-6">Auto-detects MCQs, logic puzzles, and timed quizzes. Provides instant answers with detailed reasoning for aptitude tests, personality assessments, and technical screenings.</p>
+								<ul class="list-unstyled mb-0 text-muted">
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> MCQ detection</li>
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> Logic puzzle solving</li>
+									<li><i class="bi bi-dot text-primary fs-3"></i> Aptitude test support</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-8" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+								<div class="d-flex align-items-center justify-content-center mb-5" style="width: 64px; height: 64px; background: linear-gradient(135deg, #12CE5D 0%, #1AE26B 100%); border-radius: 12px;">
+									<i class="bi bi-camera-video text-white fs-2x"></i>
+								</div>
+								<h3 class="fw-bold mb-3 fs-2 text-dark">HireVue Interview Practice</h3>
+								<p class="text-muted mb-4 fs-6">AI-powered video interview simulations with instant feedback on content, delivery, and body language. Practice common questions and improve your presentation skills.</p>
+								<ul class="list-unstyled mb-0 text-muted">
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> Video analysis</li>
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> Content feedback</li>
+									<li><i class="bi bi-dot text-primary fs-3"></i> Delivery coaching</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-8" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+								<div class="d-flex align-items-center justify-content-center mb-5" style="width: 64px; height: 64px; background: linear-gradient(135deg, #FFD80C 0%, #FFC107 100%); border-radius: 12px;">
+									<i class="bi bi-journal-text text-dark fs-2x"></i>
+								</div>
+								<h3 class="fw-bold mb-3 fs-2 text-dark">Question Banks</h3>
+								<p class="text-muted mb-4 fs-6">Access thousands of curated interview questions from top companies like Google, Amazon, Microsoft, and Meta. Organized by role, company, and difficulty level.</p>
+								<ul class="list-unstyled mb-0 text-muted">
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> Company-specific questions</li>
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> Role-based filtering</li>
+									<li><i class="bi bi-dot text-primary fs-3"></i> Difficulty progression</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-8" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+								<div class="d-flex align-items-center justify-content-center mb-5" style="width: 64px; height: 64px; background: linear-gradient(135deg, #FF6B35 0%, #FF8C61 100%); border-radius: 12px;">
+									<i class="bi bi-cpu-fill text-white fs-2x"></i>
+								</div>
+								<h3 class="fw-bold mb-3 fs-2 text-dark">Software Engineer Copilot</h3>
+								<p class="text-muted mb-4 fs-6">Specialized support for system design interviews, architecture discussions, and technical deep dives. Covers scalability, design patterns, and best practices.</p>
+								<ul class="list-unstyled mb-0 text-muted">
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> System design guidance</li>
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> Architecture patterns</li>
+									<li><i class="bi bi-dot text-primary fs-3"></i> Scalability discussion</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-8" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+								<div class="d-flex align-items-center justify-content-center mb-5" style="width: 64px; height: 64px; background: linear-gradient(135deg, #6C63FF 0%, #8A84FF 100%); border-radius: 12px;">
+									<i class="bi bi-bar-chart-line text-white fs-2x"></i>
+								</div>
+								<h3 class="fw-bold mb-3 fs-2 text-dark">Data Science & Analytics Copilot</h3>
+								<p class="text-muted mb-4 fs-6">Master SQL queries, case studies, statistical analysis, and machine learning concepts. Get help with data interpretation, A/B testing, and analytics frameworks.</p>
+								<ul class="list-unstyled mb-0 text-muted">
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> SQL optimization</li>
+									<li class="mb-2"><i class="bi bi-dot text-primary fs-3"></i> Case study frameworks</li>
+									<li><i class="bi bi-dot text-primary fs-3"></i> ML concept explanation</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end::Interview Copilot Features-->
+			
+			<!--begin::Free Tools-->
+			<section class="py-20 bg-white">
+				<div class="container">
+					<div class="text-center mb-15">
+						<div class="badge px-4 py-2 mb-4 fs-7 fw-bold" style="background-color: #E8F5E9; color: #12CE5D; border-radius: 6px;">FREE FOREVER</div>
+						<h2 class="fw-bold mb-4 fs-2x text-dark">Essential Career Tools</h2>
+						<p class="text-muted fs-5 mb-0" style="max-width: 700px; margin: 0 auto;">Professional tools to complement your interview preparation. Create standout applications and maintain strong relationships with recruiters and hiring managers.</p>
+					</div>
+					
+					<div class="row g-6">
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-6" style="border-radius: 12px; background: linear-gradient(135deg, #FFF9F0 0%, #FFF4E6 100%);">
+								<div class="d-flex align-items-center gap-4 mb-4">
+									<div class="d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+										<i class="bi bi-file-earmark-text fs-2x" style="color: #FF6B35;"></i>
+									</div>
+									<h3 class="fw-bold mb-0 fs-3 text-dark">AI Resume Builder</h3>
+								</div>
+								<p class="text-muted mb-0 fs-6">Create professional, ATS-optimized resumes with AI assistance. Get real-time suggestions for content, formatting, and keyword optimization.</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-6" style="border-radius: 12px; background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);">
+								<div class="d-flex align-items-center gap-4 mb-4">
+									<div class="d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+										<i class="bi bi-clipboard-data fs-2x" style="color: #00779A;"></i>
+									</div>
+									<h3 class="fw-bold mb-0 fs-3 text-dark">AI Cover Letter</h3>
+								</div>
+								<p class="text-muted mb-0 fs-6">Generate tailored cover letters that align perfectly with job descriptions. Highlight relevant experience and show genuine interest in the role.</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-6" style="border-radius: 12px; background: linear-gradient(135deg, #FFF0F5 0%, #FFE4EC 100%);">
+								<div class="d-flex align-items-center gap-4 mb-4">
+									<div class="d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+										<i class="bi bi-envelope-paper-heart fs-2x" style="color: #EC4899;"></i>
+									</div>
+									<h3 class="fw-bold mb-0 fs-3 text-dark">Thank-You Email</h3>
+								</div>
+								<p class="text-muted mb-0 fs-6">Send thoughtful, personalized thank-you notes after interviews. Express genuine appreciation and reinforce your interest in the position.</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-6" style="border-radius: 12px; background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);">
+								<div class="d-flex align-items-center gap-4 mb-4">
+									<div class="d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+										<i class="bi bi-envelope-check fs-2x" style="color: #12CE5D;"></i>
+									</div>
+									<h3 class="fw-bold mb-0 fs-3 text-dark">Follow-Up Email</h3>
+								</div>
+								<p class="text-muted mb-0 fs-6">Stay top-of-mind with recruiters by sending timely, professional follow-up emails. Show continued interest without being pushy.</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-6" style="border-radius: 12px; background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);">
+								<div class="d-flex align-items-center gap-4 mb-4">
+									<div class="d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+										<i class="bi bi-send-check fs-2x" style="color: #6C63FF;"></i>
+									</div>
+									<h3 class="fw-bold mb-0 fs-3 text-dark">Recruiter Outreach</h3>
+								</div>
+								<p class="text-muted mb-0 fs-6">Reach out to recruiters with confidence and personalization. Build meaningful connections that open doors to new opportunities.</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+							<div class="card h-100 border-0 p-6" style="border-radius: 12px; background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);">
+								<div class="d-flex align-items-center gap-4 mb-4">
+									<div class="d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+										<i class="bi bi-stars fs-2x" style="color: #FFD80C;"></i>
+									</div>
+									<h3 class="fw-bold mb-0 fs-3 text-dark">And More Coming</h3>
+								</div>
+								<p class="text-muted mb-0 fs-6">We're constantly adding new tools based on user feedback. Stay tuned for more features to support your career journey.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end::Free Tools-->
+			
+			<!--begin::How It Works-->
+			<section class="py-20" style="background: #F8FAFC;">
+				<div class="container">
+					<div class="text-center mb-15">
+						<div class="badge px-4 py-2 mb-4 fs-7 fw-bold" style="background-color: #EDE9FE; color: #6C63FF; border-radius: 6px;">HOW IT WORKS</div>
+						<h2 class="fw-bold mb-4 fs-2x text-dark">Your Path to Interview Success</h2>
+						<p class="text-muted fs-5 mb-0" style="max-width: 700px; margin: 0 auto;">A simple, proven process to boost your interview performance and land your dream job. Start practicing today and see immediate improvement.</p>
+					</div>
+					
+					<div class="row g-10">
+						<div class="col-lg-4">
+							<div class="text-center">
+								<div class="d-inline-flex align-items-center justify-content-center mb-6" style="width: 80px; height: 80px; background: linear-gradient(135deg, #091C43 0%, #0D2A5A 100%); border-radius: 16px; box-shadow: 0 8px 24px rgba(9,28,67,0.2);">
+									<span class="text-white fw-bold" style="font-size: 2.5rem;">1</span>
+								</div>
+								<h3 class="fw-bold mb-4 fs-2 text-dark">Practice with AI</h3>
+								<p class="text-muted fs-6 mb-4">Simulate real interviews and assessments with AI-driven support. Choose from coding challenges, behavioral questions, case studies, or system design discussions.</p>
+								<ul class="list-unstyled text-muted text-start" style="max-width: 300px; margin: 0 auto;">
+									<li class="mb-2"><i class="bi bi-arrow-right-short text-primary fs-3"></i> Select interview type</li>
+									<li class="mb-2"><i class="bi bi-arrow-right-short text-primary fs-3"></i> Get real-time AI assistance</li>
+									<li><i class="bi bi-arrow-right-short text-primary fs-3"></i> Record your session</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="text-center">
+								<div class="d-inline-flex align-items-center justify-content-center mb-6" style="width: 80px; height: 80px; background: linear-gradient(135deg, #FFD80C 0%, #FFC107 100%); border-radius: 16px; box-shadow: 0 8px 24px rgba(255,216,12,0.2);">
+									<span class="text-dark fw-bold" style="font-size: 2.5rem;">2</span>
+								</div>
+								<h3 class="fw-bold mb-4 fs-2 text-dark">Get Instant Feedback</h3>
+								<p class="text-muted fs-6 mb-4">Receive comprehensive, actionable feedback after every session. Understand what you did well and where you can improve with specific recommendations.</p>
+								<ul class="list-unstyled text-muted text-start" style="max-width: 300px; margin: 0 auto;">
+									<li class="mb-2"><i class="bi bi-arrow-right-short text-primary fs-3"></i> Detailed performance analysis</li>
+									<li class="mb-2"><i class="bi bi-arrow-right-short text-primary fs-3"></i> Specific improvement tips</li>
+									<li><i class="bi bi-arrow-right-short text-primary fs-3"></i> Compare with benchmarks</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="text-center">
+								<div class="d-inline-flex align-items-center justify-content-center mb-6" style="width: 80px; height: 80px; background: linear-gradient(135deg, #12CE5D 0%, #1AE26B 100%); border-radius: 16px; box-shadow: 0 8px 24px rgba(18,206,93,0.2);">
+									<span class="text-white fw-bold" style="font-size: 2.5rem;">3</span>
+								</div>
+								<h3 class="fw-bold mb-4 fs-2 text-dark">Improve & Get Hired</h3>
+								<p class="text-muted fs-6 mb-4">Track your progress over time, focus on weak areas, and build confidence. Use insights from AI analysis to continuously improve your interview skills.</p>
+								<ul class="list-unstyled text-muted text-start" style="max-width: 300px; margin: 0 auto;">
+									<li class="mb-2"><i class="bi bi-arrow-right-short text-primary fs-3"></i> Track performance metrics</li>
+									<li class="mb-2"><i class="bi bi-arrow-right-short text-primary fs-3"></i> Build confidence</li>
+									<li><i class="bi bi-arrow-right-short text-primary fs-3"></i> Land your dream job</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end::How It Works-->
+			
+			<!--begin::How It Works Section (Original)-->
+			<div class="py-20 mt-10 z-index-2" style="display: none;">
+				<!--begin::Container-->
+				<div class="container">
+					<!--begin::Heading-->
+					<div class="text-center mb-17">
+						<!--begin::Title-->
+						<h3 class="fs-2hx text-gray-900 mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">How AI Interview Copilot works? </h3>
+						<!--end::Title-->
+						<!--begin::Text-->
+						<div class="fs-5 text-muted fw-bold">Capture interviews in real-time, evaluate questions,
+						<br />for different amazing and great useful admin</div>
+						<!--end::Text-->
+					
+					</div>
+					<!--end::Heading-->
+					<!--begin::Row-->
+					<div class="row w-100 gy-10 mb-md-20">
+						<!--begin::Col-->
+						<div class="col-md-4 px-5">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+								<img src="/assets/media/illustrations/unitedpalms-1/2-dark.png" class="mh-125px mb-9" alt="" />
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bold text-gray-900">Live support for all interviews</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-semibold fs-6 fs-lg-4 text-muted">Excel in coding challenges, behavioral
+								<br /> rounds, case interviews, and domain-
+								<br />specific questions.</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-4 px-5">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+								<img src="/assets/media/illustrations/unitedpalms-1/8.png" class="mh-125px mb-9" alt="" />
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bold text-gray-900">Post-Interview Feedback & Improvement</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-semibold fs-6 fs-lg-4 text-muted">Receive detailed analysis, practical suggestions, 
+								<br />and expert insights to enhance your skills 
+								<br />and elevate your confidence.</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-4 px-5">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+								<img src="/assets/media/illustrations/unitedpalms-1/7-dark.png" class="mh-125px mb-9" alt="" />
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bold text-gray-900">Complete Career Growth Kit</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-semibold fs-6 fs-lg-4 text-muted">A feature-rich platform with 20+ tools to 
+								<br />support your interview prep, 
+								<br />performance, and follow-up.</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
+					</div>
+					<!--end::Row-->
+					<!--begin::Product slider-->
+					<div class="tns tns-default">
+						<!--begin::Slider-->
+						<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
+							<!--begin::Item-->
+							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
+								<img src="/assets/media/preview/demos/demo1/light-ltr.png" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
+							</div>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
+								<img src="/assets/media/preview/demos/demo2/light-ltr.png" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
+							</div>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
+								<img src="/assets/media/preview/demos/demo4/light-ltr.png" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
+							</div>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
+								<img src="/assets/media/preview/demos/demo5/light-ltr.png" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
+							</div>
+							<!--end::Item-->
+						</div>
+						<!--end::Slider-->
+						<!--begin::Slider button-->
+						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev1">
+							<i class="ki-outline ki-left fs-2x"></i>
+						</button>
+						<!--end::Slider button-->
+						<!--begin::Slider button-->
+						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next1">
+							<i class="ki-outline ki-right fs-2x"></i>
+						</button>
+						<!--end::Slider button-->
+					</div>
+					<!--end::Product slider-->
+				</div>
+				<!--end::Container-->
+			</div>
+			<!--end::How It Works Section-->
+			
+			<!--begin::Statistics Section - Hidden-->
+			<div class="mt-sm-n10" style="display: none;">
+				<!--begin::Curve top-->
+				<div class="landing-curve landing-dark-color">
+					<svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
+					</svg>
+				</div>
+				<!--end::Curve top-->
+				<!--begin::Wrapper-->
+				<div class="pb-15 pt-18 " style="background-color: #00779A;">
+					<!--begin::Container-->
+					<div class="container">
+						<!--begin::Heading-->
+						<div class="text-center mt-15 mb-18" id="achievements" data-kt-scroll-offset="{default: 100, lg: 150}">
+							<!--begin::Title-->
+							<h3 class="fs-2hx text-white fw-bold mb-5">Ace Interviews with Your Copilot</h3>
+							<!--end::Title-->
+							<!--begin::Description-->
+							<div class="fs-5 text-white">Empowering you with the tools and support to
+							<br /> achieve your career goals.</div>
+							<!--end::Description-->
+						</div>
+						<!--end::Heading-->
+						<!--begin::Statistics-->
+						<div class="d-flex flex-center">
+								<!--begin::Items-->
+							<div class="d-flex flex-wrap flex-center justify-content-lg-between mb-15 mx-auto w-xl-900px">
+								<!--begin::Item-->
+								<div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain" style="background-image: url('/assets/media/svg/misc/octagon.svg')">
+									<!--begin::Symbol-->
+									<i class="ki-outline ki-element-11 fs-2tx text-white mb-3"></i>
+									<!--end::Symbol-->
+									<!--begin::Info-->
+									<div class="mb-0">
+										<!--begin::Value-->
+										<div class="fs-lg-2hx fs-2x fw-bold text-white d-flex flex-center">
+											<div class="min-w-70px" data-kt-countup="true" data-kt-countup-value="99" data-kt-countup-suffix="%">0</div>
+										</div>
+										<!--end::Value-->
+										<!--begin::Label-->
+										<span class="text-gray-600 fw-semibold fs-5 lh-0">Customers Satisfaction</span>
+										<!--end::Label-->
+									</div>
+									<!--end::Info-->
+								</div>
+								<!--end::Item-->
+								<!--begin::Item-->
+								<div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain" style="background-image: url('/assets/media/svg/misc/octagon.svg')">
+									<!--begin::Symbol-->
+									<i class="ki-outline ki-chart-pie-4 fs-2tx text-white mb-3"></i>
+									<!--end::Symbol-->
+									<!--begin::Info-->
+									<div class="mb-0">
+										<!--begin::Value-->
+										<div class="fs-lg-2hx fs-2x fw-bold text-white d-flex flex-center">
+											<div class="min-w-70px" data-kt-countup="true" data-kt-countup-value="5000" data-kt-countup-suffix="+">0</div>
+										</div>
+										<!--end::Value-->
+										<!--begin::Label-->
+										<span class="text-gray-600 fw-semibold fs-5 lh-0">Successful Interviews</span>
+										<!--end::Label-->
+									</div>
+									<!--end::Info-->
+								</div>
+								<!--end::Item-->
+								<!--begin::Item-->
+								<div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain" style="background-image: url('/assets/media/svg/misc/octagon.svg')">
+									<!--begin::Symbol-->
+									<i class="ki-outline ki-user-tick fs-2tx text-white mb-3"></i>
+									<!--end::Symbol-->
+									<!--begin::Info-->
+									<div class="mb-0">
+										<!--begin::Value-->
+										<div class="fs-lg-2hx fs-2x fw-bold text-white d-flex flex-center">
+											<div class="min-w-70px" data-kt-countup="true" data-kt-countup-value="3000" data-kt-countup-suffix="+">0</div>
+										</div>
+										<!--end::Value-->
+										<!--begin::Label-->
+										<span class="text-gray-600 fw-semibold fs-5 lh-0">Students</span>
+										<!--end::Label-->
+									</div>
+									<!--end::Info-->
+								</div>
+								<!--end::Item-->
+							</div>
+							<!--end::Items-->
+						</div>
+						<!--end::Statistics-->
+						
+					</div>
+					<!--end::Container-->
+				</div>
+				<!--end::Wrapper-->
+				<!--begin::Curve bottom-->
+				<div class="landing-curve landing-dark-color">
+					<svg viewBox="15 12 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 11C3.93573 11.3356 7.85984 11.6689 11.7725 12H1488.16C1492.1 11.6689 1496.04 11.3356 1500 11V12H1488.16C913.668 60.3476 586.282 60.6117 11.7725 12H0V11Z" fill="currentColor"></path>
+					</svg>
+				</div>
+				<!--end::Curve bottom-->
+			</div>
+			<!--end::Statistics Section-->
+			
+			<!--begin::Team Section - Hidden-->
+			<div class="py-10 py-lg-20" style="display: none;">
+				<!--begin::Container-->
+				<div class="container">
+					<!--begin::Heading-->
+					<div class="text-center mb-12">
+						<!--begin::Title-->
+						<h3 class="fs-2hx text-gray-900 mb-5" id="team" data-kt-scroll-offset="{default: 100, lg: 150}">Our Users Secured Offers — Yours Could Be Next</h3>
+						<!--end::Title-->
+						<!--begin::Sub-title-->
+						<div class="fs-5 text-muted fw-bold">Our AI Interview platform has empowered candidates to secure positions 
+						<br />at top firms. Ready to transform nerves into career success?</div>
+						<!--end::Sub-title=-->
+					</div>
+					<!--end::Heading-->
+					<!--begin::Slider-->
+					<div class="tns tns-default" style="direction: ltr">
+						<!--begin::Wrapper-->
+						<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev" data-tns-next-button="#kt_team_slider_next" data-tns-responsive="{1200: {items: 3}, 992: {items: 2}}">
+							<!--begin::Item-->
+							<div class="text-center">
+								
+								<!--begin::Photo-->
+								<div class="octagon mx-auto mb-5 d-flex w-1800px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('https://www.svgrepo.com/show/475634/amazon-color.svg')"></div>
+								<!--end::Photo-->
+								<!--begin::Person-->
+								<div class="mb-0">
+									<!--begin::Name-->
+									<a  class="text-gray-900 fw-bold text-hover-primary fs-3">Amazon</a>
+									<!--end::Name-->
+									<!--begin::Position-->
+									<div class="text-muted fs-6 fw-semibold mt-1">Product Manager</div>
+									<!--begin::Position-->
+								</div>
+								<!--end::Person-->
+							</div>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<div class="text-center">
+							    <!--begin::Photo-->
+								<div class="octagon mx-auto mb-5 d-flex w-180px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('https://www.svgrepo.com/show/508761/apple.svg')"></div>
+								<!--end::Photo-->
+								<!--begin::Person-->
+								<div class="mb-0">
+									<!--begin::Name-->
+									<a  class="text-gray-900 fw-bold text-hover-primary fs-3">Apple</a>
+									<!--end::Name-->
+									<!--begin::Position-->
+									<div class="text-muted fs-6 fw-semibold mt-1">System Engineer</div>
+									<!--begin::Position-->
+								</div>
+								<!--end::Person-->
+							</div>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<div class="text-center">
+								<!--begin::Photo-->
+								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('https://www.svgrepo.com/show/452062/microsoft.svg')"></div>
+								<!--end::Photo-->
+								<!--begin::Person-->
+								<div class="mb-0">
+									<!--begin::Name-->
+									<a class="text-gray-900 fw-bold text-hover-primary fs-3">Microsoft</a>
+									<!--end::Name-->
+									<!--begin::Position-->
+									<div class="text-muted fs-6 fw-semibold mt-1">Financial Analyst</div>
+									<!--begin::Position-->
+								</div>
+								<!--end::Person-->
+							</div>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<div class="text-center">
+								<!--begin::Photo-->
+								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('https://www.svgrepo.com/show/331599/tesla.svg')"></div>
+								<!--end::Photo-->
+								<!--begin::Person-->
+								<div class="mb-0">
+									<!--begin::Name-->
+									<a  class="text-gray-900 fw-bold text-hover-primary fs-3">Tesla</a>
+									<!--end::Name-->
+									<!--begin::Position-->
+									<div class="text-muted fs-6 fw-semibold mt-1">Product Manager</div>
+									<!--begin::Position-->
+								</div>
+								<!--end::Person-->
+							</div>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<div class="text-center">
+								<!--begin::Photo-->
+								<div class="octagon mx-auto mb-5 d-flex w-180px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('https://www.svgrepo.com/show/475656/google-color.svg')"></div>
+								<!--end::Photo-->
+								<!--begin::Person-->
+								<div class="mb-0">
+									<!--begin::Name-->
+									<a class="text-gray-900 fw-bold text-hover-primary fs-3">Google</a>
+									<!--end::Name-->
+									<!--begin::Position-->
+									<div class="text-muted fs-6 fw-semibold mt-1">Softare Engineer</div>
+									<!--begin::Position-->
+								</div>
+								<!--end::Person-->
+							</div>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<div class="text-center">
+								<!--begin::Photo-->
+								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('https://www.svgrepo.com/show/431792/meta.svg')"></div>
+								<!--end::Photo-->
+								<!--begin::Person-->
+								<div class="mb-0">
+									<!--begin::Name-->
+									<a class="text-gray-900 fw-bold text-hover-primary fs-3">Meta</a>
+									<!--end::Name-->
+									<!--begin::Position-->
+									<div class="text-muted fs-6 fw-semibold mt-1">Data Scientist</div>
+									<!--begin::Position-->
+								</div>
+								<!--end::Person-->
+							</div>
+							<!--end::Item-->
+							<!--begin::Item-->
+							<div class="text-center">
+								<!--begin::Photo-->
+								<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image:url('https://www.svgrepo.com/show/303341/netflix-1-logo.svg')"></div>
+								<!--end::Photo-->
+								<!--begin::Person-->
+								<div class="mb-0">
+									<!--begin::Name-->
+									<a  class="text-gray-900 fw-bold text-hover-primary fs-3">Netflix</a>
+									<!--end::Name-->
+									<!--begin::Position-->
+									<div class="text-muted fs-6 fw-semibold mt-1">Marketing Manager</div>
+									<!--begin::Position-->
+								</div>
+								<!--end::Person-->
+							</div>
+							<!--end::Item-->
+						</div>
+						<!--end::Wrapper-->
+						<!--begin::Button-->
+						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev">
+							<i class="ki-outline ki-left fs-2x"></i>
+						</button>
+						<!--end::Button-->
+						<!--begin::Button-->
+						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next">
+							<i class="ki-outline ki-right fs-2x"></i>
+						</button>
+						<!--end::Button-->
+					</div>
+					<!--end::Slider-->
+				</div>
+				<!--end::Container-->
+			</div>
+			<!--end::Team Section-->
+			
+			<!--begin::AI Interview Copilot Features Section - Hidden-->
+			<div class="mb-lg-n15 position-relative z-index-2" style="display: none;">
+			<!--begin::Container-->
+			<div class="container">
+				<!--begin::Card-->
+				<div class="card" style="filter: drop-shadow(0px 0px 40px rgba(68, 81, 96, 0.08))">
+				<!--begin::Card body-->
+				<div class="card-body p-lg-20">
+					<!--begin::Heading-->
+					<div class="text-center mb-10">
+					<h3 class="fs-2hx fw-bold text-gray-900 mb-5">What AI Interview Copilot Offers You</h3>
+					<p class="fs-4 text-gray-600">Live Interview Support: Get real-time, personalized coaching tailored to your resume, job description, and company.</p>
+					</div>
+					<!--end::Heading-->
+
+					<!--begin::Features Grid-->
+					<div class="row g-10">
+						<div class="col-md-6 col-lg-4" *ngFor="let feature of features">
+							<div
+							class="card h-100 rounded-5 overflow-hidden"
+						    style="min-height: 420px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);"
+							(mouseenter)="feature.hover = true"
+							(mouseleave)="feature.hover = false"
+							[ngStyle]="feature.hover ? {
+								'transform': 'translateY(-10px) scale(1.03)',
+								'box-shadow': '0 20px 40px rgba(0, 0, 0, 0.12)'
+							} : {}"
+							>
+
+							<!-- Image Section -->
+							<div
+								class="d-flex align-items-center justify-content-center"
+								style="background: linear-gradient(to right, #050F29, #091C43 90%, #13274F 40%, #091C43 70%, #050F29); height: 220px;"
+								>
+								<img
+								[src]="feature.image"
+								alt="icon"
+								class="img-fluid rounded-4"
+								style="height: 14rem;"
+								/>
+
+							</div>
+
+
+							<!-- Text Section -->
+							<div class="p-8 text-center">
+								<h4 class="fw-bold text-dark mb-3 fs-1">{{ feature.title }}</h4>
+								<p class="text-muted fs-5 fw-semibold">{{ feature.description }}</p>
+							</div>
+
+							</div>
+						</div>
+					</div>
+					<!--end::Features Grid-->
+
+				</div>
+				<!--end::Card body-->
+				</div>
+				<!--end::Card-->
+			</div>
+			<!--end::Container-->
+			</div>
+			<!--end::AI Interview Copilot Features Section-->
+
+
+			<!--begin::Pricing Section-->
+			<section class="py-20 bg-white" id="pricing">
+				<div class="container">
+					<div class="text-center mb-15">
+						<div class="badge px-4 py-2 mb-4 fs-7 fw-bold" style="background-color: #E8F5E9; color: #12CE5D; border-radius: 6px;">PRICING PLANS</div>
+						<h2 class="fw-bold mb-4 fs-2x text-dark">Choose Your Interview Success Plan</h2>
+						<p class="text-muted fs-5 mb-0" style="max-width: 700px; margin: 0 auto;">Transparent pricing with no hidden fees. Start free and scale as you prepare for your dream career.</p>
+					</div>
+					
+					<div class="text-center mb-12">
+						<div class="d-inline-flex p-2 rounded-3" style="background: #F8FAFC; border: 1px solid #E2E8F0;">
+							<button (click)="changePlan('month')"
+								class="btn px-6 py-3 fw-semibold"
+								[ngClass]="{
+								'text-white': selectedPlan === 'month',
+								'text-muted': selectedPlan !== 'month'
+								}"
+								[style.backgroundColor]="selectedPlan === 'month' ? '#091C43' : 'transparent'"
+								[style.borderRadius]="'8px'"
+								data-kt-plan="month">
+								Monthly
+							</button>
+
+							<button (click)="changePlan('annual')"
+								class="btn px-6 py-3 fw-semibold"
+								[ngClass]="{
+								'text-white': selectedPlan === 'annual',
+								'text-muted': selectedPlan !== 'annual'
+								}"
+								[style.backgroundColor]="selectedPlan === 'annual' ? '#091C43' : 'transparent'"
+								[style.borderRadius]="'8px'"
+								data-kt-plan="annual">
+								Annual <span class="badge ms-2 px-2 py-1 fs-8" style="background: #12CE5D; color: white;">Save 3%</span>
+							</button>
+						</div>
+					</div>
+					
+					<div class="row g-6">
+						<!-- Free Plan -->
+						<div class="col-lg-4">
+							<div class="card h-100 border-0" style="border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); background: white;">
+								<div class="card-body p-10">
+									<h3 class="fw-bold mb-3 fs-2 text-dark">Free</h3>
+									<p class="text-muted mb-6 fs-6" style="min-height: 60px;">Perfect for individuals exploring AI interview tools with no commitment or cost.</p>
+									<div class="mb-8">
+										<span class="fs-5 text-dark fw-bold">$</span>
+										<span class="fs-3x fw-bold text-dark">0</span>
+										<span class="text-muted fw-semibold fs-6">/ month</span>
+									</div>
+									
+									<div class="mb-8">
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">{{ freePlan.totalSessions }} AI Interview Copilot Sessions</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">{{ freePlan.totalSessionsMock }} AI Mock Interview Sessions</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">Up to {{ freePlan.sessionLength }}-Minute Session Duration</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">{{ freePlan.interviewReports }} AI-Generated Interview Reports</span>
+										</div>
+										<div class="d-flex align-items-start gap-3">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">Unlimited Question Bank</span>
+										</div>
+									</div>
+									
+									<button (click)="goToLogin()" class="btn btn-lg w-100 fw-bold" style="background-color: #F8FAFC; color: #091C43; border-radius: 8px;">Get Started</button>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Standard Plan -->
+						<div class="col-lg-4">
+							<div class="card h-100 border-0 position-relative" style="border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); background: linear-gradient(135deg, #091C43 0%, #0D2A5A 100%);">
+								<div class="position-absolute top-0 start-50 translate-middle">
+									<span class="badge px-4 py-2 fs-7 fw-bold" style="background: #FFD80C; color: #091C43; border-radius: 6px;">MOST POPULAR</span>
+								</div>
+								<div class="card-body p-10">
+									<h3 class="fw-bold mb-3 fs-2 text-white">Standard</h3>
+									<p class="text-white opacity-90 mb-6 fs-6" style="min-height: 60px;">Ideal for job seekers and professionals aiming to boost their interview skills with advanced AI-powered support.</p>
+									<div class="mb-8">
+										<span class="fs-5 text-white fw-bold">$</span>
+										<span class="fs-3x fw-bold text-white">{{ selectedPlan === 'month' ? standardPlan?.price : standardPlanAnnual?.price }}</span>
+										<span class="text-white opacity-75 fw-semibold fs-6">/ month</span>
+									</div>
+									<div class="text-center mb-6" *ngIf="selectedPlan === 'annual'">
+										<span class="badge px-3 py-2 fw-semibold fs-7" style="background: #12CE5D; color: white;">Save 3% per month with annual plan</span>
+									</div>
+									
+									<div class="mb-8">
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-white fs-4 mt-1"></i>
+											<span class="text-white opacity-90 fs-6">{{ standardPlan.totalSessions }} AI Interview Copilot Sessions (per month)</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-white fs-4 mt-1"></i>
+											<span class="text-white opacity-90 fs-6">{{ standardPlan.totalSessionsMock }} AI Mock Interview Sessions</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-white fs-4 mt-1"></i>
+											<span class="text-white opacity-90 fs-6">Up to {{ standardPlan.sessionLength }}-Minute Session Duration</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-white fs-4 mt-1"></i>
+											<span class="text-white opacity-90 fs-6">{{ standardPlan.interviewReports }} AI-Generated Interview Reports (per month)</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-white fs-4 mt-1"></i>
+											<span class="text-white opacity-90 fs-6">Access Up to {{ standardPlan.recordedMeetings }} Recorded Sessions (per month)</span>
+										</div>
+										<div class="d-flex align-items-start gap-3">
+											<i class="bi bi-check-circle-fill text-white fs-4 mt-1"></i>
+											<span class="text-white opacity-90 fs-6">Unlimited Question Bank</span>
+										</div>
+									</div>
+									
+									<a routerLink="/login" class="btn btn-lg w-100 fw-bold" style="background-color: #FFD80C; color: #091C43; border-radius: 8px;">Get Started</a>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Pro Plan -->
+						<div class="col-lg-4">
+							<div class="card h-100 border-0" style="border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+								<div class="card-body p-10">
+									<h3 class="fw-bold mb-3 fs-2 text-dark">Pro</h3>
+									<p class="text-muted mb-6 fs-6">Designed for professionals preparing for interviews who want full access to all features and the ultimate AI experience.</p>
+									<div class="mb-8">
+										<span class="fs-5 text-dark fw-bold">$</span>
+										<span class="fs-3x fw-bold text-dark">{{ selectedPlan === 'month' ? proPlan?.price : proPlanAnnual?.price }}</span>
+										<span class="text-muted fw-semibold fs-6">/ month</span>
+									</div>
+									<div class="text-center mb-6" *ngIf="selectedPlan === 'annual'">
+										<span class="badge px-3 py-2 fw-semibold fs-7" style="background: #12CE5D; color: white;">Save 3% per month with annual plan</span>
+									</div>
+									
+									<div class="mb-8">
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">Unlimited AI Interview Copilot Sessions</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">Unlimited AI Mock Interview Sessions</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">Up to 90-Minute Session Duration</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">Unlimited AI-Generated Interview Reports</span>
+										</div>
+										<div class="d-flex align-items-start gap-3 mb-4">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">Unlimited Recorded Sessions</span>
+										</div>
+										<div class="d-flex align-items-start gap-3">
+											<i class="bi bi-check-circle-fill text-success fs-4 mt-1"></i>
+											<span class="text-dark fs-6">Unlimited Question Bank</span>
+										</div>
+									</div>
+									
+									<a routerLink="/login" class="btn btn-lg w-100 fw-bold" style="background-color: #091C43; color: white; border-radius: 8px;">Get Started</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end::Pricing Section-->
+			
+			<!--begin::Trust & Value Section-->
+			<section class="py-20" style="background: #F8FAFC;">
+				<div class="container">
+					<div class="text-center mb-15">
+						<div class="badge px-4 py-2 mb-4 fs-7 fw-bold" style="background-color: #F0F9FF; color: #00779A; border-radius: 6px;">TRUSTED BY PROFESSIONALS</div>
+						<h2 class="fw-bold mb-4 fs-2x text-dark">Enterprise-Grade Interview Preparation</h2>
+						<p class="text-muted fs-5 mb-0" style="max-width: 700px; margin: 0 auto;">Built for real interview scenarios. Trusted by candidates at top companies. No complex setup required.</p>
+					</div>
+					
+					<div class="row g-10">
+						<div class="col-lg-4">
+							<div class="text-center p-8">
+								<div class="d-inline-flex align-items-center justify-content-center mb-6" style="width: 72px; height: 72px; background: linear-gradient(135deg, #091C43 0%, #0D2A5A 100%); border-radius: 16px;">
+									<i class="bi bi-shield-check text-white fs-2x"></i>
+								</div>
+								<h3 class="fw-bold mb-4 fs-3 text-dark">Real Interview Coverage</h3>
+								<p class="text-muted fs-6 mb-0">Supports coding challenges, behavioral rounds, system design, case studies, and assessments across 50+ platforms including Zoom, Teams, and Meet.</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="text-center p-8">
+								<div class="d-inline-flex align-items-center justify-content-center mb-6" style="width: 72px; height: 72px; background: linear-gradient(135deg, #00779A 0%, #00A0CC 100%); border-radius: 16px;">
+									<i class="bi bi-lightning-charge text-white fs-2x"></i>
+								</div>
+								<h3 class="fw-bold mb-4 fs-3 text-dark">No Setup Required</h3>
+								<p class="text-muted fs-6 mb-0">Start preparing immediately. No installation, no configuration, no learning curve. Just sign up and begin practicing within minutes.</p>
+							</div>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="text-center p-8">
+								<div class="d-inline-flex align-items-center justify-content-center mb-6" style="width: 72px; height: 72px; background: linear-gradient(135deg, #12CE5D 0%, #1AE26B 100%); border-radius: 16px;">
+									<i class="bi bi-people text-white fs-2x"></i>
+								</div>
+								<h3 class="fw-bold mb-4 fs-3 text-dark">From Students to Professionals</h3>
+								<p class="text-muted fs-6 mb-0">Whether you're a new graduate or an experienced professional switching roles, QuickHired scales to meet your interview preparation needs.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row g-6 mt-10">
+						<div class="col-lg-3 col-md-6">
+							<div class="text-center p-6" style="background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+								<div class="fs-2x fw-bold mb-2" style="color: #091C43;">50+</div>
+								<div class="text-muted fw-semibold">Platform Integrations</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="text-center p-6" style="background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+								<div class="fs-2x fw-bold mb-2" style="color: #00779A;">20+</div>
+								<div class="text-muted fw-semibold">AI-Powered Tools</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="text-center p-6" style="background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+								<div class="fs-2x fw-bold mb-2" style="color: #12CE5D;">99%</div>
+								<div class="text-muted fw-semibold">Satisfaction Rate</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="text-center p-6" style="background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+								<div class="fs-2x fw-bold mb-2" style="color: #FF6B35;">24/7</div>
+								<div class="text-muted fw-semibold">AI Availability</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end::Trust & Value Section-->
+			
+			<!--begin::Final CTA Section-->
+			<section class="py-20" style="background: linear-gradient(135deg, #091C43 0%, #0D2A5A 100%);">
+				<div class="container">
+					<div class="text-center">
+						<h2 class="fw-bold mb-6 text-white" style="font-size: 3rem; line-height: 1.2;">Ready to Ace Your Next Interview?</h2>
+						<p class="text-white opacity-90 fs-4 mb-10" style="max-width: 600px; margin: 0 auto;">Join thousands of professionals who transformed their interview performance with AI-powered preparation.</p>
+						<div class="d-flex gap-4 justify-content-center flex-wrap">
+							<a routerLink="/login" class="btn btn-lg px-10 py-4 fw-bold" style="background-color: #FFD80C; color: #091C43; border-radius: 8px;">Start Free Trial</a>
+							<a routerLink="/resume-builder" class="btn btn-lg btn-outline-light px-10 py-4 fw-bold" style="border-radius: 8px; border-width: 2px;">Try Free Tools</a>
+						</div>
+						<div class="mt-8">
+							<span class="text-white opacity-75 fs-6">No credit card required • Free plan available • Cancel anytime</span>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end::Final CTA Section-->
+			
+			<!--begin::Testimonials Section-->
+			<div class="mt-20 mb-n20 position-relative z-index-2">
+				<!--begin::Container-->
+				<div class="container">
+					<!--begin::Heading-->
+					<div class="text-center mb-0">
+						<!--begin::Title-->
+						<h3 class="fs-2hx text-gray-900 mb-5" id="clients" data-kt-scroll-offset="{default: 125, lg: 150}">Explore the Power of AI Interview Copilot</h3>
+						<!--end::Title-->
+						<!--begin::Description-->
+						<div class="fs-5 text-muted fw-bold">Unlock smart, real-time interview assistance practice, analyze, 
+						<br />and enhance your responses with AI-driven precision.</div>
+						<!--end::Description-->
+					</div>
+					<!--end::Heading-->
+					<!--begin::Row-->
+					<div class="row g-lg-10 mb-10 mb-lg-20">
+						<!--begin::Col-->
+						<div class="col-lg-12">
+						<div class="card-body p-2">
+							<div class="card-body p-lg-15">
+							<div class="mb-13">
+								<!-- Show only first category's questions -->
+								<div *ngFor="let q of faqCategories[0].questions" class="mb-15">
+									<div class="m-0">
+										<div class="d-flex align-items-center collapsible py-4 toggle mb-0" (click)="toggleQuestion(q, faqCategories[0])">
+											<div class="btn btn-sm btn-icon mw-20px me-5">
+												<i *ngIf="q.expanded" class="ki-outline ki-minus-square fs-3x text-custom"></i>
+												<i *ngIf="!q.expanded" class="ki-outline ki-plus-square fs-3x text-custom"></i>
+											</div>
+											<h2 class="fw-bold cursor-pointer mb-0 fs-1 text-custom">{{ q.question }}</h2>
+										</div>
+
+										<div class="ms-1" [ngClass]="{ 'show': q.expanded }" [style.display]="q.expanded ? 'block' : 'none'">
+											<div class="mb-4 fw-semibold fs-1 ps-10 text-custom">
+												{{ q.answer }}
+											</div>
+										</div>
+
+										<div class="separator separator-dashed"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end::Col-->
+
+						
+					</div>
+					<!--end::Row-->
+					<!--begin::Highlight-->
+						<div class="d-flex flex-stack flex-wrap flex-md-nowrap card-rounded shadow p-8 p-lg-12 mb-10 mb-lg-10" style="background: linear-gradient(90deg, #FFB132 0%, #03A588 100%);">
+							<!--begin::Content-->
+							<div class="my-2 me-5">
+								<!--begin::Title-->
+								<div class="fs-1 fs-lg-2qx fw-bold text-white mb-2">
+									Supercharge Your Career with <span class="fw-normal">Quick Hired AI</span>
+								</div>
+								<!--end::Title-->
+								<!--begin::Description-->
+								<div class="fs-6 fs-lg-5 text-white fw-semibold opacity-75">
+									Join thousands of professionals who trust Quick Hired for interview prep, resume building, and career success.
+								</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Content-->
+							<!--begin::Link-->
+							<a routerLink="/login" class="btn btn-lg btn-outline border-2 btn-outline-white flex-shrink-0 my-2">
+								Get Started Now
+							</a>
+							<!--end::Link-->
+						</div>
+					<!--end::Highlight-->
+
+					<!--end::Highlight-->
+				</div>
+				<!--end::Container-->
+			</div>
+			<!--end::Testimonials Section-->
+			<!--begin::Footer Section-->
+			<div class="mb-0">
+				<!--begin::Curve top-->
+			
+				<!--end::Curve top-->
+				<!--begin::Wrapper-->
+				<div class="bgi-no-repeat bgi-position-x-center bgi-position-y-bottom" 
+						style="background-image: url(/assets/media/auth/bg4.jpg); background-size: 100% 260%;">
+					<!--begin::Container-->
+					<div class="container">
+						<!--begin::Row-->
+						<div class="row py-10 py-lg-20">
+							<!--begin::Col-->
+							<div class="col-lg-6 pe-lg-16 mb-10 mb-lg-0">
+								
+								<!--begin::Block-->
+								<div class="rounded landing-dark-border p-9 mt-5">
+									<!--begin::Title-->
+									<h2 class="text-white">Need Assistance?</h2>
+									<!--end::Title-->
+									<!--begin::Text-->
+									<span class="fw-normal fs-4 text-white">Our support team is here to help you.
+									<a href="#" data-bs-toggle="modal" data-bs-target="#quoteModal" class="text-white opacity-50 text-hover-primary">
+									 Click Here to Get a Help
+									</a>
+									</span>
+									<!--end::Text-->
+								</div>
+								<!--end::Block-->
+								
+
+							</div>
+							<!--end::Col-->
+							<!-- Quote Modal -->
+								<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+									
+									<div class="modal-header">
+										<h5 class="modal-title" id="quoteModalLabel">Need help with something?</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+
+									<div class="modal-body">
+										<form [formGroup]="quoteForm" (ngSubmit)="submitQuoteRequest()">
+										<div class="mb-3">
+											<label for="userEmail" class="form-label">Email</label>
+											<input type="email" id="userEmail" class="form-control" formControlName="userEmail" />
+											<div class="text-danger mt-1" *ngIf="quoteForm.get('userEmail')?.touched && quoteForm.get('userEmail')?.invalid">
+											Valid email is required.
+											</div>
+										</div>
+
+										<div class="mb-3">
+											<label for="userRequirement" class="form-label">Request Details</label>
+											<textarea id="userRequirement" class="form-control" rows="4" formControlName="userRequirement"></textarea>
+											<div class="text-danger mt-1" *ngIf="quoteForm.get('userRequirement')?.touched && quoteForm.get('userRequirement')?.invalid">
+											Request Details is required.
+											</div>
+										</div>
+                                        <div class="mb-3 text-end">
+											<button type="submit" class="btn btn-primary" [disabled]="quoteForm.invalid || isQuoteSubmitting">
+												<span *ngIf="!isQuoteSubmitting">Submit</span>
+												<span *ngIf="isQuoteSubmitting">
+													Please wait...
+													<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+												</span>
+											</button>
+										</div>
+										</form>
+									</div>
+
+									</div>
+								</div>
+								</div>
+							<!--begin::Col-->
+							<div class="col-lg-6 ps-lg-16">
+								<!--begin::Navs-->
+								<div class="d-flex justify-content-center">
+									<!--begin::Links-->
+									<div class="d-flex fw-semibold flex-column me-20">
+										<!--begin::Subtitle-->
+										<h4 class="fw-bold text-gray-500 mb-6">More for Quick Hired</h4>
+										<!--end::Subtitle-->
+										<!--begin::Link-->
+										<a routerLink="/interview-home" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Interview Copilot</a>
+										<!--end::Link-->
+										<!--begin::Link-->
+										<a routerLink="/mock-home" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Mock Interview</a>
+										<!--end::Link-->
+										
+
+										<!--begin::Link-->
+										<a routerLink="/resume-builder" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Resume Builder</a>
+										<!--end::Link-->
+										<!--begin::Link-->
+										<a routerLink="/ai-cover-letter" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Cover Letter</a>
+										<!--end::Link-->
+										<!--begin::Link-->
+										<a routerLink="/ai-thank-you-email" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Thank-You Email</a>
+										<!--end::Link-->
+										
+										<!--begin::Link-->
+										<a routerLink="/ai-cold-out-reach-email" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Recruiters Email</a>
+										<!--end::Link-->
+										
+									
+									</div>
+									<!--end::Links-->
+									<!--begin::Links-->
+									<div class="d-flex fw-semibold flex-column ms-lg-20">
+										<!--begin::Subtitle-->
+										<h4 class="fw-bold text-gray-500 mb-6">Stay Connected</h4>
+										<!--end::Subtitle-->
+										<!--begin::Link-->
+										<a href="https://web.facebook.com/codewodeofficial/" target="_blank" class="mb-6">
+											<img src="/assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-2" alt="" />
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
+										</a>
+										<!--end::Link-->
+										
+										<!--begin::Link-->
+										<a href="https://www.linkedin.com/posts/codewode_allinoneplatform-eventtools-eventmanagement-activity-7251967517156409347-0UB3?utm_source=share&utm_medium=member_ios" target="_blank"  class="mb-6">
+											<img src="/assets/media/svg/brand-logos/linkedin-2.svg" class="h-20px me-2" alt="" />
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Linkedin</span>
+										</a>
+										<!--end::Link-->
+										
+										<!--begin::Link-->
+										<a href="https://www.instagram.com/codewodeofficial/" target="_blank" class="mb-6">
+											<img src="/assets/media/svg/brand-logos/instagram-2-1.svg" class="h-20px me-2" alt="" />
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Instagram</span>
+										</a>
+										<!--end::Link-->
+									</div>
+									<!--end::Links-->
+								</div>
+								<!--end::Navs-->
+							</div>
+							<!--end::Col-->
+						</div>
+						<!--end::Row-->
+					</div>
+					<!--end::Container-->
+					<!--begin::Separator-->
+					<div class="landing-dark-separator"></div>
+					<!--end::Separator-->
+					<!--begin::Container-->
+					<div class="container">
+						<!--begin::Wrapper-->
+						<div class="d-flex flex-column flex-md-row flex-stack py-7 py-lg-10">
+							<!--begin::Copyright-->
+							<div class="d-flex align-items-center order-2 order-md-1">
+								<!--begin::Logo-->
+								<a href="landing.html">
+									<img alt="Logo" src="/assets/media/logos/QuickHireWhited.png" class="h-50px h-md-50px" />
+								</a>
+								<!--end::Logo image-->
+								<!--begin::Logo image-->
+								<span class="mx-5 fs-6 fw-semibold text-white pt-1" href="http://www.code-wode.com/" target="_blank">&copy; 2024 Code-Wode.</span>
+								<!--end::Logo image-->
+							</div>
+							<!--end::Copyright-->
+							<!--begin::Menu-->
+							<ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
+								<li class="menu-item">
+									<a routerLink="/home" target="_blank" class="menu-link px-2">About</a>
+								</li>
+								<li class="menu-item mx-5">
+									 <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_new_ticket" class="menu-link px-2">Support</a>
+								</li>
+								<li class="menu-item">
+									<a routerLink="/login" target="_blank" class="menu-link px-2">Purchase</a>
+								</li>
+							</ul>
+							<!--end::Menu-->
+							<div class="modal fade" id="kt_modal_new_ticket" tabindex="-1" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered mw-750px">
+									<div class="modal-content rounded">
+									<div class="modal-header pb-0 border-0 justify-content-end">
+										<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+										<i class="ki-duotone ki-cross fs-1">
+											<span class="path1"></span>
+											<span class="path2"></span>
+										</i>
+										</div>
+									</div>
+									<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+										<form [formGroup]="supportForm" (ngSubmit)="submitSupportForm()">
+										<div class="mb-13 text-center">
+											<h1 class="mb-3"> Support Form</h1>
+											<div class="text-gray-500 fw-semibold fs-5">
+											If you have any queries, please email us. We'll get back to you within 2-3 business days.
+											</div>
+										</div>
+
+										<!-- Subject -->
+										<div class="d-flex flex-column mb-8 fv-row">
+											<label class="required fs-6 fw-semibold mb-2">Subject</label>
+											<input type="text" class="form-control form-control-solid" formControlName="subject" placeholder="Enter your subject" />
+											<div *ngIf="supportForm.get('subject')?.invalid && supportForm.get('subject')?.touched" class="text-danger mt-1">
+											Subject is required.
+											</div>
+										</div>
+
+										<!-- Name & Email -->
+										<div class="row g-9 mb-8">
+											<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2">Name</label>
+											<input type="text" class="form-control form-control-solid" formControlName="name" placeholder="Enter your name" />
+											<div *ngIf="supportForm.get('name')?.invalid && supportForm.get('name')?.touched" class="text-danger mt-1">
+												Name is required.
+											</div>
+											</div>
+
+											<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2">Email</label>
+											<input type="email" class="form-control form-control-solid" formControlName="email" placeholder="Enter your email" />
+											<div *ngIf="supportForm.get('email')?.invalid && supportForm.get('email')?.touched" class="text-danger mt-1">
+												<span *ngIf="supportForm.get('email')?.errors?.['required']">Email is required.</span>
+												<span *ngIf="supportForm.get('email')?.errors?.['email']">Invalid email format.</span>
+											</div>
+											</div>
+										</div>
+
+										<!-- Description -->
+										<div class="d-flex flex-column mb-8 fv-row">
+											<label class="fs-6 fw-semibold mb-2 required">Description</label>
+											<textarea class="form-control form-control-solid" rows="4" formControlName="message" placeholder="Type your ticket description"></textarea>
+											<div *ngIf="supportForm.get('message')?.invalid && supportForm.get('message')?.touched" class="text-danger mt-1">
+											Description is required.
+											</div>
+										</div>
+
+										<!-- Actions -->
+										<div class="text-center">
+											<button type="button" data-bs-dismiss="modal" class="btn btn-light me-3">Cancel</button>
+											<button type="submit" class="btn btn-primary" [disabled]="supportForm.invalid || isSubmitting">
+											<span *ngIf="!isSubmitting">Submit</span>
+											<span *ngIf="isSubmitting">
+												Please wait...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+											</span>
+											</button>
+										</div>
+
+										</form>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--end::Wrapper-->
+					</div>
+					<!--end::Container-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Footer Section-->
+			<!--begin::Scrolltop-->
+			<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+				<i class="ki-outline ki-arrow-up"></i>
+			</div>
+			<!--end::Scrolltop-->
+		</div>
+		<!--end::Root-->
+		<!--end::Main-->
+		<!--begin::Scrolltop-->
+		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+			<i class="ki-outline ki-arrow-up"></i>
+		</div>
+		<!--end::Scrolltop-->
+		<!--begin::Javascript-->
+		<script>var hostUrl = "/assets/";</script>
+		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
+		<script src="/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="/assets/js/scripts.bundle.js"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="/assets/plugins/custom/fslightbox/fslightbox.bundle.js"></script>
+		<script src="/assets/plugins/custom/typedjs/typedjs.bundle.js"></script>
+		<!--end::Vendors Javascript-->
+		<!--begin::Custom Javascript(used for this page only)-->
+		<script src="/assets/js/custom/landing.js"></script>
+		<script src="/assets/js/custom/pages/pricing/general.js"></script>
+		<!--end::Custom Javascript-->
+		<!--end::Javascript-->

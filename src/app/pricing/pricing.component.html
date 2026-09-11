@@ -1,0 +1,706 @@
+
+				
+				<!--begin::Content-->
+				<div class="content d-flex flex-column flex-column-fluid" id="kt_content" style="padding-top: 0;">
+					<!--begin::Post-->
+					<div class="post d-flex flex-column-fluid" id="kt_post">
+						<!--begin::Container-->
+						<div id="kt_content_container" class="container-fluid px-0">
+							<!--begin::Pricing card-->
+								<div class="card" id="kt_pricing">
+									<!--begin::Card body-->
+									<div class="card-body p-lg-17">
+										<!--begin::Plans-->
+										<div class="d-flex flex-column">
+											<!--begin::Heading-->
+											<div class="mb-6 text-center">
+												<h1 class="fs-2hx fw-bold mb-5 fs-2">Upgrade Your Plan</h1>
+												<div class="notice d-flex bg-gradient-primary rounded-4 border-0 p-6 mb-10 mx-auto premium-banner" style="max-width: 900px; box-shadow: 0 8px 24px rgba(10, 112, 104, 0.2);">
+													<!--begin::Content-->
+													<div class="d-flex flex-grow-1 flex-wrap flex-md-nowrap align-items-center text-center">
+														<div class="d-flex align-items-center justify-content-center w-100">
+															<i class="bi bi-lightning-charge-fill fs-1 text-warning me-3"></i>
+															<div class="fs-4 fw-bold text-white">
+																🚀 Unlock Unlimited Copilot Sessions – Upgrade Now for Limitless Assistance!
+															</div>
+														</div>
+													</div>
+													<!--end::Content-->
+												</div>
+												
+											</div>
+											<!--end::Heading-->
+											<div class="nav-group nav-group-outline mx-auto mb-15" data-kt-buttons="true">
+												<button (click)="changePlan('month')" 
+														class="btn btn-color-gray-600 btn-active btn-active-secondary px-6 py-3 me-2" 
+														[ngClass]="{'active': selectedPlan === 'month'}"
+														data-kt-plan="month">
+													Monthly
+												</button>
+											
+												<button (click)="changePlan('annual')" 
+														class="btn btn-color-gray-600 btn-active btn-active-secondary px-6 py-3" 
+														[ngClass]="{'active': selectedPlan === 'annual'}"
+														data-kt-plan="annual">
+													Annual
+												</button>
+											</div>
+											<!--begin::Row-->
+											<div class="row g-10">
+												<!--begin::Col-->
+												<div class="col-xl-4">
+													<div class="d-flex h-100 align-items-center">
+														<!--begin::Option-->
+												<div class="w-100 d-flex flex-column flex-center rounded-4 bg-white py-15 px-10 premium-card">
+													<!--begin::Heading-->
+													<div class="mb-7 text-center">
+														<div class="mb-4">
+															<i class="bi bi-rocket-takeoff fs-3x text-muted"></i>
+														</div>
+														<!--begin::Title-->
+														<h1 class="text-gray-900 mb-5 fw-bolder fs-2hx">Free</h1>
+																<!--end::Title-->
+																<div class="text-gray-600 fw-semibold mb-5">
+																	Perfect for individuals exploring AI interview tools <br /> with no commitment or cost.
+																</div>
+																<!--begin::Price-->
+																<div class="text-center">
+																	<span class="mb-2 text-primary">$</span>
+																	<span class="fs-3x fw-bold text-primary" data-kt-plan-price-month="0" data-kt-plan-price-annual="0">0</span>
+																	<span class="fs-7 fw-semibold opacity-50">/ 
+																	<span data-kt-element="period">Mon</span></span>
+																</div>
+																<!--end::Price-->
+															</div>
+															<!--end::Heading-->
+															<!--begin::Features-->
+															<div class="w-100 mb-10">
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">{{ freePlan?.totalSessions || '3' }} AI Interview Copilot Sessions</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">{{ freePlan?.totalSessionsMock || '3' }} AI Mock Interview Sessions</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Up to {{ freePlan?.sessionLength || '30' }}-Minute Session Duration</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1">{{ freePlan?.interviewReports || '3' }} AI-Generated Interview Reports</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1">Access Up to {{ freePlan?.recordedMeetings || '3' }} Recorded Sessions</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Unlimited Question Bank</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																
+															</div>
+															<!--end::Features-->
+															<!--begin::Select-->
+															<button class="btn btn-sm btn-secondary" 
+																	*ngIf="currentUser?.planName === 'Free'" disabled>
+																Current Plan
+															</button>
+															<button class="btn btn-sm btn-primary" 
+																	*ngIf="currentUser?.planName !== 'Free'"
+																	(click)="showPromoModal('Standard')">
+																<i class="bi bi-arrow-up-circle me-1"></i> Upgrade to Standard
+															</button>
+															<!--end::Select-->
+														</div>
+														<!--end::Option-->
+													</div>
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col-xl-4">
+													<div class="d-flex h-100 align-items-center">
+														<!--begin::Option-->
+												<div class="w-100 d-flex flex-column flex-center rounded-4 bg-white py-20 px-10 premium-card featured-card">
+													<!--begin::Heading-->
+													<div class="mb-7 text-center">
+														<div class="mb-4">
+															<i class="bi bi-stars fs-3x text-primary"></i>
+														</div>
+														<!--begin::Title-->
+														<h1 class="text-gray-900 mb-5 fw-bolder fs-2hx">Standard</h1>
+																<!--end::Title-->
+																<!--begin::Description-->
+																<div class="text-gray-600 fw-semibold mb-5">
+																Ideal for job seekers and professionals aiming to boost their interview skills <br />
+																with advanced AI-powered support across various roles like tech, marketing, and management.
+																</div>
+																<!--end::Description-->
+
+
+																<!--begin::Price-->
+																<div class="text-center">
+																	<span class="mb-2 text-primary">$</span>
+																	<span
+																		class="fs-3x fw-bold text-primary"
+																		[attr.data-kt-plan-price-month]="standardPlan?.price"
+																		[attr.data-kt-plan-price-annual]="standardPlanAnnual?.price">
+																		{{ selectedPlan === 'month' ? standardPlan?.price : standardPlanAnnual?.price }}
+																	</span>
+																	<span class="fs-7 fw-semibold opacity-50">/ 
+																		<span data-kt-element="period">{{ selectedPlan === 'month' ? 'Mon' : 'Ann' }}</span>
+																	</span>
+																</div>
+
+																<!-- Discount Message for Annual Plan -->
+																<div class="text-center" *ngIf="selectedPlan === 'annual'">
+																	<span class="text-warning fw-bold fs-3">
+																		Save 3% per month!
+																	</span>
+																</div>
+
+																<!--end::Price-->
+															</div>
+															<!--end::Heading-->
+															<!--begin::Features-->
+															<div class="w-100 mb-10">
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">{{ standardPlan?.totalSessions || '10' }} AI Interview Copilot Sessions <strong>(per month)</strong></span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">{{ standardPlan?.totalSessionsMock || '10' }} AI Mock Interview Sessions <strong>(per month)</strong></span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Up to {{ standardPlan?.sessionLength || '60' }}-Minute Session Duration</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">{{ standardPlan?.interviewReports || '10' }} AI-Generated Interview Reports <strong>(per month)</strong></span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Access Up to {{ standardPlan?.recordedMeetings || '10' }} Recorded Sessions <strong>(per month)</strong></span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Unlimited Question Bank</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																
+																<!--begin::Item-->
+																<!-- <div class="d-flex align-items-center">
+																	<span class="fw-semibold fs-6 text-gray-600 flex-grow-1">Unlimited Cloud Space</span>
+																	<i class="ki-outline ki-cross-circle fs-1"></i>
+																</div> -->
+																<!--end::Item-->
+															</div>
+															<!--end::Features-->
+															<!-- Button to Open Modal -->
+                                                               
+                                                            <!-- <button *ngIf="currentUser?.planName !== 'Standard'" class="btn btn-sm btn-primary" (click)="showStripeButton()">Select</button>
+
+                                                            <button *ngIf="currentUser?.planName === 'Standard'" class="btn btn-sm btn-primary" disabled>Current Plan</button>
+                                                             -->
+                                                             <!-- <button class="btn btn-sm btn-primary" (click)="showStripeButton()">Select</button> -->
+														    
+																<!-- Monthly Plan Button -->
+																<button class="btn btn-sm btn-primary" 
+																	*ngIf="selectedPlan === 'month' && currentUser?.planName !== 'Standard'" 
+																	(click)="showPromoModal('Standard')">
+																	Select
+																</button>
+
+																<!-- Annual Plan Button -->
+																<button class="btn btn-sm btn-primary" 
+																	*ngIf="selectedPlan === 'annual' && currentUser?.planName !== 'StandardAnnual'" 
+																	(click)="showPromoModal('StandardAnnual')">
+																	Select
+																</button>
+
+																<!-- Current Plan Button for Standard -->
+																<button class="btn btn-sm btn-secondary" 
+																*ngIf="selectedPlan === 'month' && currentUser?.planName === 'Standard'" disabled>
+																Current Plan
+																</button>
+
+																<!-- Current Plan Button for Standard Annual -->
+																<button class="btn btn-sm btn-secondary" 
+																*ngIf="selectedPlan === 'annual' && currentUser?.planName === 'StandardAnnual'" disabled>
+																Current Plan
+																</button>
+
+                                                        </div>
+														<!--end::Option-->
+													</div>
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col-xl-4">
+													<div class="d-flex h-100 align-items-center">
+														<!--begin::Option-->
+												<div class="w-100 d-flex flex-column flex-center rounded-4 bg-white py-20 px-10 premium-card pro-card">
+													<!--begin::Heading-->
+													<div class="mb-7 text-center">
+														<div class="mb-4">
+															<i class="bi bi-gem fs-3x text-purple"></i>
+														</div>
+														<!--begin::Title-->
+														<h1 class="text-gray-900 mb-5 fw-bolder fs-2hx">Pro</h1>
+																<!--end::Title-->
+																<!--begin::Description-->
+																<div class="text-gray-600 fw-semibold mb-5">
+																	Designed for job seekers and professionals preparing for interviews in <span class="text-primary">tech, management, and creative roles</span><br />
+																	who want full access to all features and the ultimate AI-powered interview preparation experience.
+																</div>
+
+																<!--end::Description-->
+
+																<!--begin::Price-->
+																<div class="text-center">
+																	<span class="mb-2 text-primary">$</span>
+																	<span
+																		class="fs-3x fw-bold text-primary"
+																		[attr.data-kt-plan-price-month]="proPlan?.price"
+																		[attr.data-kt-plan-price-annual]="proPlanAnnual?.price">
+																		{{ selectedPlan === 'month' ? proPlan?.price : proPlanAnnual?.price }}
+																	</span>
+																	<span class="fs-7 fw-semibold opacity-50">/ 
+																		<span data-kt-element="period">{{ selectedPlan === 'month' ? 'Mon' : 'Ann' }}</span>
+																	</span>
+																</div>
+																<!-- Discount Message for Annual Plan -->
+																	<div class="text-center" *ngIf="selectedPlan === 'annual'">
+																		<span class="text-warning fw-bold fs-3">
+																			Save 3% per month!
+																		</span>
+																	</div>
+
+																<!--end::Price-->
+															</div>
+															<!--end::Heading-->
+															<!--begin::Features-->
+															<div class="w-100 mb-10">
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Unlimited AI Interview Copilot Sessions</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Unlimited AI Mock Interview Sessions</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Up to 90-Minute Session Duration</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Unlimited AI-Generated Interview Reports</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Unlimited Recorded Sessions</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="d-flex align-items-center mb-5">
+																	<span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">Unlimited Question Bank</span>
+																	<i class="ki-outline ki-check-circle fs-1 text-success"></i>
+																</div>
+																<!--end::Item-->
+																
+															</div>
+															<!--end::Features-->
+                                                            <!-- <button class="btn btn-sm btn-primary" (click)="showStripeButtonPro()">Select</button> -->
+                                                            <!-- Monthly Pro Plan Button -->
+															<!-- <button class="btn btn-sm btn-primary" 
+															*ngIf="selectedPlan === 'month' && currentUser?.planName !== 'Pro'" 
+															(click)="showStripeButtonPro()">
+															Select
+															</button> -->
+															<button class="btn btn-sm btn-primary"
+																*ngIf="selectedPlan === 'month' && currentUser?.planName !== 'Pro'"
+																(click)="showPromoModal('Pro')">
+																Select
+															</button>
+
+
+															<!-- Annual Pro Plan Button -->
+															<button class="btn btn-sm btn-primary" 
+															*ngIf="selectedPlan === 'annual' && currentUser?.planName !== 'ProAnnual'" 
+															(click)="showPromoModal('ProAnnual')">
+															Select
+															</button>
+
+															<!-- Current Plan Button for Pro -->
+															<button class="btn btn-sm btn-secondary" 
+															*ngIf="selectedPlan === 'month' && currentUser?.planName === 'Pro'" disabled>
+															Current Plan
+															</button>
+
+															<!-- Current Plan Button for Pro Annual -->
+															<button class="btn btn-sm btn-secondary" 
+															*ngIf="selectedPlan === 'annual' && currentUser?.planName === 'ProAnnual'" disabled>
+															Current Plan
+															</button>
+
+														</div>
+										</div>
+										<!--end::Plans-->
+									</div>
+									<!--end::Card body-->
+								</div>
+								<!--end::Pricing card-->
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Post-->
+					</div>
+					<!--end::Content-->
+					
+				<!--begin::Promo Code Modal-->
+				<div class="modal fade" id="promoCodeModal" tabindex="-1" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" style="max-width: 650px;">
+						<div class="modal-content shadow-lg border-0 rounded-4" style="height: 480px;">
+							<div class="modal-header border-0 bg-primary text-white rounded-top-4 py-4">
+								<h4 class="modal-title fw-bold d-flex align-items-center fs-2">
+									<i class="bi bi-stars me-3 fs-3x"></i> Unlock Your Discount
+								</h4>
+								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+
+							<div class="modal-body d-flex flex-column justify-content-center h-100 px-7 py-4">
+								<div class="text-center mb-7 px-7">
+									<h2 class="fw-bold text-dark mb-3 d-flex justify-content-center align-items-center">
+										<i class="bi bi-ticket-perforated-fill text-success fs-1 me-3"></i>
+										Enter Promo Code
+									</h2>
+									<p class="text-muted fs-3 lh-lg">
+										Enter a valid promo code to enjoy exclusive discounts on your subscription plan.<br>
+										Don't have one? You can skip this step.
+									</p>
+								</div>
+
+								<div class="mb-8 px-3">
+									<input
+										type="text"
+										class="form-control form-control-lg rounded-pill text-center fw-semibold border-primary shadow-sm fs-5 py-3"
+										placeholder="Type your promo code here"
+										[(ngModel)]="promoCode"
+										[disabled]="isValidatingPromo"
+									/>
+									
+									<!-- Success Message -->
+									<div *ngIf="promoSuccess" class="alert alert-success mt-4 rounded-3 shadow-sm" role="alert">
+										<div class="d-flex align-items-center">
+											<i class="bi bi-check-circle-fill fs-2 me-3"></i>
+											<div class="fs-6 fw-semibold">{{ promoSuccess }}</div>
+										</div>
+									</div>
+									
+									<!-- Error Message -->
+									<div *ngIf="promoError" class="alert alert-danger mt-4 rounded-3 shadow-sm" role="alert">
+										<div class="d-flex align-items-center">
+											<i class="bi bi-exclamation-circle-fill fs-2 me-3"></i>
+											<div class="fs-6 fw-semibold">{{ promoError }}</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="d-flex justify-content-center gap-4 px-5">
+									<button class="btn btn-outline-secondary px-5 py-3 rounded-pill fw-bold fs-2" (click)="proceedWithoutPromo()" [disabled]="isValidatingPromo">
+										<i class="bi bi-x-circle me-3 fs-3"></i> Skip
+									</button>
+									<button class="btn btn-primary px-6 py-4 rounded-pill fw-bold fs-2" (click)="validatePromoCode()" [disabled]="isValidatingPromo">
+										<span *ngIf="!isValidatingPromo"><i class="bi bi-check2-circle me-3 fs-3"></i> Apply</span>
+										<span *ngIf="isValidatingPromo"><span class="spinner-border spinner-border-sm me-2"></span> Validating...</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end::Promo Code Modal-->
+
+				<!--begin::Stripe Modals-->
+				<!-- Standard Monthly Modal -->
+				<div class="modal fade" id="stripeModal" tabindex="-1" aria-labelledby="stripeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" style="max-width: 500px;">
+						<div class="modal-content shadow-lg border-0 rounded-4">
+							<div class="modal-header border-0 py-5 px-6" style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);">
+								<div class="w-100 text-center">
+									<div class="mb-3">
+										<i class="bi bi-shield-fill-check text-white" style="font-size: 3rem;"></i>
+									</div>
+									<h4 class="modal-title fw-bold text-white mb-2 fs-3">Secure Payment</h4>
+									<p class="text-white-50 mb-0 fs-6">Complete your subscription securely with Stripe</p>
+								</div>
+								<button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 mt-4 me-4" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body p-6 bg-light">
+								<div class="card border-0 shadow-sm rounded-3 mb-4 p-4">
+									<div class="d-flex align-items-center justify-content-between mb-3">
+										<span class="text-muted fs-6">Selected Plan:</span>
+										<span class="badge bg-primary fs-6 px-3 py-2">Standard Monthly</span>
+									</div>
+									<div *ngIf="validatedPromo" class="alert alert-success border-0 rounded-3 mb-0">
+										<div class="d-flex align-items-center">
+											<i class="bi bi-tag-fill fs-3 me-3"></i>
+											<div>
+												<div class="fw-bold">Promo Applied: {{ validatedPromo.discountPercent }}% OFF</div>
+												<div class="small">Original: <del>${{ validatedPromo.originalPrice }}</del> → Your Price: <strong>${{ validatedPromo.finalPrice }}</strong></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="d-flex justify-content-center align-items-center py-4">
+									<ng-container *ngIf="validatedPromo; else defaultStripeBtnStan">
+										<stripe-buy-button
+											[attr.buy-button-id]="validatedPromo.stripeButtonId"
+											[attr.publishable-key]="validatedPromo.publishableKey"
+											onSuccess="onSubscriptionSuccess('Standard')">
+										</stripe-buy-button>
+									</ng-container>
+									<ng-template #defaultStripeBtnStan>
+										<stripe-buy-button
+											buy-button-id="buy_btn_1Rj031EI7JiDsJpZsc0o70qL"
+											publishable-key="pk_live_51R2AHHEI7JiDsJpZVH9qlVAR6tNNgbJsS6HJQi7cyZDtZjTaBDLq6FC0xAwHzDKaeabJIsrynafmem95Obwj7sSB00BxmzWHiO"
+											onSuccess="onSubscriptionSuccess('Standard')">
+										</stripe-buy-button>
+									</ng-template>
+								</div>
+								<div class="text-center mt-4">
+									<p class="text-muted small mb-2"><i class="bi bi-lock-fill me-2"></i>Secured by Stripe • 256-bit SSL encryption</p>
+									<p class="text-muted small mb-0">Cancel anytime • No hidden fees</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Standard Annual Modal -->
+				<div class="modal fade" id="stripeModalAnnual" tabindex="-1" aria-labelledby="stripeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" style="max-width: 500px;">
+						<div class="modal-content shadow-lg border-0 rounded-4">
+							<div class="modal-header border-0 py-5 px-6" style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);">
+								<div class="w-100 text-center">
+									<div class="mb-3">
+										<i class="bi bi-shield-fill-check text-white" style="font-size: 3rem;"></i>
+									</div>
+									<h4 class="modal-title fw-bold text-white mb-2 fs-3">Secure Payment</h4>
+									<p class="text-white-50 mb-0 fs-6">Complete your subscription securely with Stripe</p>
+								</div>
+								<button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 mt-4 me-4" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body p-6 bg-light">
+								<div class="card border-0 shadow-sm rounded-3 mb-4 p-4">
+									<div class="d-flex align-items-center justify-content-between mb-3">
+										<span class="text-muted fs-6">Selected Plan:</span>
+										<span class="badge bg-primary fs-6 px-3 py-2">Standard Annual</span>
+									</div>
+									<div *ngIf="validatedPromo" class="alert alert-success border-0 rounded-3 mb-0">
+										<div class="d-flex align-items-center">
+											<i class="bi bi-tag-fill fs-3 me-3"></i>
+											<div>
+												<div class="fw-bold">Promo Applied: {{ validatedPromo.discountPercent }}% OFF</div>
+												<div class="small">Original: <del>${{ validatedPromo.originalPrice }}</del> → Your Price: <strong>${{ validatedPromo.finalPrice }}</strong></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="d-flex justify-content-center align-items-center py-4">
+									<ng-container *ngIf="validatedPromo; else defaultStripeBtnStandard">
+										<stripe-buy-button
+											[attr.buy-button-id]="validatedPromo.stripeButtonId"
+											[attr.publishable-key]="validatedPromo.publishableKey"
+											onSuccess="onSubscriptionSuccess('Standard Annual')">
+										</stripe-buy-button>
+									</ng-container>
+									<ng-template #defaultStripeBtnStandard>
+										<stripe-buy-button
+											buy-button-id="buy_btn_1Rj0McEI7JiDsJpZ4Tdf8ZNm"
+											publishable-key="pk_live_51R2AHHEI7JiDsJpZVH9qlVAR6tNNgbJsS6HJQi7cyZDtZjTaBDLq6FC0xAwHzDKaeabJIsrynafmem95Obwj7sSB00BxmzWHiO"
+											onSuccess="onSubscriptionSuccess('Standard Annual')">
+										</stripe-buy-button>
+									</ng-template>
+								</div>
+								<div class="text-center mt-4">
+									<p class="text-muted small mb-2"><i class="bi bi-lock-fill me-2"></i>Secured by Stripe • 256-bit SSL encryption</p>
+									<p class="text-muted small mb-0">Cancel anytime • No hidden fees</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pro Monthly Modal -->
+				<div class="modal fade" id="stripeModalPro" tabindex="-1" aria-labelledby="stripeModalProLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" style="max-width: 500px;">
+						<div class="modal-content shadow-lg border-0 rounded-4">
+							<div class="modal-header border-0 py-5 px-6" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">
+								<div class="w-100 text-center">
+									<div class="mb-3">
+										<i class="bi bi-stars text-white" style="font-size: 3rem;"></i>
+									</div>
+									<h4 class="modal-title fw-bold text-white mb-2 fs-3">Premium Access</h4>
+									<p class="text-white-50 mb-0 fs-6">Complete your Pro subscription securely with Stripe</p>
+								</div>
+								<button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 mt-4 me-4" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body p-6 bg-light">
+								<div class="card border-0 shadow-sm rounded-3 mb-4 p-4">
+									<div class="d-flex align-items-center justify-content-between mb-3">
+										<span class="text-muted fs-6">Selected Plan:</span>
+										<span class="badge fs-6 px-3 py-2" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">Pro Monthly</span>
+									</div>
+									<div *ngIf="validatedPromo" class="alert alert-success border-0 rounded-3 mb-0">
+										<div class="d-flex align-items-center">
+											<i class="bi bi-tag-fill fs-3 me-3"></i>
+											<div>
+												<div class="fw-bold">Promo Applied: {{ validatedPromo.discountPercent }}% OFF</div>
+												<div class="small">Original: <del>${{ validatedPromo.originalPrice }}</del> → Your Price: <strong>${{ validatedPromo.finalPrice }}</strong></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="d-flex justify-content-center align-items-center py-4">
+									<ng-container *ngIf="validatedPromo; else defaultStripeBtn">
+										<stripe-buy-button
+											[attr.buy-button-id]="validatedPromo.stripeButtonId"
+											[attr.publishable-key]="validatedPromo.publishableKey"
+											onSuccess="onSubscriptionSuccess('Pro')">
+										</stripe-buy-button>
+									</ng-container>
+									<ng-template #defaultStripeBtn>
+										<stripe-buy-button
+											buy-button-id="buy_btn_1Rj0P5EI7JiDsJpZRCfVzaGb"
+											publishable-key="pk_live_51R2AHHEI7JiDsJpZVH9qlVAR6tNNgbJsS6HJQi7cyZDtZjTaBDLq6FC0xAwHzDKaeabJIsrynafmem95Obwj7sSB00BxmzWHiO"
+											onSuccess="onSubscriptionSuccess('Pro')">
+										</stripe-buy-button>
+									</ng-template>
+								</div>
+								<div class="text-center mt-4">
+									<p class="text-muted small mb-2"><i class="bi bi-lock-fill me-2"></i>Secured by Stripe • 256-bit SSL encryption</p>
+									<p class="text-muted small mb-0">Cancel anytime • No hidden fees</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pro Annual Modal -->
+				<div class="modal fade" id="stripeModalProAnnual" tabindex="-1" aria-labelledby="stripeModalProLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" style="max-width: 500px;">
+						<div class="modal-content shadow-lg border-0 rounded-4">
+							<div class="modal-header border-0 py-5 px-6" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">
+								<div class="w-100 text-center">
+									<div class="mb-3">
+										<i class="bi bi-stars text-white" style="font-size: 3rem;"></i>
+									</div>
+									<h4 class="modal-title fw-bold text-white mb-2 fs-3">Premium Access</h4>
+									<p class="text-white-50 mb-0 fs-6">Complete your Pro subscription securely with Stripe</p>
+								</div>
+								<button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 mt-4 me-4" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body p-6 bg-light">
+								<div class="card border-0 shadow-sm rounded-3 mb-4 p-4">
+									<div class="d-flex align-items-center justify-content-between mb-3">
+										<span class="text-muted fs-6">Selected Plan:</span>
+										<span class="badge fs-6 px-3 py-2" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">Pro Annual</span>
+									</div>
+									<div *ngIf="validatedPromo" class="alert alert-success border-0 rounded-3 mb-0">
+										<div class="d-flex align-items-center">
+											<i class="bi bi-tag-fill fs-3 me-3"></i>
+											<div>
+												<div class="fw-bold">Promo Applied: {{ validatedPromo.discountPercent }}% OFF</div>
+												<div class="small">Original: <del>${{ validatedPromo.originalPrice }}</del> → Your Price: <strong>${{ validatedPromo.finalPrice }}</strong></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="d-flex justify-content-center align-items-center py-4">
+									<ng-container *ngIf="validatedPromo; else defaultStripeBtnAnnual">
+										<stripe-buy-button
+											[attr.buy-button-id]="validatedPromo.stripeButtonId"
+											[attr.publishable-key]="validatedPromo.publishableKey"
+											onSuccess="onSubscriptionSuccess('Pro Annual')">
+										</stripe-buy-button>
+									</ng-container>
+									<ng-template #defaultStripeBtnAnnual>
+										<stripe-buy-button
+											buy-button-id="buy_btn_1Rj0X4EI7JiDsJpZsLTpO1Nj"
+											publishable-key="pk_live_51R2AHHEI7JiDsJpZVH9qlVAR6tNNgbJsS6HJQi7cyZDtZjTaBDLq6FC0xAwHzDKaeabJIsrynafmem95Obwj7sSB00BxmzWHiO"
+											onSuccess="onSubscriptionSuccess('Pro Annual')">
+										</stripe-buy-button>
+									</ng-template>
+								</div>
+								<div class="text-center mt-4">
+									<p class="text-muted small mb-2"><i class="bi bi-lock-fill me-2"></i>Secured by Stripe • 256-bit SSL encryption</p>
+									<p class="text-muted small mb-0">Cancel anytime • No hidden fees</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<!--end::Stripe Modals-->
+			
+		
+		
+	
+		<!--begin::Scrolltop-->
+		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+			<i class="ki-outline ki-arrow-up"></i>
+		</div>
+		<!--end::Scrolltop-->
+		
+		
+		<!--begin::Javascript-->
+		<script>var hostUrl = "assets/";</script>
+		
+		<!--begin::Custom Javascript(used for this page only)-->
+		<script src="assets/js/widgets.bundle.js"></script>
+		<script src="assets/js/custom/widgets.js"></script>
+		<script src="assets/js/custom/apps/chat/chat.js"></script>
+		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
+		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		<!--end::Custom Javascript-->
+		<!--end::Javascript-->
+	
+	

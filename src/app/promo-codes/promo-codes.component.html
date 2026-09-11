@@ -1,0 +1,162 @@
+<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+  <!--begin::Content-->
+  <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+      <!--begin::Container-->
+      <div id="kt_content_container" class="container-xxl">
+        <div class="d-flex flex-column flex-column-fluid">
+          <!--begin::Toolbar-->
+          <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6 mt-12">
+            <div class="app-container container-xxl d-flex flex-stack">
+              <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ms-10">
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-2 flex-column justify-content-center my-0">
+                  Promo Codes
+                </h1>
+              </div>
+
+              <!-- Add New Button -->
+              <div class="d-flex align-items-center ms-10">
+                <button class="btn btn-primary" (click)="openModal('add')">
+                  <i class="fa fa-plus me-1"></i> Add New
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--end::Toolbar-->
+
+          <!--begin::Promo Codes Table-->
+          <div class="card shadow-sm p-4 ms-10 me-10" style="height:430px;">
+            <div class="table-responsive mt-5">
+              <table class="table table-bordered table-hover text-start align-middle">
+                <thead class="bg-light-primary text-dark fw-bold">
+                  <tr>
+                    <th class="text-center">Code</th>
+                    <th class="text-center">Subscription Name</th>
+                    <th class="text-center">Discount (%)</th>
+                    <th class="text-center">Expiration Date</th>
+                    <th class="text-center">Plan ID</th>
+                    <th class="text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let promo of promoCodes">
+                    <td class="text-center align-middle">{{ promo.code }}</td>
+                    <td class="text-center align-middle">
+                      <span
+                        [ngClass]="getBadgeClass(promo.subscriptionName)"
+                        class="badge px-3 py-2 fs-7 fw-semibold"
+                      >
+                        {{ promo.subscriptionName }}
+                      </span>
+                    </td>
+                    <td class="text-center align-middle">{{ promo.percentage }}%</td>
+                    <td class="text-center align-middle">{{ promo.expirationDate | date: 'yyyy-MM-dd' }}</td>
+                    <td class="text-center align-middle">{{ promo.planId }}</td>
+                    <td class="text-center align-middle">
+                      <button class="btn btn-icon btn-warning btn-sm me-2" (click)="openModal('edit', promo)">
+                        <i class="fa fa-edit"></i>
+                      </button>
+                      <button class="btn btn-icon btn-danger btn-sm" (click)="deletePromo(promo.id)">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- Empty State -->
+                  <tr *ngIf="promoCodes.length === 0">
+                    <td colspan="6">
+                      <div class="text-center py-10" style="margin-top: 50px; margin-bottom:40px;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/7486/7486895.png" width="80" class="mb-3" />
+                        <h5 class="text-muted">No Promo Codes Found</h5>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!--end::Promo Codes Table-->
+            <!-- Add/Edit Modal -->
+            <div class="modal fade" id="promoModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <form (ngSubmit)="savePromo()" #promoForm="ngForm" class="modal-content" novalidate>
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{ editingPromo?.id ? 'Edit' : 'Add New' }} Promo Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"(click)="closeModal()"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <input type="hidden" [(ngModel)]="editingPromo.id" name="id" />
+
+                        <!-- Code -->
+                        <div class="mb-3">
+                        <label class="form-label">Code</label>
+                        <input type="text" class="form-control" [(ngModel)]="editingPromo.code" name="code" required #code="ngModel" />
+                        <div class="text-danger" *ngIf="code.invalid && code.touched">
+                            Code is required.
+                        </div>
+                        </div>
+
+                        <!-- Subscription Name -->
+                        <div class="mb-3">
+                        <label class="form-label">Subscription Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="editingPromo.subscriptionName" name="subscriptionName" required #subscriptionName="ngModel" />
+                        <div class="text-danger" *ngIf="subscriptionName.invalid && subscriptionName.touched">
+                            Subscription name is required.
+                        </div>
+                        </div>
+
+                        <!-- Percentage -->
+                        <div class="mb-3">
+                        <label class="form-label">Percentage</label>
+                        <input type="number" class="form-control" [(ngModel)]="editingPromo.percentage" name="percentage" required min="1" max="100" #percentage="ngModel" />
+                        <div class="text-danger" *ngIf="percentage.invalid && percentage.touched">
+                            Percentage must be between 1 and 100.
+                        </div>
+                        </div>
+
+                        <!-- Expiration Date -->
+                        <div class="mb-3">
+                        <label class="form-label">Expiration Date</label>
+                        <input type="date" class="form-control" [(ngModel)]="editingPromo.expirationDate" name="expirationDate" required #expirationDate="ngModel" />
+                        <div class="text-danger" *ngIf="expirationDate.invalid && expirationDate.touched">
+                            Expiration date is required.
+                        </div>
+                        </div>
+                         <div class="mb-3">
+                        <label class="form-label">Button Id</label>
+                        <input type="date" class="form-control" [(ngModel)]="editingPromo.stripeButtonId" name="stripeButtonId" required #stripeButtonId="ngModel" />
+                        <div class="text-danger" *ngIf="stripeButtonId.invalid && stripeButtonId.touched">
+                            Button Id is required.
+                        </div>
+                        </div>
+                         <div class="mb-3">
+                        <label class="form-label">Publishable Key</label>
+                        <input type="date" class="form-control" [(ngModel)]="editingPromo.publishableKey" name="publishableKey" required #publishableKey="ngModel" />
+                        <div class="text-danger" *ngIf="publishableKey.invalid && publishableKey.touched">
+                            Publishable-Key is required.
+                        </div>
+                        </div>
+
+                        <!-- Plan ID (Optional) -->
+                        <div class="mb-3">
+                        <label class="form-label">Plan ID</label>
+                        <input type="text" class="form-control" [(ngModel)]="editingPromo.planId" name="planId" />
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" [disabled]="promoForm.invalid">Save</button>
+                        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

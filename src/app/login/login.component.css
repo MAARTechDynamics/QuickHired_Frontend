@@ -1,0 +1,338 @@
+/* ========================================
+   Premium Login Page Styles
+   ======================================== */
+
+/* Premium Login Card */
+.premium-login-card {
+  background: #ffffff !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid #e2e8f0 !important;
+  transition: all 0.3s ease;
+}
+
+.premium-login-card:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Premium Title & Subtitle */
+.premium-login-title {
+  background: linear-gradient(135deg, #0a7068 0%, #0891b2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem !important;
+  letter-spacing: -0.5px;
+}
+
+.premium-login-subtitle {
+  color: #64748b !important;
+  font-size: 1rem !important;
+}
+
+/* Premium Social Buttons */
+.premium-social-btn-wrapper {
+  position: relative;
+}
+
+.premium-facebook-btn {
+  border: 2px solid #e2e8f0 !important;
+  background: white !important;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569 !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.premium-facebook-btn img {
+  height: 22px;
+  margin-right: 10px;
+}
+
+.premium-facebook-btn:hover {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+  border-color: #0891b2 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.15);
+  cursor: pointer;
+}
+
+.premium-facebook-btn:active {
+  transform: translateY(0);
+}
+
+/* Premium Separator */
+.premium-separator {
+  position: relative;
+  margin: 2rem 0 !important;
+}
+
+.premium-separator::before,
+.premium-separator::after {
+  background: linear-gradient(90deg, transparent, #cbd5e1, transparent) !important;
+  height: 1px !important;
+}
+
+.premium-separator-text {
+  background: white !important;
+  padding: 0 1.5rem !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+}
+
+/* Premium Form Controls */
+.premium-form-control {
+  height: 52px !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  padding: 0.75rem 1.25rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: #0f172a !important;
+  background: #ffffff !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.premium-form-control::placeholder {
+  color: #94a3b8 !important;
+  font-weight: 400;
+}
+
+.premium-form-control:focus {
+  border-color: #0891b2 !important;
+  box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1), 0 2px 8px rgba(8, 145, 178, 0.15) !important;
+  background: #ffffff !important;
+  outline: none;
+}
+
+.premium-form-control:hover:not(:focus) {
+  border-color: #cbd5e1 !important;
+}
+
+/* Premium Error Messages */
+.premium-error {
+  color: #dc2626 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.premium-error i {
+  font-size: 1rem;
+}
+
+/* Premium Alert */
+.premium-alert {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%) !important;
+  border: 2px solid #dc2626 !important;
+  border-radius: 8px !important;
+  padding: 1rem 1.25rem !important;
+  font-weight: 600 !important;
+  color: #991b1b !important;
+  margin-bottom: 1.5rem !important;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+}
+
+.premium-alert i {
+  font-size: 1.25rem;
+}
+
+/* Premium Links */
+.premium-link {
+  color: #0891b2 !important;
+  font-weight: 600 !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.premium-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0a7068, #0891b2);
+  transition: width 0.3s ease;
+}
+
+.premium-link:hover {
+  color: #0a7068 !important;
+}
+
+.premium-link:hover::after {
+  width: 100%;
+}
+
+/* Premium Submit Button */
+.premium-submit-btn {
+  background: linear-gradient(135deg, #0a7068 0%, #0891b2 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  height: 52px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.premium-submit-btn:hover::before {
+  left: 100%;
+}
+
+.premium-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0891b2 0%, #0a7068 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(8, 145, 178, 0.4);
+}
+
+.premium-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.premium-submit-btn:disabled {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%) !important;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+/* Premium Sign Up Text */
+.premium-signup-text {
+  font-size: 0.95rem !important;
+  color: #64748b !important;
+}
+
+/* Language Dropdown */
+.language-dropdown-up {
+  position: absolute;
+  bottom: 100%;
+  top: auto;
+  left: 0;
+  background-color: #fff;
+  z-index: 9999;
+  padding: 10px;
+  min-width: 200px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15); 
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .premium-login-card {
+    padding: 2rem 1.5rem !important;
+    width: 100% !important;
+    max-width: 500px;
+  }
+
+  .premium-login-title {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .premium-login-card {
+    padding: 1.5rem 1rem !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .premium-login-title {
+    font-size: 1.75rem !important;
+  }
+
+  .premium-form-control {
+    height: 48px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .premium-submit-btn {
+    height: 48px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .premium-login-title {
+    font-size: 1.5rem !important;
+  }
+
+  .premium-login-subtitle {
+    font-size: 0.875rem !important;
+  }
+
+  .premium-facebook-btn {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .premium-separator {
+    margin: 1.5rem 0 !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .premium-login-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+  }
+
+  .premium-form-control {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+  }
+
+  .premium-form-control:focus {
+    background: #1e293b !important;
+  }
+
+  .premium-facebook-btn {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+  }
+
+  .premium-facebook-btn:hover {
+    background: #1e293b !important;
+    border-color: #0891b2 !important;
+  }
+
+  .premium-signup-text {
+    color: #cbd5e1 !important;
+  }
+
+  .language-dropdown-up {
+    background-color: #1e293b;
+    border-color: #334155;
+  }
+}
+

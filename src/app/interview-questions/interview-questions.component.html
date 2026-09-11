@@ -1,0 +1,185 @@
+<div class="questions-container">
+  <div class="container-wrapper">
+    
+    <!-- Modern Header -->
+    <div class="page-header">
+      <div class="header-badge">
+        <span class="badge-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </span>
+        <span class="badge-text">INTERVIEW QUESTION BANK</span>
+      </div>
+      <h1 class="header-title">
+        Ace Your Interviews with <span class="gradient-text">Real Company Questions</span>
+      </h1>
+      <p class="header-subtitle">
+        Access thousands of interview questions asked at top companies. Practice with AI-powered answers and land your dream job.
+      </p>
+    </div>
+    <!-- Filter Card -->
+    <div class="filter-card">
+      <h3 class="filter-title">
+        <span class="filter-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+        </span>
+        Find Questions for Your Target Role
+      </h3>
+      
+      <div class="filter-grid">
+        <!-- Company Select -->
+        <div class="filter-group">
+          <label class="filter-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            Company
+          </label>
+          <select class="filter-select" [(ngModel)]="selectedCompany">
+            <option value="Mostly Asked">Select Company</option>
+            <option *ngFor="let company of companies" [value]="company">{{ company }}</option>
+          </select>
+        </div>
+
+        <!-- Manual Company Input -->
+        <div class="filter-group">
+          <label class="filter-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            Or Type Company
+          </label>
+          <input type="text" 
+                 class="filter-input" 
+                 placeholder="Enter company name"
+                 [(ngModel)]="manualCompany"
+                 (input)="onManualCompanyInput()" />
+        </div>
+
+        <!-- Role Select -->
+        <div class="filter-group">
+          <label class="filter-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Role
+          </label>
+          <select class="filter-select" [(ngModel)]="selectedRole">
+            <option value="General">Select Role</option>
+            <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+          </select>
+        </div>
+
+        <!-- Manual Role Input -->
+        <div class="filter-group">
+          <label class="filter-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            Or Type Role
+          </label>
+          <input type="text" 
+                 class="filter-input" 
+                 placeholder="Enter role title"
+                 [(ngModel)]="manualRole"
+                 (input)="onManualRoleInput()" />
+        </div>
+      </div>
+
+      <div class="filter-actions">
+        <button class="btn-load" 
+                (click)="loadQuestions()"
+                [disabled]="(!selectedCompany && !manualCompany) || (!selectedRole && !manualRole) || loading">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <span>{{ loading ? 'Searching...' : 'Search Questions' }}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Questions List -->
+    <div class="questions-wrapper">
+      
+      <!-- Loading State -->
+      <div *ngIf="loading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p class="loading-text">Loading questions...</p>
+      </div>
+
+      <!-- Questions -->
+      <ng-container *ngIf="!loading && questions.length > 0">
+        <div class="question-card" 
+             *ngFor="let q of questions.slice(0, visibleQuestionsCount); let i = index"
+             [class.expanded]="q.expanded"
+             (click)="toggleQuestion(q)">
+          <div class="question-header">
+            <div class="question-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="question-content">
+              <h4 class="question-text">{{ q.question }}</h4>
+            </div>
+            <div class="question-expand">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="answer-section">
+            <div class="answer-content" *ngIf="q.answer" [innerHTML]="formatAnswer(q.answer)"></div>
+            
+            <ng-container *ngIf="!q.answer && q.loading">
+              <div class="typing-indicator">
+                <div class="typing-dots">
+                  <div class="typing-dot"></div>
+                  <div class="typing-dot"></div>
+                  <div class="typing-dot"></div>
+                </div>
+                <span>AI is generating answer...</span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <!-- Show More Button -->
+        <div class="show-more-wrapper" *ngIf="questions.length > visibleQuestionsCount">
+          <button class="btn-show-more" (click)="showMoreQuestions()">
+            Show More Questions
+          </button>
+        </div>
+      </ng-container>
+
+      <!-- No Questions Found -->
+      <div class="no-questions" *ngIf="!loading && noQuestionsFound">
+        <img src="https://cdn-icons-png.flaticon.com/512/7486/7486895.png" 
+             class="no-questions-icon" 
+             alt="No questions" />
+        <h3 class="no-questions-title">No Questions Found</h3>
+        <p class="no-questions-message">
+          We couldn't find questions for <strong>{{ selectedRole }}</strong> at <strong>{{ selectedCompany }}</strong>.<br />
+          Try selecting a different role or company.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

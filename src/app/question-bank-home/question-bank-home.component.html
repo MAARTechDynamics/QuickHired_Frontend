@@ -1,0 +1,924 @@
+
+<!DOCTYPE html>
+<!--
+Product: QuickHired - Interview Question Bank Platform
+Description: Comprehensive interview question database for top companies and roles
+Website: https://www.quickhired.com
+Contact: support@quickhired.com
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+	<!--begin::Head-->
+	<head>
+		<title>Metronic - The World's #1 Selling Bootstrap Admin Template by KeenThemes</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
+		<meta name="keywords" content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Metronic - The World's #1 Selling Bootstrap Admin Template by KeenThemes" />
+		<meta property="og:url" content="https://keenthemes.com/metronic" />
+		<meta property="og:site_name" content="Metronic by Keenthemes" />
+		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+		<link rel="shortcut icon" href="/assets/media/logos/favicon.ico" />
+		<!--begin::Fonts(mandatory for all pages)-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+		<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Global Stylesheets Bundle-->
+		<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu" class="bg-body position-relative">
+		<!--begin::Theme mode setup on page load-->
+		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if ( localStorage.getItem("data-bs-theme") !== null ) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
+		<!--end::Theme mode setup on page load-->
+		<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+				<!--begin::Header Section-->
+				<div class="mb-0" id="home">
+					<!--begin::Wrapper-->
+						<div class="bgi-no-repeat bgi-position-x-center bgi-position-y-bottom" 
+						style="background-image: url(/assets/media/auth/bg4.jpg); background-size: 100% 250%;">
+
+						<!--begin::Header-->
+						<div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+							<!--begin::Container-->
+							<div class="container">
+								<!--begin::Wrapper-->
+								<div class="d-flex align-items-center justify-content-between">
+									<!--begin::Logo-->
+									<div class="d-flex align-items-center flex-equal">
+										<!--begin::Logo image-->
+										<a routerLink="/home">
+											<img alt="Logo" src="/assets/media/logos/QuickHireWhited.png" class="logo-default h-60px h-lg-60px ms-0" />
+											<img alt="Logo" src="/assets/media/logos/QuickHireBlack.png" class="logo-sticky h-60px h-lg-50px" />
+										</a>
+										<!--end::Logo image-->
+									</div>
+									<!--end::Logo-->
+									<!--begin::Header Wrapper-->
+									<nav  class="navbar navbar-expand-lg px-4 px-lg-0" style="background-color: transparent;">
+									<div class="container-fluid">
+									   <!-- Toggler for mobile -->
+									<button
+										class="navbar-toggler  btn btn-icon btn-active-color-primary me-3 d-flex d-lg-none"
+										type="button"
+										(click)="toggleMenu()"
+										aria-label="Toggle navigation"
+										>
+										<i class="ki-outline ki-abstract-14 fs-2hx"></i>
+									</button>
+										<!--begin::Menu Wrapper-->
+										<div class="collapse navbar-collapse" id="landingNavbar" >
+										<!--begin::Menu-->
+										<ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5 fw-semibold">
+											<li class="nav-item">
+										<a
+											class="nav-link px-4 py-3"
+											routerLink="/interview-home"
+											(click)="setActiveTab('copilot')"
+											[ngClass]="[
+											isWhiteBg ? (activeTab === 'copilot' ? 'text-primary fw-bold' : 'text-dark') :
+														(activeTab === 'copilot' ? 'text-primary fw-bold' : 'text-light')
+											]"
+										>
+											AI Interview Copilot
+										</a>
+										</li>
+
+
+
+											<li class="nav-item">
+											<a routerLink="/mock-home" class="nav-link px-4 py-3 text-light " [ngClass]="isWhiteBg ? 'text-dark' : 'text-light'" href="#">AI Mock Interview</a>
+											</li>
+
+
+											<li class="nav-item dropdown position-static">
+											<a 
+											class="nav-link px-4 py-3 d-flex justify-content-between align-items-center"
+											(click)="toggleMobileDropdown('features')"
+											>
+											<span [ngClass]="isMobileView ? 'text-dark' : (isWhiteBg ? 'text-dark' : 'text-light')">
+												Features
+											</span>
+
+											<i class="bi ms-3" [ngClass]="isMobileDropdownOpen.features ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+											</a>
+
+
+
+											<div *ngIf="isMobileDropdownOpen.features || !isMobileView" class="dropdown-menu shadow border-0 mt-0 px-5 py-5 bg-white rounded-4 dropdown-animated" aria-labelledby="featuresDropdown">
+												<div class="row">
+												<!-- Column 1: Interview Copilot -->
+												<div class="col-md-6 pe-md-5 mb-4 mb-md-0">
+													<h5 class="text-muted fw-bold text-uppercase mb-4 fs-5">Interview Copilot</h5>
+
+													<!-- Coding Copilot -->
+													<a routerLink="/coding-copilot"  class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-terminal me-3 text-primary fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-6">Coding Copilot</div>
+															<div class="text-muted small text-wrap w-100">Solve real-time coding challenges with AI-driven support</div>
+														</div>
+													</a>
+
+													<!-- Online Assessment Copilot -->
+													<a  routerLink="/online-assessment-copilot" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-pc-display-horizontal me-3 text-success fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-6">Online Assessment Copilot</div>
+															<div class="text-muted small text-wrap w-100">Auto-detect and solve MCQs, logic puzzles, and quizzes</div>
+														</div>
+													</a>
+
+													<!-- Hirevue Interviews -->
+													<a routerLink="/hirevuew-interview" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-camera-video me-3 text-info fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-6">Hirevue Interviews</div>
+															<div class="text-muted small text-wrap w-100">Practice automated video interviews with instant AI feedback</div>
+														</div>
+													</a>
+
+													<!-- Question Banks -->
+													<a routerLink="/question-bank-home" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-journal-text me-4 text-warning fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-5">Question Banks</div>
+															<div class="text-muted small text-wrap w-100">Access curated questions from top companies & roles</div>
+														</div>
+													</a>
+
+													<!-- Software Engineer Copilot -->
+													<a routerLink="/login" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-cpu-fill me-4 text-danger fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-5">Software Engineer Copilot</div>
+															<div class="text-muted small text-wrap w-100">Specialized technical prep for SWE roles and system design</div>
+														</div>
+													</a>
+
+													<!-- DataScience & Analytics Copilot -->
+													<a routerLink="/login" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-bar-chart-line me-4 text-dark fs-1"></i>
+														<div>
+															<div class="fw-semibold fs-5">DataScience & Analytics Copilot</div>
+															<div class="text-muted small text-wrap w-100">Tackle case studies, SQL tasks, and data challenges with ease</div>
+														</div>
+													</a>
+						                        </div>
+
+
+												<!-- Column 2: Free Tools -->
+											        <div class="col-md-6 ps-md-5">
+                                                   <h5 class="text-muted fw-bold text-uppercase mb-4 fs-5">Free Tools</h5>
+
+													<!-- AI Resume Builder -->
+													<a routerLink="/resume-builder" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-file-earmark-text me-3 text-danger fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">AI Resume Builder</div>
+														<div class="text-muted small text-wrap w-100">Create a professional, tailored resume with AI assistance.</div>
+														</div>
+													</a>
+
+													<!-- AI Cover Letter -->
+													<a routerLink="/ai-cover-letter" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-clipboard-data me-3 text-warning fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">AI Cover Letter</div>
+														<div class="text-muted small text-wrap w-100">Generate customized cover letters that align with job roles.</div>
+														</div>
+													</a>
+
+													<!-- AI Thank-You Email -->
+													<a routerLink="/ai-thank-you-email" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-envelope-paper-heart me-3 text-primary fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">AI Thank-You Email</div>
+														<div class="text-muted small text-wrap w-100">Send a thoughtful thank-you note after interviews instantly.</div>
+														</div>
+													</a>
+													<!-- AI Follow-Up Email -->
+													<a routerLink="/ai-follow-up-email" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-envelope-check me-3 text-success fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">AI Follow-Up Email</div>
+														<div class="text-muted small text-wrap w-100">Stay top-of-mind with recruiters by sending timely follow-ups.</div>
+														</div>
+													</a>
+
+													<!-- AI Cold Outreach Email -->
+													<a routerLink="/ai-cold-out-reach-email" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-send-check me-3 text-info fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-6">Recruiters Email</div>
+														<div class="text-muted small text-wrap w-100">Reach out to recruiters with confidence and personalization.</div>
+														</div>
+													</a>
+													</div>
+
+												</div>
+											</div>
+											</li>
+											<li class="nav-item">
+											<a routerLink="/pricing-home" class="nav-link px-4 py-3 text-light" [ngClass]="isWhiteBg ? 'text-dark' : 'text-light'" href="#team">Pricing</a>
+											</li>
+
+											<li class="nav-item dropdown position-static">
+											<a 
+												class="nav-link px-4 py-3 d-flex justify-content-between align-items-center"
+												(click)="toggleMobileDropdown('resources')"
+												>
+												<span [ngClass]="isMobileView ? 'text-dark' : (isWhiteBg ? 'text-dark' : 'text-light')">Resources</span>
+												<i class="bi ms-3" [ngClass]="isMobileDropdownOpen.resources ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+											</a>
+
+											<div  *ngIf="isMobileDropdownOpen.resources || !isMobileView" class="dropdown-menu shadow border-0 mt-0 px-5 py-5 bg-white rounded-4 dropdown-animated " aria-labelledby="featuresDropdown" style="min-width:450px;">
+												<div class="row">
+													<div class="col-md-12 pe-md-5 mb-4 mb-md-0">
+													<h5 class="text-muted fw-bold text-uppercase mb-4 fs-5">Resources</h5>
+
+													<!-- About Us -->
+													<a routerLink="/about-us" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-info-circle me-4 text-dark fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-5">About Us</div>
+														<div class="text-muted small text-wrap w-100">Learn more about our mission, values, and team</div>
+														</div>
+													</a>
+
+													<!-- Contact Us -->
+													<a routerLink="/contact-us" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-envelope-open me-4 text-primary fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-5">Contact Us</div>
+														<div class="text-muted small text-wrap w-100">Get in touch with our support or sales team</div>
+														</div>
+													</a>
+
+													<!-- Help Center -->
+													<a routerLink="/a-help-center" class="dropdown-item d-flex align-items-start py-3">
+														<i class="bi bi-question-circle me-4 text-success fs-1"></i>
+														<div>
+														<div class="fw-semibold fs-5">Help Center</div>
+														<div class="text-muted small text-wrap w-100">Browse FAQs and get guidance for using our platform</div>
+														</div>
+													</a>
+
+													</div>
+												</div>
+											</div>
+											</li>
+										</ul>
+										<!--end::Menu-->
+										</div>
+										<!--end::Menu Wrapper-->
+									</div>
+									</nav>
+									<!--end::Header Wrapper-->
+
+									<!--begin::Toolbar-->
+									<div class="flex-equal text-end ms-1">
+										<a routerLink="/login" class="btn btn-warning">Sign In</a>
+									</div>
+									<!--end::Toolbar-->
+								</div>
+								<!--end::Wrapper-->
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Header-->
+						<!--begin::Landing hero-->
+						<div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">
+							<!--begin::Heading-->
+							<div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
+								<!--begin::Title-->
+                                    <h1 class="text-white lh-base fw-bold fs-2x fs-lg-3x mb-15">
+                                    Crack One-Way Interviews with Confidence
+                                    <br />
+                                    </h1>
+                                    <!--end::Title-->
+                                    <div class="text-white fs-2 mb-15">
+                                    Browse a powerful bank of one-way video interview questions. <br>
+                                    Get AI feedback and sharpen your answers for real-world success.
+                                    </div>
+
+								<!--begin::Action-->
+                                <a routerLink="/login" 
+                                class="btn btn-success px-7 py-5 fs-2 fw-bold rounded-4">
+                                Start Free Trial
+                                 </a>
+                                <!--end::Action-->
+
+							</div>
+							<!--end::Heading-->
+							
+						</div>
+						<!--end::Landing hero-->
+                        </div><!--begin::Curve bottom-->
+                       
+					<!--end::Curve bottom-->
+					<!--end::Wrapper-->
+					
+				</div>
+			<!--end::Header Section-->
+             <div class="py-20 mt-15">
+            <div class="container">
+                <div class="row align-items-stretch flex-column-reverse flex-lg-row">
+
+                <!--begin::Image Section-->
+				<div class="col-lg-6 pe-lg-10 mb-10 mb-lg-0">
+				<div
+					style="
+					min-height: 400px;
+					cursor: pointer;
+					border-radius: 2rem;
+					overflow: hidden;
+					transition: transform 0.3s ease;
+					"
+					class="mt-15"
+					onmouseenter="this.style.transform='translateY(-10px) scale(1.03)'"
+					onmouseleave="this.style.transform=''"
+				>
+					<img
+					src="assets/media/auto_question.jpg" 
+					alt="image"
+					style="
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 2rem;
+					"
+					/>
+				</div>
+				</div>
+				<!--end::Image Section-->
+
+
+              <!--begin::Text Content-->
+                <div class="col-lg-6 ps-lg-10 d-flex align-items-center">
+                    <div class="px-4 w-100">
+                        <!-- Badge -->
+                        <span class="badge badge-light-success fw-bold px-6 py-4 mb-8 fs-1 rounded-4 d-inline-flex align-items-center gap-2">
+                            <i class="ki-outline ki-rocket fs-2x text-success"></i>
+                            Smart Question Bank
+                        </span> 
+
+                        <!-- Heading -->
+                        <h2 class="fs-3x fw-bold mb-10 text-dark">
+                            <span class="text-success">Ace Every Interview</span> — With Instant Access to Curated Questions
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="fs-1 fw-semibold text-muted mb-8">
+                            Explore a powerful library of interview questions tailored by role and industry.<br>
+                            Practice with real prompts and get AI-guided assistance—anytime you need it.
+                        </p>
+
+                        <!-- Button -->
+                        <a routerLink="/login" 
+                            class="btn btn-success px-7 py-5 fs-2 fw-bold rounded-4">
+                            Browse Questions Free
+                        </a>
+                    </div>
+                </div>
+                <!--end::Text Content-->
+
+
+                </div>
+            </div>
+            </div>
+
+			<div class="py-20 mt-15">
+				<div class="container">
+					<div class="row align-items-stretch flex-column-reverse flex-lg-row">
+
+						<!--begin::Text Content (Now on Left)-->
+                        <div class="col-lg-6 pe-lg-10 d-flex align-items-center mb-10 mb-lg-0">
+                            <div class="px-4 w-100">
+                                <!-- Badge -->
+                                <span class="badge badge-light-success fw-bold px-6 py-4 mb-8 fs-1 rounded-4 d-inline-flex align-items-center gap-2">
+                                    <i class="ki-outline ki-bulb fs-2x text-success"></i>
+                                    Covers Every Question Type
+                                </span> 
+
+                                <!-- Heading -->
+                                <h2 class="fs-3x fw-bold mb-10 text-dark">
+                                    Master <span class="text-success">Behavioral, Situational,</span> & <span class="text-success">Technical</span> Interviews
+                                </h2>
+
+                                <!-- Description -->
+                                <p class="fs-1 fw-semibold text-muted mb-8">
+                                    From entry-level to executive roles—access a categorized question bank with AI-suggested responses tailored for every interview type.
+                                </p>
+
+                                <!-- Button -->
+                                <a routerLink="/login" 
+                                    class="btn btn-success px-7 py-5 fs-2 fw-bold rounded-4">
+                                    Explore the Question Bank
+                                </a>
+                            </div>
+                        </div>
+                        <!--end::Text Content-->
+
+
+						<!--begin::Image Section (Now on Right)-->
+						<div class="col-lg-6 ps-lg-10">
+							<div
+								style="
+								min-height: 400px;
+								cursor: pointer;
+								border-radius: 2rem;
+								overflow: hidden;
+								transition: transform 0.3s ease;
+								"
+								class="mt-15"
+								onmouseenter="this.style.transform='translateY(-10px) scale(1.03)'"
+								onmouseleave="this.style.transform=''"
+							>
+								<img
+								src="assets/media/question_bank.jpg"  
+								alt="image"
+								style="
+									width: 100%;
+									height: 100%;
+									object-fit: cover;
+									border-radius: 2rem;
+								"
+								/>
+							</div>
+						</div>
+
+						<!--end::Image Section-->
+
+					</div>
+				</div>
+			</div>
+            <!--begin::How It Works Section-->
+			<div class="py-20 mt-10 mb-lg-n20 z-index-2">
+				<!--begin::Container-->
+				<div class="container">
+					<!--begin::Heading-->
+					<div class="text-center mb-17">
+						<!--begin::Title-->
+						<h3 class="fs-2hx text-gray-900 mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">Lightning-Fast, Precise Answers to Conquer Coding Interviews </h3>
+						<!--end::Title-->
+						<!--begin::Text-->
+						<div class="fs-5 text-muted fw-bold">Quick Hired empowers you with the confidence and clarity to tackle complex logic puzzles, intricate math problems, 
+						<br />and challenging coding tasks ensuring you're fully prepared to excel in any online test or technical assessment.</div>
+						<!--end::Text-->
+					
+					</div>
+					<!--end::Heading-->
+					<!--begin::Row-->
+					<div class="row w-100 gy-10 mb-md-20">
+						<!--begin::Col-->
+						<div class="col-md-4 px-5">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+								 <div class="d-flex justify-content-center mb-9" style="min-height: 125px;">
+                                    <i class="bi bi-chat-dots" style="font-size: 90px; color: #091C43;"></i>
+                                </div>
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bold text-gray-900">Live support for all interviews</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-semibold fs-6 fs-lg-4 text-muted">Excel in coding challenges, behavioral
+								<br /> rounds, case interviews, and domain-
+								<br />specific questions.</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-4 px-5">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+							<!--begin::Icon Instead of Illustration-->
+                            <div class="d-flex justify-content-center mb-9" style="min-height: 125px;">
+                            <i class="ki-outline ki-code" style="font-size: 90px; color: #091C43;"></i>
+                            </div>
+                            <!--end::Icon-->
+
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bold text-gray-900">Launch a Coding Copilot Session</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-semibold fs-6 fs-lg-4 text-muted">Start an interview copilot session 
+								<br />to receive real-time support for
+								<br /> your online assessment. </div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-4 px-5">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+								 <div class="d-flex justify-content-center mb-9" style="min-height: 125px;">
+                                    <i class="bi bi-journal-check" style="font-size: 90px; color: #091C43;"></i>
+                                </div>
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bold text-gray-900">Begin your interview with confidence</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-semibold fs-6 fs-lg-4 text-muted">Effortlessly capture and crack every question
+								<br />directly from your screen with smart,
+								<br />real-time AI assistance.</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
+					</div>
+					<!--end::Row-->
+					
+				</div>
+				<!--end::Container-->
+			</div>
+			<!--end::How It Works Section-->
+
+  <!--begin::Testimonials Section-->
+            <div class="mt-35 py-20 position-relative z-index-2">
+                <div class="container">
+
+                <!--begin::Heading-->
+                <div class="text-center mb-20">
+                <h3 class="fs-2hx text-gray-900 mb-5" id="clients" data-kt-scroll-offset="{default: 125, lg: 150}">
+                    Smart AI Support for Every Phase of Your Career Hunt
+                </h3>
+                <div class="fs-5 text-muted fw-bold">
+                    From crafting standout resumes to mastering post-interview feedback 
+                    <br />support at every stage.
+                </div>
+                </div>
+                <!--end::Heading-->
+
+                <!--begin::FAQ Cards-->
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-10">
+                        <div class="col-md-6 col-lg-4" *ngFor="let feature of featuresB">
+                            <div
+                            class="card h-100 rounded-5 overflow-hidden"
+                            style="min-height: 420px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);"
+                            (mouseenter)="feature.hover = true"
+                            (mouseleave)="feature.hover = false"
+                            [ngStyle]="feature.hover ? {
+                                'transform': 'translateY(-10px) scale(1.03)',
+                                'box-shadow': '0 20px 40px rgba(0, 0, 0, 0.12)'
+                            } : {}"
+                            >
+
+                            <!-- Image Section -->
+                           <div
+                                class="d-flex align-items-center justify-content-center"
+                                style="background: linear-gradient(to right, #050F29, #091C43 90%, #13274F 40%, #091C43 70%, #050F29); height: 220px;"
+                            >
+                              <img
+								[src]="feature.image"
+								alt="icon"
+								class="img-fluid rounded-4 "
+								style="height: 14rem;"
+								/>
+
+                            </div>
+
+                            <!-- Text Section -->
+                            <div class="p-8 text-start">
+                                <h4 class="fw-bold text-dark mb-4 fs-1">{{ feature.title }}</h4>
+                                <p class="text-muted fs-5 mb-4 fw-semibold">{{ feature.description }}</p>
+                                    <a routerLink="/login"
+                                    class="btn btn-success fw-bold px-7 py-4 rounded-4 fs-2">
+                                    Try Now
+                                    </a>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::FAQ Cards-->
+            </div>
+            <!--end::Testimonials Section-->
+
+		
+			<!--begin::Footer Section-->
+			<div class="mb-0">
+				<!--begin::Curve top-->
+			
+				<!--end::Curve top-->
+				<!--begin::Wrapper-->
+				<div class="bgi-no-repeat bgi-position-x-center bgi-position-y-bottom" 
+						style="background-image: url(/assets/media/auth/bg4.jpg); background-size: 100% 250%;">
+					<!--begin::Container-->
+					<div class="container">
+						<!--begin::Row-->
+						<div class="row py-10 py-lg-20">
+							<div class="col-lg-6 pe-lg-16 mb-10 mb-lg-0">
+								
+								<!--begin::Block-->
+								<div class="rounded landing-dark-border p-9 mt-5">
+									<!--begin::Title-->
+									<h2 class="text-white">Need Assistance?</h2>
+									<!--end::Title-->
+									<!--begin::Text-->
+									<span class="fw-normal fs-4 text-white">Our support team is here to help you.
+									<a href="#" data-bs-toggle="modal" data-bs-target="#quoteModal" class="text-white opacity-50 text-hover-primary">
+									 Click Here to Get a Help
+									</a>
+									</span>
+									<!--end::Text-->
+								</div>
+								<!--end::Block-->
+								
+
+							</div>
+							<!--end::Col-->
+							<!-- Quote Modal -->
+								<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+									
+									<div class="modal-header">
+										<h5 class="modal-title" id="quoteModalLabel">Need help with something?</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+
+									<div class="modal-body">
+										<form [formGroup]="quoteForm" (ngSubmit)="submitQuoteRequest()">
+										<div class="mb-3">
+											<label for="userEmail" class="form-label">Email</label>
+											<input type="email" id="userEmail" class="form-control" formControlName="userEmail" />
+											<div class="text-danger mt-1" *ngIf="quoteForm.get('userEmail')?.touched && quoteForm.get('userEmail')?.invalid">
+											Valid email is required.
+											</div>
+										</div>
+
+										<div class="mb-3">
+											<label for="userRequirement" class="form-label">Request Details</label>
+											<textarea id="userRequirement" class="form-control" rows="4" formControlName="userRequirement"></textarea>
+											<div class="text-danger mt-1" *ngIf="quoteForm.get('userRequirement')?.touched && quoteForm.get('userRequirement')?.invalid">
+											Request Details is required.
+											</div>
+										</div>
+                                        <div class="mb-3 text-end">
+											<button type="submit" class="btn btn-primary" [disabled]="quoteForm.invalid || isQuoteSubmitting">
+												<span *ngIf="!isQuoteSubmitting">Submit</span>
+												<span *ngIf="isQuoteSubmitting">
+													Please wait...
+													<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+												</span>
+											</button>
+										</div>
+										</form>
+									</div>
+
+									</div>
+								</div>
+								</div>
+							<!--begin::Col-->
+							<div class="col-lg-6 ps-lg-16">
+								<!--begin::Navs-->
+								<div class="d-flex justify-content-center">
+									<!--begin::Links-->
+									<div class="d-flex fw-semibold flex-column me-20">
+										<!--begin::Subtitle-->
+										<h4 class="fw-bold text-gray-500 mb-6">More for Quick Hired</h4>
+										<!--end::Subtitle-->
+										<!--begin::Link-->
+										<a routerLink="/interview-home" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Interview Copilot</a>
+										<!--end::Link-->
+										<!--begin::Link-->
+										<a routerLink="/mock-home" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Mock Interview</a>
+										<!--end::Link-->
+										
+
+										<!--begin::Link-->
+										<a routerLink="/resume-builder" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Resume Builder</a>
+										<!--end::Link-->
+										<!--begin::Link-->
+										<a routerLink="/ai-cover-letter" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Cover Letter</a>
+										<!--end::Link-->
+										<!--begin::Link-->
+										<a routerLink="/ai-thank-you-email" class="text-white opacity-50 text-hover-primary fs-5 mb-6">AI Thank-You Email</a>
+										<!--end::Link-->
+										
+										<!--begin::Link-->
+										<a routerLink="/ai-cold-out-reach-email" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Recruiters Email</a>
+										<!--end::Link-->
+										
+									
+									</div>
+									<!--end::Links-->
+									<!--begin::Links-->
+									<div class="d-flex fw-semibold flex-column ms-lg-20">
+										<!--begin::Subtitle-->
+										<h4 class="fw-bold text-gray-500 mb-6">Stay Connected</h4>
+										<!--end::Subtitle-->
+										<!--begin::Link-->
+										<a href="https://web.facebook.com/codewodeofficial/" target="_blank" class="mb-6">
+											<img src="/assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-2" alt="" />
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
+										</a>
+										<!--end::Link-->
+										
+										<!--begin::Link-->
+										<a href="https://www.linkedin.com/posts/codewode_allinoneplatform-eventtools-eventmanagement-activity-7251967517156409347-0UB3?utm_source=share&utm_medium=member_ios" target="_blank"  class="mb-6">
+											<img src="/assets/media/svg/brand-logos/linkedin-2.svg" class="h-20px me-2" alt="" />
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Linkedin</span>
+										</a>
+										<!--end::Link-->
+										
+										<!--begin::Link-->
+										<a href="https://www.instagram.com/codewodeofficial/" target="_blank" class="mb-6">
+											<img src="/assets/media/svg/brand-logos/instagram-2-1.svg" class="h-20px me-2" alt="" />
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Instagram</span>
+										</a>
+										<!--end::Link-->
+									</div>
+									<!--end::Links-->
+								</div>
+								<!--end::Navs-->
+							</div>
+							<!--end::Col-->
+						</div>
+						<!--end::Row-->
+					</div>
+					<!--end::Container-->
+					<!--begin::Separator-->
+					<div class="landing-dark-separator"></div>
+					<!--end::Separator-->
+					<!--begin::Container-->
+					<div class="container">
+						<!--begin::Wrapper-->
+						<div class="d-flex flex-column flex-md-row flex-stack py-7 py-lg-10">
+							<!--begin::Copyright-->
+							<div class="d-flex align-items-center order-2 order-md-1">
+								<!--begin::Logo-->
+								<a href="landing.html">
+									<img alt="Logo" src="/assets/media/logos/QuickHireWhited.png" class="h-50px h-md-50px" />
+								</a>
+								<!--end::Logo image-->
+								<!--begin::Logo image-->
+								<span class="mx-5 fs-6 fw-semibold text-white pt-1" href="http://www.code-wode.com/" target="_blank">&copy; 2024 Code-Wode.</span>
+								<!--end::Logo image-->
+							</div>
+							<!--end::Copyright-->
+							<!--begin::Menu-->
+							<ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
+								<li class="menu-item">
+									<a routerLink="/home" target="_blank" class="menu-link px-2">About</a>
+								</li>
+								<li class="menu-item mx-5">
+									 <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_new_ticket" class="menu-link px-2">Support</a>
+								</li>
+								<li class="menu-item">
+									<a routerLink="/login" target="_blank" class="menu-link px-2">Purchase</a>
+								</li>
+							</ul>
+							<!--end::Menu-->
+							<div class="modal fade" id="kt_modal_new_ticket" tabindex="-1" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered mw-750px">
+									<div class="modal-content rounded">
+									<div class="modal-header pb-0 border-0 justify-content-end">
+										<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+										<i class="ki-duotone ki-cross fs-1">
+											<span class="path1"></span>
+											<span class="path2"></span>
+										</i>
+										</div>
+									</div>
+									<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+										<form [formGroup]="supportForm" (ngSubmit)="submitSupportForm()">
+										<div class="mb-13 text-center">
+											<h1 class="mb-3"> Support Form</h1>
+											<div class="text-gray-500 fw-semibold fs-5">
+											If you have any queries, please email us. We'll get back to you within 2-3 business days.
+											</div>
+										</div>
+
+										<!-- Subject -->
+										<div class="d-flex flex-column mb-8 fv-row">
+											<label class="required fs-6 fw-semibold mb-2">Subject</label>
+											<input type="text" class="form-control form-control-solid" formControlName="subject" placeholder="Enter your subject" />
+											<div *ngIf="supportForm.get('subject')?.invalid && supportForm.get('subject')?.touched" class="text-danger mt-1">
+											Subject is required.
+											</div>
+										</div>
+
+										<!-- Name & Email -->
+										<div class="row g-9 mb-8">
+											<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2">Name</label>
+											<input type="text" class="form-control form-control-solid" formControlName="name" placeholder="Enter your name" />
+											<div *ngIf="supportForm.get('name')?.invalid && supportForm.get('name')?.touched" class="text-danger mt-1">
+												Name is required.
+											</div>
+											</div>
+
+											<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2">Email</label>
+											<input type="email" class="form-control form-control-solid" formControlName="email" placeholder="Enter your email" />
+											<div *ngIf="supportForm.get('email')?.invalid && supportForm.get('email')?.touched" class="text-danger mt-1">
+												<span *ngIf="supportForm.get('email')?.errors?.['required']">Email is required.</span>
+												<span *ngIf="supportForm.get('email')?.errors?.['email']">Invalid email format.</span>
+											</div>
+											</div>
+										</div>
+
+										<!-- Description -->
+										<div class="d-flex flex-column mb-8 fv-row">
+											<label class="fs-6 fw-semibold mb-2 required">Description</label>
+											<textarea class="form-control form-control-solid" rows="4" formControlName="message" placeholder="Type your ticket description"></textarea>
+											<div *ngIf="supportForm.get('message')?.invalid && supportForm.get('message')?.touched" class="text-danger mt-1">
+											Description is required.
+											</div>
+										</div>
+
+										<!-- Actions -->
+										<div class="text-center">
+											<button type="button" data-bs-dismiss="modal" class="btn btn-light me-3">Cancel</button>
+											<button type="submit" class="btn btn-primary" [disabled]="supportForm.invalid || isSubmitting">
+											<span *ngIf="!isSubmitting">Submit</span>
+											<span *ngIf="isSubmitting">
+												Please wait...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+											</span>
+											</button>
+										</div>
+
+										</form>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--end::Wrapper-->
+					</div>
+					<!--end::Container-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Footer Section-->
+			<!--begin::Scrolltop-->
+			<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+				<i class="ki-outline ki-arrow-up"></i>
+			</div>
+			<!--end::Scrolltop-->
+		</div>
+		<!--end::Root-->
+		<!--end::Main-->
+		<!--begin::Scrolltop-->
+		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+			<i class="ki-outline ki-arrow-up"></i>
+		</div>
+		<!--end::Scrolltop-->
+		<!--begin::Javascript-->
+		<script>var hostUrl = "/assets/";</script>
+		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
+		<script src="/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="/assets/js/scripts.bundle.js"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="/assets/plugins/custom/fslightbox/fslightbox.bundle.js"></script>
+		<script src="/assets/plugins/custom/typedjs/typedjs.bundle.js"></script>
+		<!--end::Vendors Javascript-->
+		<!--begin::Custom Javascript(used for this page only)-->
+		<script src="/assets/js/custom/landing.js"></script>
+		<script src="/assets/js/custom/pages/pricing/general.js"></script>
+		<!--end::Custom Javascript-->
+		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>

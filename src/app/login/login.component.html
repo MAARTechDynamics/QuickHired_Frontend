@@ -1,0 +1,447 @@
+<!--begin::Body-->
+<body id="kt_body" class="auth-bg bgi-size-cover bgi-attachment-fixed bgi-position-center bgi-no-repeat h-950px">
+    <!--begin::Theme mode setup on page load-->
+    <script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if ( localStorage.getItem("data-bs-theme") !== null ) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
+    <!--end::Theme mode setup on page load-->
+    <!--begin::Main-->
+    <!--begin::Root-->
+    <div class="d-flex flex-column flex-root">
+        <style>
+                body { 
+                    background-image: url('/assets/media/auth/bg4.jpg'); 
+                } 
+
+                [data-bs-theme="dark"] body { 
+                    background-image: url('/assets/media/auth/bg4-dark.jpg'); 
+                }
+        </style>
+        <!--begin::Authentication - Sign-in -->
+        <div class="d-flex flex-column flex-column-fluid flex-lg-row">
+            <!--begin::Aside-->
+            <div class="d-flex flex-center w-lg-50 pt-15 pt-lg-0 px-10">
+                <!--begin::Aside-->
+                <div class="d-flex flex-center flex-lg-start flex-column">
+                    <!--begin::Logo-->
+                    <a href="index.html" class="mb-7">
+                        <img alt="Logo" src="assets/media/logos/QuickHireWhited.png" style="height:90px;" />
+                    </a>
+                    <!--end::Logo-->
+                    <!--begin::Title-->
+                  
+                    <!--end::Title-->
+                </div>
+                <!--begin::Aside-->
+            </div>
+            <!--begin::Aside-->
+            <!--begin::Body-->
+            <div class="d-flex flex-column-fluid flex-lg-row-auto justify-content-center justify-content-lg-end p-12 p-lg-20">
+                <!--begin::Card-->
+                <div class="premium-login-card bg-body d-flex flex-column align-items-stretch flex-center rounded-4 w-md-600px p-20">
+                    <!--begin::Wrapper-->
+                    <div class="d-flex flex-center flex-column flex-column-fluid px-lg-10 pb-15 pb-lg-20">
+                        <!--begin::Form-->
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form w-100">
+                            <!--begin::Heading-->
+                            <div class="text-center mb-11">
+                                <!--begin::Title-->
+                                <h1 class="premium-login-title text-gray-900 fw-bolder mb-3">{{ 'login.title' | translate }}</h1>
+                                <!--end::Title-->
+                                <!--begin::Subtitle-->
+                                <div class="premium-login-subtitle text-gray-500 fw-semibold fs-6">{{ 'login.subtitle' | translate }}</div>
+                                <!--end::Subtitle=-->
+                            </div>
+                            <!--begin::Heading-->
+                            <!--begin::Login options-->
+                           <div class="row g-3 mb-9">
+                                <!-- Google Sign-In Button -->
+                                <div class="col-md-6">
+                                    <div class="premium-social-btn-wrapper" id="googleSignInBtn" style="width: 100%; display: flex; justify-content: center;"></div>
+                                </div>
+
+                                <!-- Facebook Sign-In Button -->
+                                <div class="col-md-6">
+                                  <button  
+                                    (click)="loginWithFacebook()"
+                                    class="premium-facebook-btn"
+                                    >
+                                    <img src="data:image/png;base64,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" alt="Facebook Icon" />
+                                    {{ 'login.social.facebook' | translate }}
+                                  </button>
+
+                                </div>
+                            </div>
+
+                            <!--end::Login options-->
+                            <!--begin::Separator-->
+                            <div class="premium-separator separator separator-content my-14">
+                                <span class="premium-separator-text w-125px text-gray-500 fw-semibold fs-7">{{ 'login.separator' | translate }}</span>
+                            </div>
+                            <!--end::Separator-->
+                            <div *ngIf="errorMessage" class="premium-alert alert alert-danger text-center d-flex align-items-center justify-content-center fs-4">
+                                    <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ errorMessage }}
+                            </div>
+                            <div class="fv-row mb-8">
+                                <input type="text" [placeholder]="'login.email.placeholder' | translate" formControlName="email" class="premium-form-control form-control bg-transparent" />
+                                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="premium-error text-danger">
+                                    <i class="bi bi-exclamation-circle me-1"></i>{{ 'login.email.error' | translate }}
+                                </div>
+                            </div>
+
+                            <div class="fv-row mb-3">
+                                <input type="password" [placeholder]="'login.password.placeholder' | translate" formControlName="password" class="premium-form-control form-control bg-transparent" />
+                                <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="premium-error text-danger">
+                                    <i class="bi bi-exclamation-circle me-1"></i>{{ 'login.password.error' | translate }}
+                                </div>
+                            </div>
+
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+                                <div></div>
+                                <!--begin::Link-->
+                                <a routerLink="/forgot-password" class="premium-link link-primary">{{ 'login.forgot.password' | translate }}</a>
+                                <!--end::Link-->
+                            </div>
+                            <!--end::Wrapper-->
+                            <!--begin::Submit button-->
+                            <div class="d-grid mb-10">
+                               <button type="submit" class="premium-submit-btn btn btn-primary" [disabled]="loginForm.invalid || loading">
+                                <span *ngIf="!loading" class="indicator-label">{{ 'login.button.signin' | translate }}</span>
+                               <span *ngIf="loading">{{ 'login.loading' | translate }} <span class="spinner-border spinner-border-sm"></span></span>
+                            </button>
+
+                            </div>
+                            <!--end::Submit button-->
+                            <!--begin::Sign up-->
+                            <div class="premium-signup-text text-gray-500 text-center fw-semibold fs-6">{{ 'login.signup.text' | translate }} 
+                                <a href="/register" class="premium-link link-primary">{{ 'login.signup.link' | translate }}</a>
+                            </div>
+                            <!--end::Sign up-->
+                        </form>
+                        <!--end::Form-->
+                    </div>
+                    <!--end::Wrapper-->
+                    <!--begin::Footer-->
+                    <div class="d-flex flex-stack px-lg-10">
+                       <!--begin::Languages-->
+                        <!-- Wrapper to align button to the right -->
+                        <div class="d-flex justify-content-end" style="position: relative; z-index: 9999;">
+
+                        <!-- Language Toggle + Dropdown -->
+                        <div class="position-relative">
+                            <!-- Button -->
+                            <button class="btn btn-flex btn-link btn-color-gray-700 btn-active-color-primary rotate fs-base"
+                                    (click)="toggleLanguageMenu()" [attr.aria-expanded]="menuOpen">
+                            <img [src]="currentFlag" class="w-20px h-20px rounded me-3" />
+                            <span class="me-1">{{ currentLangName }}</span>
+                            <i class="ki-outline ki-down fs-5 text-muted m-0" [class.rotate-180]="menuOpen"></i>
+                            </button>
+                            
+                            <!-- Dropdown -->
+                            <div *ngIf="menuOpen" class="language-dropdown language-dropdown-up">
+                        <div class="menu-item px-3" *ngFor="let lang of languages">
+                            <a class="menu-link d-flex px-5" (click)="switchLanguage(lang)">
+                            <span class="symbol symbol-20px me-4">
+                                <img class="rounded-1" [src]="lang.flag" alt="" />
+                            </span>
+                            <span>{{ lang.display }}</span>
+                            </a>
+                        </div>
+                        </div>
+
+                        </div>
+                        </div>
+
+                        <!--end::Languages-->
+                        <!--begin::Links-->
+                        <div class="d-flex fw-semibold text-primary fs-base gap-5">
+                           <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">{{ 'footer.terms' | translate }}</a>
+                           <a href="pages/pricing/column.html" target="_blank">{{ 'footer.plans' | translate }}</a>
+                           <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_new_ticket">{{ 'footer.contact' | translate }}</a>
+                        </div>
+                        <!--end::Links-->
+                        	<!-- Terms & Conditions Modal -->
+							<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered modal-lg">
+								<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="termsModalLabel">Terms & Conditions - QuickHired</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+ 
+
+
+  <h6>1. Introduction</h6>
+  <p>
+    Welcome to <strong>QuickHired.com</strong> (“QuickHired,” “we,” “our,” or “us”).
+    These Terms & Conditions (“Terms”) govern your access to and use of our website,
+    applications, and services (the “Services”). By using QuickHired, you agree to
+    these Terms, along with our Privacy Policy. If you do not agree, you may not use
+    our Services.
+  </p>
+
+  <h6>2. Purpose of the Services</h6>
+  <p>
+    QuickHired provides tools for interview preparation, career coaching, resume analysis,
+    mock interviews, and meeting recording features to help you improve your skills and readiness.
+  </p>
+  <p><strong>Important:</strong></p>
+  <ul>
+    <li>QuickHired does not guarantee you will secure a job, pass an interview, or receive any specific outcome.</li>
+    <li>QuickHired is an ethical preparation platform only. We do not support cheating, fraud, impersonation, or misrepresentation.</li>
+  </ul>
+
+  <h6>3. User Responsibilities</h6>
+  <ul>
+    <li>Provide accurate information when registering or using the Services.</li>
+    <li>Use the Services only for lawful, honest, and ethical purposes.</li>
+    <li>Not use the Services to misrepresent your identity, impersonate others, or engage in fraudulent activity.</li>
+    <li>Ensure any resumes, interview responses, or materials you generate remain truthful and not misleading.</li>
+  </ul>
+  <p><strong>Meeting Recording Tools:</strong> If you use QuickHired’s audio/video meeting recording features,
+    you are solely responsible for obtaining consent from all participants in the meeting, as required by law.
+    QuickHired is not liable for your failure to comply with consent, wiretapping, or privacy laws.
+  </p>
+
+  <h6>4. Ethical Use & Prohibited Conduct</h6>
+  <ul>
+    <li>Submit or use false credentials or plagiarized materials.</li>
+    <li>Attempt to bypass hiring processes dishonestly using QuickHired outputs.</li>
+    <li>Use the Services to harass, defame, or unlawfully monitor others.</li>
+    <li>Reverse engineer, misuse, or resell our technology without permission.</li>
+  </ul>
+
+  <h6>5. Privacy & Data Protection</h6>
+  <p>
+    We collect and process personal information in accordance with our Privacy Policy. This may include resumes,
+    transcripts, meeting recordings, and other user content.
+  </p>
+
+  <p><strong>California Residents (CCPA/CPRA Rights):</strong></p>
+  <ul>
+    <li>Request disclosure of personal information we collect and how we use/share it.</li>
+    <li>Request deletion of personal information (subject to legal limits).</li>
+    <li>Opt out of certain uses of your data.</li>
+    <li>Correct inaccuracies in your data.</li>
+  </ul>
+
+  <h6>6. Intellectual Property</h6>
+  <p>
+    All content, technology, and materials on QuickHired are owned by us or our licensors.
+    You are granted a limited, non-exclusive, non-transferable license to use the Services
+    for personal, non-commercial purposes.
+  </p>
+
+  <h6>7. Payments, Refunds & Cancellations</h6>
+  <ul>
+    <li>Fees will be clearly shown before purchase.</li>
+    <li>Refunds are only granted for technical failures, duplicate billing, or non-delivery of paid features.</li>
+    <li>Requests must be made within <em>[e.g. 14 days]</em> of the issue.</li>
+    <li>Partially used subscriptions may not be refundable, or may be refunded pro rata at our discretion.</li>
+  </ul>
+
+  <h6>8. Disclaimer of Warranties</h6>
+  <p>
+    The Services are provided “as is” and “as available.” We disclaim all warranties,
+    express or implied, including merchantability, fitness for a particular purpose,
+    accuracy, or non-infringement.
+  </p>
+
+  <h6>9. Limitation of Liability</h6>
+  <p>
+    To the fullest extent permitted by law:
+  </p>
+  <ul>
+    <li>QuickHired is not liable for any hiring decisions, lost opportunities, reputational harm, or damages arising from your use of the Services.</li>
+    <li>Our maximum liability is limited to the lesser of (1) the total fees you paid us in the last 6 months, or (2) USD $100.</li>
+  </ul>
+
+  <h6>10. Governing Law & Dispute Resolution</h6>
+  <p>
+    These Terms are governed by the laws of the State of California. Disputes will be resolved either in the
+    state or federal courts located in California or by binding arbitration if elected.
+  </p>
+
+  <h6>11. Amendments</h6>
+  <p>
+    We may update these Terms at any time. If changes are material, we will provide notice.
+    Continued use after changes means you accept the updated Terms.
+  </p>
+
+  <h6>12. Termination</h6>
+  <p>
+    We may suspend or terminate your access to the Services if you violate these Terms or misuse the platform.
+  </p>
+
+  <h6>13. Third-Party Services</h6>
+  <p>
+    QuickHired is not responsible for third-party content or tools you may connect through our Services.
+    Their terms and policies apply separately.
+  </p>
+
+  <h6>14. Ethics & Integrity Disclaimer</h6>
+  <p>
+    QuickHired is designed to help you prepare honestly. We do not endorse fraudulent behavior, impersonation,
+    or unethical practices. Misuse of our platform for dishonest purposes is strictly prohibited.
+  </p>
+
+  <hr class="my-4">
+
+  <h5>Privacy Policy</h5>
+  <p class="text-muted small">Last Updated: [Insert Date]</p>
+
+  <h6>1. Introduction</h6>
+  <p>
+    QuickHired.com (“QuickHired,” “we,” “our,” or “us”) values your privacy.
+    This Privacy Policy explains how we collect, use, store, and protect your personal information.
+  </p>
+
+  <h6>2. Information We Collect</h6>
+  <ul>
+    <li>Account Information (name, email, billing details)</li>
+    <li>Profile & Career Data (resumes, job preferences, interview responses)</li>
+    <li>Meeting Recordings & Transcripts (user must obtain participant consent)</li>
+    <li>Usage Data (IP, device, browser, analytics)</li>
+    <li>Communications (support requests, feedback)</li>
+    <li>Payment Information (via secure third-party processors)</li>
+  </ul>
+
+  <h6>3. How We Use Your Information</h6>
+  <p>
+    We use your data to provide services, operate features, process payments, improve our AI,
+    communicate with you, ensure security, and comply with legal obligations.
+  </p>
+
+  <h6>4. Sharing of Information</h6>
+  <p>
+    We do not sell your data. We may share it with service providers, legal authorities,
+    or during mergers/acquisitions.
+  </p>
+
+  <h6>5. Cookies & Tracking</h6>
+  <p>
+    We use cookies for preferences, analytics, and security. You can disable cookies,
+    but some features may not work.
+  </p>
+
+  <h6>6. Data Retention</h6>
+  <p>
+    We keep data only as long as needed:
+    <ul>
+      <li>Account info: while active</li>
+      <li>Recordings: until user deletes or [X months]</li>
+      <li>Billing: per legal requirements</li>
+    </ul>
+ 
+
+  <h6>7. Security</h6>
+  <p>
+    We apply encryption, monitoring, and access controls. No system is fully secure,
+    and we cannot guarantee absolute protection.
+  </p>
+
+  <h6>8. Your Rights</h6>
+  <p>
+    You may access, correct, or delete your data and opt out of marketing communications.
+    California residents have CCPA/CPRA rights.
+  </p>
+
+  <h6>9. Children’s Privacy</h6>
+  <p>
+    Our services are not for users under 16. If discovered, we delete such data.
+  </p>
+
+  <h6>10. Third-Party Services</h6>
+  <p>
+    Linked third-party services are governed by their own policies. We are not responsible for them.
+  </p>
+
+  <h6>11. International Users</h6>
+  <p>
+    Your data may be transferred to and processed in the U.S., where protections may differ.
+  </p>
+
+  <h6>12. Changes to This Policy</h6>
+  <p>
+    We may update this Privacy Policy. Continued use means acceptance.
+  </p>
+
+  <h6>13. Contact Us</h6>
+  <p>
+    Email: <a href="mailto:info@eventify-pro.com">infoeventify-pro.com</a>
+  </p>
+</div>
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+								</div>
+								</div>
+							</div>
+							</div>
+                            	<!--end::Links-->
+							<div class="modal fade" id="kt_modal_new_ticket" tabindex="-1" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered mw-750px">
+									<div class="modal-content rounded">
+									<div class="modal-header pb-0 border-0 justify-content-end">
+										<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+										<i class="ki-duotone ki-cross fs-1">
+											<span class="path1"></span>
+											<span class="path2"></span>
+										</i>
+										</div>
+									</div>
+                  <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                    <h6>1. About QuickHired & Jurisdiction</h6>
+                    <p>
+                      QuickHired is a California-based company. These Terms & Conditions (“Terms”) govern your use of QuickHired.com and all related services (“Services”). By using QuickHired, you agree to these Terms and our Privacy Policy. If you do not agree, do not use our Services.
+                    </p>
+                    <h6>2. Nature of Service</h6>
+                    <p>
+                      QuickHired is an interview practice and training portal. We provide tools and resources to help users prepare for interviews and improve their skills. <strong>We do not guarantee any job placement, interview success, or specific results.</strong>
+                    </p>
+                    <h6>3. No Liability</h6>
+                    <ul>
+                      <li>QuickHired is not liable for any outcome, loss, or damages resulting from your use of this site or services.</li>
+                      <li>All use is at your own risk. We provide no warranties, express or implied.</li>
+                      <li>We are not responsible for hiring decisions, lost opportunities, or reputational harm.</li>
+                    </ul>
+                    <h6>4. User Responsibilities</h6>
+                    <ul>
+                      <li>This site is for lawful, honest, and ethical use only.</li>
+                      <li>You must provide truthful information in all forms, resumes, and communications.</li>
+                      <li>Do not use QuickHired for any fraudulent, illegal, or unethical purpose.</li>
+                      <li>Do not misrepresent your identity, impersonate others, or submit false credentials.</li>
+                      <li>Do not use QuickHired to cheat, bypass hiring processes, or mislead employers.</li>
+                    </ul>
+                    <h6>5. Recording & Consent</h6>
+                    <ul>
+                      <li>If you use any recording features, it is solely your responsibility to obtain consent from all meeting participants, as required by law.</li>
+                      <li>QuickHired is not liable for your failure to comply with consent, wiretapping, or privacy laws.</li>
+                    </ul>
+                    <h6>6. No Guarantee</h6>
+                    <ul>
+                      <li>QuickHired does not guarantee job offers, interview outcomes, or any specific result.</li>
+                      <li>We are a training and practice platform only.</li>
+                    </ul>
+                    <h6>7. California Law</h6>
+                    <ul>
+                      <li>These Terms are governed by the laws of the State of California.</li>
+                      <li>All disputes will be resolved in California courts or by binding arbitration, at our discretion.</li>
+                    </ul>
+                    <h6>8. Amendments</h6>
+                    <ul>
+                      <li>We may update these Terms at any time. Continued use means you accept the updated Terms.</li>
+                    </ul>
+                    <h6>9. Termination</h6>
+                    <ul>
+                      <li>We may suspend or terminate your access for any violation or misuse.</li>
+                    </ul>
+                    <h6>10. Third-Party Services</h6>
+                    <ul>
+                      <li>QuickHired is not responsible for third-party content or tools you may connect through our Services. Their terms and policies apply separately.</li>
+                    </ul>
+                    <h6>11. Legal Notice</h6>
+                    <ul>
+                      <li>By using QuickHired, you agree to all terms above and acknowledge that you are solely responsible for your actions and compliance with all applicable laws.</li>
+                    </ul>
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span>

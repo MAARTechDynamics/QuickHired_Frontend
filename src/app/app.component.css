@@ -1,0 +1,9 @@
+#kt_wrapper {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+router-outlet {
+    display: block;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}

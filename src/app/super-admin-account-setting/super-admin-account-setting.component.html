@@ -1,0 +1,310 @@
+<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">					
+    <!--begin::Content-->
+    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+        <!--begin::Post-->
+        <div class="post d-flex flex-column-fluid" id="kt_post">
+            <!--begin::Container-->
+            <div id="kt_content_container" class="container-xxl mt-5">
+
+            <div class="card card-flush pb-0 bgi-position-y-center bgi-no-repeat" style="background-size: auto calc(100% + 10rem); background-position-x: 100%; background-image: url('/assets/media/illustrations/sigma-1/4.png')">
+               <div class="card-header pt-10">
+                  <div class="d-flex align-items-center">
+                      <!--begin::Icon-->
+                      <div class="symbol symbol-circle me-2">
+                          <div class="symbol-label bg-transparent text-primary border border-secondary border-dashed">
+                              <i class="ki-duotone ki-user fs-2x text-primary"> 
+                                  <span class="path1"></span>
+                                  <span class="path2"></span>
+                              </i>
+                          </div>
+                      </div>
+                      <div class="d-flex flex-column">
+                          <div class="text-muted fw-bold">
+                              <a href="#">My Profile</a>
+                          </div>
+                      </div>
+                  </div>
+               </div>
+
+                <div class="card-body pb-0">
+                    <ul class="nav nav-pills nav-pills-custom mb-3">
+                        <li class="nav-item mb-3 me-3 me-lg-6">
+                            <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-125px h-95px pt-5 pb-2 active" id="" data-bs-toggle="pill" href="#kt_stats_widget_16_tab_0">
+                                <div class="nav-icon mb-3">
+                                    <i class="ki-duotone ki-picture fs-1">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                        <span class="path5"></span>
+                                    </i>
+                                </div>
+                                <span class="nav-text text-gray-800 fw-bold fs-6 lh-1">Edit Picture</span>
+                                <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-danger"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-3 me-3 me-lg-6">
+                            <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-125px h-95px pt-5 pb-2" id="" data-bs-toggle="pill" href="#kt_stats_widget_16_tab_1">
+                                <div class="nav-icon mb-3">
+                                    <i class="ki-duotone ki-car fs-1">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                        <span class="path5"></span>
+                                    </i>
+                                </div>
+                                <span class="nav-text text-gray-800 fw-bold fs-6 lh-1">Edit Name</span>
+                                <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-danger"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-3 me-3 me-lg-6">
+                            <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-125px h-95px pt-5 pb-2" id="" data-bs-toggle="pill" href="#kt_stats_widget_16_tab_2">
+                                <div class="nav-icon mb-3">
+                                    <i class="ki-duotone ki-bitcoin fs-1">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                        <span class="path5"></span>
+                                    </i>
+                                </div>
+                                <span class="nav-text text-gray-800 fw-bold fs-6 lh-1">EDIT EMAIL</span>
+                                <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-danger"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-3 me-3 me-lg-6">
+                            <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-125px h-95px pt-5 pb-2" id="" data-bs-toggle="pill" href="#kt_stats_widget_16_tab_3">
+                                <div class="nav-icon mb-3">
+                                    <i class="ki-duotone ki-like fs-1">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                        <span class="path5"></span>
+                                    </i>
+                                </div>
+                                <span class="nav-text text-gray-800 fw-bold fs-6 lh-1">RESET PASSWORD</span>
+                                <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-danger"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--end::Nav-->
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="kt_stats_widget_16_tab_0">
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-4 ">
+                                    <form [formGroup]="profileForm" (ngSubmit)="saveProfilePhoto()" enctype="multipart/form-data">
+                                        <div class="card card-flush shadow-sm py-4 px-3" style="max-width: 250px;">
+                                          <div class="image-input image-input-outline position-relative mx-auto">
+                                            <!-- Hidden file input, triggered by the wrapper div -->
+                                            <input type="file" hidden formControlName="profilePhoto" (change)="onFileSelected($event)" accept="image/jpeg, image/png"/>
+                                      
+                                            <!-- Image preview wrapper -->
+                                            <div class="image-input-wrapper rounded-circle shadow border mx-auto"
+                                                 style="width: 150px; height: 150px; background-image: url('/assets/logos/blank.png'); background-size: cover; background-position: center; cursor: pointer;"
+                                                 (click)="triggerFileInput()">
+                                            </div>
+                                      
+                                            <!-- Camera icon button -->
+                                            <label class="btn btn-icon btn-circle btn-primary shadow-sm position-absolute"
+                                                   style="width: 35px; height: 35px; bottom: -10px; right: 5px; cursor: pointer;"
+                                                   (click)="triggerFileInput()">
+                                              <i class="bi bi-camera-fill fs-5"></i>
+                                            </label>
+                                          </div>
+                                      
+                                          <!-- Submit Button -->
+                                          <div class="text-center pt-3 mt-3">
+                                            <button type="submit" class="btn btn-light-success w-100" [disabled]="!profileForm.valid">
+                                              <i class="bi bi-check-circle-fill me-1"></i> Save
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </form>
+                                      
+                                      
+                                </div>
+
+                                <script>
+                                    function previewProfileImage() {
+                                        let file = document.getElementById("ProfilePhoto").files[0];
+                                        if (file) {
+                                            let reader = new FileReader();
+                                            reader.onload = function (e) {
+                                                document.querySelector(".image-input-wrapper").style.backgroundImage = "url('" + e.target.result + "')";
+                                            };
+                                            reader.readAsDataURL(file);
+                                        }
+                                    }
+                                </script>
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="kt_stats_widget_16_tab_1">
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <form [formGroup]="updateNameForm" (ngSubmit)="submitNameForm()" id="kt_modal_new_card_form" class="form">
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                          <label class="label-info">Modify the name associated with your account below.</label>
+                                        </div>
+                                      
+                                        <!-- First Name Input -->
+                                        <div class="d-flex flex-column mb-7 fv-row mt-1">
+                                          <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+                                            <span class="required">First Name</span>
+                                            <span class="ms-1" data-bs-toggle="tooltip" title="First Name">
+                                              <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                              </i>
+                                            </span>
+                                          </label>
+                                          <input type="text" class="form-control" placeholder="" formControlName="firstName" />
+                                          <div class="text-danger mt-1" *ngIf="updateNameForm.get('firstName')?.touched && updateNameForm.get('firstName')?.invalid">
+                                            First name is required.
+                                          </div>
+                                        </div>
+                                      
+                                        <!-- Last Name Input -->
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                          <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+                                            <span class="required">Last Name</span>
+                                            <span class="ms-1" data-bs-toggle="tooltip" title="Last Name">
+                                              <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                              </i>
+                                            </span>
+                                          </label>
+                                          <input type="text" class="form-control" placeholder="" formControlName="lastName" />
+                                          <div class="text-danger mt-1" *ngIf="updateNameForm.get('lastName')?.touched && updateNameForm.get('lastName')?.invalid">
+                                            Last name is required.
+                                          </div>
+                                        </div>                                    
+                                        <!-- Submit Button -->
+                                        <div class="text-end pt-15">
+                                          <button type="submit" class="btn btn-light-success">
+                                            <span class="indicator-label">Submit</span>
+                                          </button>
+                                        </div>
+                                      </form>
+                                      
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="kt_stats_widget_16_tab_2">
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <form [formGroup]="changeEmailForm" (ngSubmit)="submitEmailForm()"  id="kt_modal_new_card_form" class="form">
+                                       
+                                      
+                                        <!-- Info Text -->
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                          <label class="label-info">
+                                            Your current email address is registered as <br />
+                                            <b>{{ currentUserEmail }}</b><br />
+                                            Enter your new email address below and click submit to change your email address.
+                                          </label>
+                                        </div>
+                                      
+                                        <!-- New Email Field -->
+                                        <div class="d-flex flex-column mb-7 fv-row mt-1">
+                                          <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+                                            <span class="required">New Email Address</span>
+                                            <span class="ms-1" data-bs-toggle="tooltip" title="New Email Address">
+                                              <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+                                              </i>
+                                            </span>
+                                          </label>
+                                          <input type="email" formControlName="newEmail" class="form-control" placeholder="Enter new email address" />
+                                          <div class="text-danger mt-1" *ngIf="changeEmailForm.get('newEmail')?.touched && changeEmailForm.get('newEmail')?.invalid">
+                                            Please enter a valid new email address.
+                                          </div>
+                                        </div>
+                                      
+                                        <!-- Confirm Email Field -->
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                          <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+                                            <span class="required">Confirm New Email Address</span>
+                                            <span class="ms-1" data-bs-toggle="tooltip" title="Confirm New Email Address">
+                                              <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+                                              </i>
+                                            </span>
+                                          </label>
+                                          <input type="email" formControlName="confirmEmail" class="form-control" placeholder="Confirm new email address" />
+                                          <div class="text-danger mt-1" *ngIf="changeEmailForm.errors?.['emailsMismatch'] && changeEmailForm.get('confirmEmail')?.touched"
+                                          >
+                                            Email addresses do not match.
+                                          </div>
+                                        </div>
+                                      
+                                        <!-- Submit Button -->
+                                        <div class="text-end pt-15">
+                                          <button type="submit" class="btn btn-light-success">
+                                            <span class="indicator-label">Submit</span>
+                                          </button>
+                                        </div>
+                                      </form>
+                                      
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="kt_stats_widget_16_tab_3">
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <form [formGroup]="resetPasswordForm" (ngSubmit)="onSubmitResetPassword()">
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                          <label class="label-info">
+                                            Enter your new password below and confirm it. Click <b>Submit</b> to update your password.
+                                          </label>
+                                        </div>
+                                      
+                                        <!-- New Password -->
+                                        <div class="d-flex flex-column mb-7 fv-row mt-1">
+                                          <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+                                            <span class="required">New Password</span>
+                                          </label>
+                                          <input type="password" formControlName="newPassword" class="form-control" placeholder="Enter new password" />
+                                        </div>
+                                      
+                                        <!-- Confirm Password -->
+                                        <div class="d-flex flex-column mb-7 fv-row mt-1">
+                                          <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+                                            <span class="required">Confirm New Password</span>
+                                          </label>
+                                          <input type="password" formControlName="confirmNewPassword" class="form-control" placeholder="Confirm new password" />
+                                        </div>
+                                      
+                                        <div class="text-end pt-15">
+                                          <button type="submit" class="btn btn-light-success">
+                                            <span class="indicator-label">Submit</span>
+                                          </button>
+                                        </div>
+                                      </form>
+                                      
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

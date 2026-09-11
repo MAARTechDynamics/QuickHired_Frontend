@@ -1,0 +1,492 @@
+/* ========================================
+   Premium Footer Styles
+   ======================================== */
+
+/* Main Footer Container */
+.premium-footer {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-top: 3px solid #0891b2;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+  margin-top: auto;
+  min-height: 70px;
+  position: relative;
+  z-index: 100;
+}
+
+/* Copyright Section */
+.footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.copyright-year {
+  font-weight: 500;
+  color: #64748b;
+}
+
+.brand-link {
+  color: #0f172a !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.brand-link:hover {
+  color: #0891b2 !important;
+  background-color: rgba(8, 145, 178, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Footer Menu */
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-menu-item {
+  position: relative;
+}
+
+.footer-link {
+  color: #475569 !important;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.footer-link:hover {
+  color: #0891b2 !important;
+  background-color: rgba(8, 145, 178, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Add separator between menu items */
+.footer-menu-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 1px;
+  background-color: #cbd5e1;
+}
+
+/* ========================================
+   Premium Contact Modal Styles
+   ======================================== */
+
+/* Modal z-index fix */
+.modal {
+  z-index: 10000 !important;
+}
+
+.modal-backdrop {
+  z-index: 9999 !important;
+}
+
+/* Ensure language dropdown stays below modal */
+.language-dropdown-up {
+  z-index: 1000 !important;
+}
+
+/* Premium Contact Modal */
+.premium-contact-modal {
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+/* Modal Header */
+.premium-modal-header {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 1rem 1.5rem !important;
+}
+
+.premium-close-btn {
+  background: rgba(8, 145, 178, 0.1) !important;
+  color: #0891b2 !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.premium-close-btn:hover {
+  background: #0891b2 !important;
+  color: #ffffff !important;
+  transform: rotate(90deg);
+}
+
+/* Modal Icon */
+.premium-modal-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #0a7068 0%, #0891b2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.3);
+  animation: modalIconPulse 2s ease-in-out infinite;
+}
+
+.premium-modal-icon i {
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+@keyframes modalIconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Modal Title */
+.premium-modal-title {
+  background: linear-gradient(135deg, #0a7068 0%, #0891b2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+}
+
+.premium-modal-subtitle {
+  color: #64748b !important;
+  line-height: 1.6;
+}
+
+/* Premium Labels */
+.premium-label {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+}
+
+.premium-label.required::after {
+  color: #dc2626;
+}
+
+/* Premium Input Wrapper */
+.premium-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.premium-input-icon {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.premium-input-wrapper:focus-within .premium-input-icon {
+  color: #0891b2;
+  transform: scale(1.1);
+}
+
+/* Premium Form Controls */
+.premium-form-control {
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  padding: 0.75rem 1.25rem 0.75rem 3rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: #0f172a !important;
+  background: #ffffff !important;
+  transition: all 0.3s ease;
+  min-height: 48px;
+}
+
+.premium-form-control::placeholder {
+  color: #94a3b8 !important;
+}
+
+.premium-form-control:focus {
+  border-color: #0891b2 !important;
+  box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1) !important;
+  background: #ffffff !important;
+  outline: none;
+}
+
+/* Premium Textarea */
+.premium-textarea-wrapper {
+  position: relative;
+}
+
+.premium-textarea-icon {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.premium-textarea-wrapper:focus-within .premium-textarea-icon {
+  color: #0891b2;
+}
+
+.premium-textarea {
+  padding-left: 3rem !important;
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Premium Error Messages */
+.premium-error {
+  color: #dc2626 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.premium-error i {
+  font-size: 1rem;
+}
+
+/* Premium Buttons */
+.premium-cancel-btn {
+  background: #f8fafc !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  padding: 0.75rem 2rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #475569 !important;
+  transition: all 0.3s ease;
+}
+
+.premium-cancel-btn:hover {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.premium-submit-btn {
+  background: linear-gradient(135deg, #0a7068 0%, #0891b2 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 0.75rem 2rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.premium-submit-btn:hover::before {
+  left: 100%;
+}
+
+.premium-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0891b2 0%, #0a7068 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(8, 145, 178, 0.4);
+}
+
+.premium-submit-btn:disabled {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%) !important;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .premium-footer {
+    padding: 1.5rem 1rem !important;
+    min-height: auto;
+  }
+
+  .footer-copyright {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .footer-menu {
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .footer-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .footer-menu-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .premium-modal-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .premium-modal-icon i {
+    font-size: 2rem;
+  }
+
+  .premium-modal-title {
+    font-size: 1.5rem !important;
+  }
+
+  .premium-form-control {
+    font-size: 0.9rem !important;
+    padding-left: 2.75rem !important;
+  }
+
+  .premium-input-icon,
+  .premium-textarea-icon {
+    font-size: 1rem;
+    left: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-menu {
+    width: 100%;
+  }
+
+  .footer-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .brand-link {
+    font-size: 0.9rem;
+  }
+
+  .copyright-year {
+    font-size: 0.85rem;
+  }
+
+  .premium-modal-title {
+    font-size: 1.25rem !important;
+  }
+
+  .premium-submit-btn,
+  .premium-cancel-btn {
+    padding: 0.65rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Enhanced Accessibility */
+.footer-link:focus,
+.brand-link:focus {
+  outline: 2px solid #0891b2;
+  outline-offset: 2px;
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .premium-footer {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-top-color: #0891b2;
+  }
+
+  .footer-copyright,
+  .copyright-year {
+    color: #cbd5e1;
+  }
+
+  .brand-link {
+    color: #f1f5f9 !important;
+  }
+
+  .brand-link:hover {
+    color: #0891b2 !important;
+    background-color: rgba(8, 145, 178, 0.2);
+  }
+
+  .footer-link {
+    color: #cbd5e1 !important;
+  }
+
+  .footer-link:hover {
+    color: #0891b2 !important;
+    background-color: rgba(8, 145, 178, 0.2);
+  }
+
+  .footer-menu-item:not(:last-child)::after {
+    background-color: #475569;
+  }
+
+  .premium-contact-modal {
+    background: #1e293b !important;
+  }
+
+  .premium-modal-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+
+  .premium-form-control {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+  }
+
+  .premium-form-control:focus {
+    background: #1e293b !important;
+  }
+
+  .premium-label {
+    color: #f1f5f9 !important;
+  }
+
+  .premium-modal-subtitle {
+    color: #cbd5e1 !important;
+  }
+
+  .premium-cancel-btn {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+  }
+
+  .premium-cancel-btn:hover {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+  }
+}

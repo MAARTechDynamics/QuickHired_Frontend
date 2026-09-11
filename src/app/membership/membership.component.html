@@ -1,0 +1,201 @@
+<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">					
+    <!--begin::Content-->
+    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+        <!--begin::Post-->
+        <div class="post d-flex flex-column-fluid" id="kt_post">
+            <!--begin::Container-->
+            <div id="kt_content_container" class="container-xxl mt-5">
+
+                <!--begin::Premium Header-->
+                <div class="membership-header">
+                    <div class="header-content">
+                        <div class="header-icon">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="header-text">
+                            <h1 class="header-title">Membership Center</h1>
+                            <p class="header-subtitle">Manage your plan, upgrades & billing details</p>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-upgrade" (click)="navigateToUpgrade()">
+                            <i class="bi bi-arrow-up-circle"></i>
+                            <span>Upgrade Plan</span>
+                        </button>
+                        <div *ngFor="let subscription of subscriptions">
+                            <button class="btn-cancel" (click)="cancelMembership(subscription)">
+                                <i class="bi bi-x-circle"></i>
+                                <span>Cancel Membership</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Premium Header-->
+
+                <!--begin::Membership Card-->
+                <div class="membership-card">
+                    <div class="card-header-custom">
+                        <h3><i class="bi bi-card-list me-2"></i>Your Active Subscriptions</h3>
+                        <p>View and manage your membership details below</p>
+                    </div>
+
+                    <div class="subscriptions-list">
+                        <div *ngFor="let subscription of subscriptions" class="subscription-item">
+                            <div class="subscription-badge">
+                                <i class="bi bi-patch-check-fill"></i>
+                                <span class="badge-text">{{ formatPlanName(subscription.planName) }}</span>
+                            </div>
+                            <div class="subscription-details">
+                                <div class="detail-item">
+                                    <i class="bi bi-calendar-check"></i>
+                                    <div>
+                                        <span class="detail-label">Start Date</span>
+                                        <span class="detail-value">{{ subscription.createdAt | date: 'MMMM d, y' }}</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="bi bi-clock-history"></i>
+                                    <div>
+                                        <span class="detail-label">Time</span>
+                                        <span class="detail-value">{{ subscription.createdAt | date: 'hh:mm a' }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subscription-actions">
+                                <button class="btn-action-primary" (click)="navigateToUpgrade()">
+                                    <i class="bi bi-info-circle"></i> View Plan Details
+                                </button>
+                                <ng-container *ngIf="subscription.customerId; else noPayment">
+                                    <button class="btn-action-success" (click)="viewPaymentDetails(subscription)">
+                                        <i class="bi bi-credit-card"></i> Payment Details
+                                    </button>
+                                </ng-container>
+                                <ng-template #noPayment>
+                                    <div class="no-payment-badge">
+                                        <i class="bi bi-exclamation-triangle-fill"></i>
+                                        No Payment Available
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+
+                        <div *ngIf="subscriptions.length === 0" class="empty-state">
+                            <div class="empty-icon">
+                                <i class="bi bi-inbox"></i>
+                            </div>
+                            <h4>No Membership Found</h4>
+                            <p>You don't have any active memberships yet</p>
+                            <button class="btn-primary-action" (click)="navigateToUpgrade()">
+                                <i class="bi bi-plus-circle"></i> Explore Plans
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Membership Card-->
+
+                <!--begin::Payment Modal-->
+                <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content payment-modal">
+                            <div class="modal-header-custom">
+                                <div class="modal-icon">
+                                    <i class="bi bi-credit-card-fill"></i>
+                                </div>
+                                <h4 class="modal-title" id="paymentModalLabel">Update Payment Details</h4>
+                                <p class="modal-subtitle">Securely update your payment method and keep your membership active</p>
+                                <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form [formGroup]="paymentForm" (ngSubmit)="submit()">
+                                    <!-- Current Card Details -->
+                                    <div *ngIf="fetchedDetails" class="current-card-info">
+                                        <div class="info-header">
+                                            <i class="bi bi-info-circle"></i>
+                                            <h5>Current Card Information</h5>
+                                        </div>
+                                        <div class="card-details-grid">
+                                            <div class="card-detail-item">
+                                                <i class="bi bi-credit-card-2-front-fill"></i>
+                                                <div>
+                                                    <span class="detail-label">Brand</span>
+                                                    <span class="detail-value">{{ fetchedDetails.cardBrand || 'N/A' }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="card-detail-item">
+                                                <i class="bi bi-hash"></i>
+                                                <div>
+                                                    <span class="detail-label">Last 4 Digits</span>
+                                                    <span class="detail-value">{{ fetchedDetails.last4 || 'N/A' }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="card-detail-item">
+                                                <i class="bi bi-calendar-event"></i>
+                                                <div>
+                                                    <span class="detail-label">Expiry Date</span>
+                                                    <span class="detail-value">{{ fetchedDetails.expMonth || '-' }}/{{ fetchedDetails.expYear || '-' }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Email Input -->
+                                    <div class="form-group-premium">
+                                        <label for="email" class="form-label-premium">
+                                            <i class="bi bi-envelope-fill"></i>
+                                            Email Address
+                                        </label>
+                                        <input
+                                            id="email"
+                                            formControlName="email"
+                                            type="email"
+                                            class="form-control-premium"
+                                            placeholder="Enter your email address"
+                                        />
+                                        <div *ngIf="paymentForm.get('email')?.invalid && paymentForm.get('email')?.touched" class="form-error">
+                                            <i class="bi bi-exclamation-circle"></i> Valid email is required
+                                        </div>
+                                    </div>
+
+                                    <!-- New Card Input -->
+                                    <div class="form-group-premium">
+                                        <label class="form-label-premium">
+                                            <i class="bi bi-credit-card"></i>
+                                            New Card Details
+                                        </label>
+                                        <div id="card-element" class="card-element-wrapper"></div>
+                                        <div *ngIf="cardErrors" class="form-error">
+                                            <i class="bi bi-exclamation-circle"></i> {{ cardErrors }}
+                                        </div>
+                                        <div class="security-badge">
+                                            <i class="bi bi-shield-check"></i>
+                                            <span>Your payment information is encrypted and secure</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Submit Button -->
+                                    <button
+                                        type="submit"
+                                        [disabled]="paymentForm.invalid || loading"
+                                        class="btn-submit-premium"
+                                    >
+                                        <i class="bi bi-shield-lock-fill"></i>
+                                        <span>{{ loading ? 'Updating...' : 'Update Payment Details' }}</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Payment Modal-->
+
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::Post-->
+    </div>
+    <!--end::Content-->
+</div>
+<!--end::Wrapper-->

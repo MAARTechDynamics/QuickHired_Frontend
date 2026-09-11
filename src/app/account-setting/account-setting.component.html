@@ -1,0 +1,254 @@
+<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">					
+    <!--begin::Content-->
+    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+        <!--begin::Post-->
+        <div class="post d-flex flex-column-fluid" id="kt_post">
+            <!--begin::Container-->
+            <div id="kt_content_container" class="container-xxl mt-5">
+
+            <!--begin::Premium Header Card-->
+            <div class="premium-header-card">
+                <div class="header-content">
+                    <div class="header-icon-wrapper">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="header-text">
+                        <h1 class="header-title">Account Settings</h1>
+                        <p class="header-subtitle">Manage your profile, security, and preferences</p>
+                    </div>
+                </div>
+                <div class="header-decoration"></div>
+            </div>
+            <!--end::Premium Header Card-->
+
+            <!--begin::Settings Tabs-->
+            <div class="settings-container">
+                <ul class="nav settings-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="tab-btn active" data-bs-toggle="pill" data-bs-target="#kt_stats_widget_16_tab_0" type="button" role="tab" aria-selected="true">
+                            <i class="bi bi-images"></i>
+                            <span>Profile Picture</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="tab-btn" data-bs-toggle="pill" data-bs-target="#kt_stats_widget_16_tab_1" type="button" role="tab" aria-selected="false">
+                            <i class="bi bi-person-badge"></i>
+                            <span>Name</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="tab-btn" data-bs-toggle="pill" data-bs-target="#kt_stats_widget_16_tab_2" type="button" role="tab" aria-selected="false">
+                            <i class="bi bi-envelope-at"></i>
+                            <span>Email</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="tab-btn" data-bs-toggle="pill" data-bs-target="#kt_stats_widget_16_tab_3" type="button" role="tab" aria-selected="false">
+                            <i class="bi bi-shield-lock"></i>
+                            <span>Password</span>
+                        </button>
+                    </li>
+                </ul>
+
+                <!--begin::Tab Content-->
+                <div class="settings-content">
+                    <div class="tab-content">
+                        <!--begin::Profile Picture Tab-->
+                        <div class="tab-pane fade show active" id="kt_stats_widget_16_tab_0">
+                            <div class="settings-card">
+                                <div class="card-header-custom">
+                                    <h3><i class="bi bi-images me-2"></i>Update Profile Picture</h3>
+                                    <p>Upload a new profile picture to personalize your account</p>
+                                </div>
+                                <div class="card-body-custom">
+                                    <form [formGroup]="profileForm" (ngSubmit)="saveProfilePhoto()" enctype="multipart/form-data">
+                                        <div class="profile-upload-section">
+                                            <input type="file" 
+                                                   hidden 
+                                                   formControlName="profilePhoto" 
+                                                   (change)="onFileSelected($event)" 
+                                                   accept="image/jpeg, image/png" 
+                                                   #fileInput
+                                                   id="profilePhotoInput"/>
+                                      
+                                            <div class="profile-preview-wrapper">
+                                                <div class="profile-image image-input-wrapper" 
+                                                     style="background-image: url('/assets/logos/blank.png');"
+                                                     (click)="fileInput.click()">
+                                                    <div class="profile-overlay">
+                                                        <i class="bi bi-camera-fill"></i>
+                                                        <span>Change Photo</span>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="profile-camera-btn" (click)="fileInput.click()">
+                                                    <i class="bi bi-camera-fill"></i>
+                                                </button>
+                                            </div>
+
+                                            <div class="upload-info">
+                                                <h4>Photo Guidelines</h4>
+                                                <ul>
+                                                    <li><i class="bi bi-check-circle-fill"></i> Accepted formats: JPEG, PNG</li>
+                                                    <li><i class="bi bi-check-circle-fill"></i> Maximum size: 5MB</li>
+                                                    <li><i class="bi bi-check-circle-fill"></i> Recommended: Square aspect ratio</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn-premium-primary" [disabled]="!profileForm.valid">
+                                                <i class="bi bi-check-circle me-2"></i> Save Profile Picture
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Profile Picture Tab-->
+
+                        <!--begin::Name Tab-->
+                        <div class="tab-pane fade" id="kt_stats_widget_16_tab_1">
+                            <div class="settings-card">
+                                <div class="card-header-custom">
+                                    <h3><i class="bi bi-person-badge me-2"></i>Update Name</h3>
+                                    <p>Modify the name associated with your account</p>
+                                </div>
+                                <div class="card-body-custom">
+                                    <form [formGroup]="updateNameForm" (ngSubmit)="submitNameForm()">
+                                        <div class="form-row">
+                                            <div class="form-group-custom">
+                                                <label class="form-label-custom">
+                                                    <i class="bi bi-person"></i>
+                                                    First Name <span class="required-star">*</span>
+                                                </label>
+                                                <input type="text" class="form-input-custom" placeholder="Enter first name" formControlName="firstName" />
+                                                <div class="form-error" *ngIf="updateNameForm.get('firstName')?.touched && updateNameForm.get('firstName')?.invalid">
+                                                    <i class="bi bi-exclamation-circle"></i> First name is required
+                                                </div>
+                                            </div>
+                                      
+                                            <div class="form-group-custom">
+                                                <label class="form-label-custom">
+                                                    <i class="bi bi-person"></i>
+                                                    Last Name <span class="required-star">*</span>
+                                                </label>
+                                                <input type="text" class="form-input-custom" placeholder="Enter last name" formControlName="lastName" />
+                                                <div class="form-error" *ngIf="updateNameForm.get('lastName')?.touched && updateNameForm.get('lastName')?.invalid">
+                                                    <i class="bi bi-exclamation-circle"></i> Last name is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                                                      
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn-premium-primary" [disabled]="!updateNameForm.valid">
+                                                <i class="bi bi-check-circle me-2"></i> Update Name
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Name Tab-->
+
+                        <!--begin::Email Tab-->
+                        <div class="tab-pane fade" id="kt_stats_widget_16_tab_2">
+                            <div class="settings-card">
+                                <div class="card-header-custom">
+                                    <h3><i class="bi bi-envelope-at me-2"></i>Change Email Address</h3>
+                                    <p>Update the email address associated with your account</p>
+                                </div>
+                                <div class="card-body-custom">
+                                    <div class="info-alert">
+                                        <i class="bi bi-info-circle"></i>
+                                        <div>
+                                            <strong>Current Email:</strong> {{ currentUserEmail }}<br>
+                                            <span>Enter your new email address below to update it</span>
+                                        </div>
+                                    </div>
+
+                                    <form [formGroup]="changeEmailForm" (ngSubmit)="submitEmailForm()">
+                                        <div class="form-group-custom">
+                                            <label class="form-label-custom">
+                                                <i class="bi bi-envelope"></i>
+                                                New Email Address <span class="required-star">*</span>
+                                            </label>
+                                            <input type="email" formControlName="newEmail" class="form-input-custom" placeholder="Enter new email address" />
+                                            <div class="form-error" *ngIf="changeEmailForm.get('newEmail')?.touched && changeEmailForm.get('newEmail')?.invalid">
+                                                <i class="bi bi-exclamation-circle"></i> Please enter a valid email address
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="form-group-custom">
+                                            <label class="form-label-custom">
+                                                <i class="bi bi-envelope-check"></i>
+                                                Confirm New Email Address <span class="required-star">*</span>
+                                            </label>
+                                            <input type="email" formControlName="confirmEmail" class="form-input-custom" placeholder="Confirm new email address" />
+                                            <div class="form-error" *ngIf="changeEmailForm.errors?.['emailsMismatch'] && changeEmailForm.get('confirmEmail')?.touched">
+                                                <i class="bi bi-exclamation-circle"></i> Email addresses do not match
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn-premium-primary" [disabled]="!changeEmailForm.valid">
+                                                <i class="bi bi-check-circle me-2"></i> Update Email
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Email Tab-->
+
+                        <!--begin::Password Tab-->
+                        <div class="tab-pane fade" id="kt_stats_widget_16_tab_3">
+                            <div class="settings-card">
+                                <div class="card-header-custom">
+                                    <h3><i class="bi bi-shield-lock me-2"></i>Reset Password</h3>
+                                    <p>Create a new password to secure your account</p>
+                                </div>
+                                <div class="card-body-custom">
+                                    <div class="info-alert warning">
+                                        <i class="bi bi-shield-exclamation"></i>
+                                        <div>
+                                            <strong>Security Tip:</strong><br>
+                                            <span>Use a strong password with at least 8 characters, including uppercase, lowercase, numbers, and symbols</span>
+                                        </div>
+                                    </div>
+
+                                    <form [formGroup]="resetPasswordForm" (ngSubmit)="onSubmitResetPassword()">
+                                        <div class="form-group-custom">
+                                            <label class="form-label-custom">
+                                                <i class="bi bi-key"></i>
+                                                New Password <span class="required-star">*</span>
+                                            </label>
+                                            <input type="password" formControlName="newPassword" class="form-input-custom" placeholder="Enter new password" />
+                                        </div>
+                                      
+                                        <div class="form-group-custom">
+                                            <label class="form-label-custom">
+                                                <i class="bi bi-key-fill"></i>
+                                                Confirm New Password <span class="required-star">*</span>
+                                            </label>
+                                            <input type="password" formControlName="confirmNewPassword" class="form-input-custom" placeholder="Confirm new password" />
+                                        </div>
+                                      
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn-premium-primary" [disabled]="!resetPasswordForm.valid">
+                                                <i class="bi bi-check-circle me-2"></i> Update Password
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Password Tab-->
+                    </div>
+                </div>
+                <!--end::Tab Content-->
+            </div>
+            <!--end::Settings Tabs-->
+        </div>
+    </div>
+</div>
+</div>

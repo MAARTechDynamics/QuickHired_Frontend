@@ -1,0 +1,16 @@
+/
+/pricing
+/about-us
+/contact-us
+/faq
+/services
+/free-tools
+/resume-builder
+/ai-cover-letter
+/ai-thank-you-email
+/ai-follow-up-email
+/ai-cold-out-reach-email
+/coding-copilot
+/online-assessment-copilot
+/hirevue-interview
+/interview-questions

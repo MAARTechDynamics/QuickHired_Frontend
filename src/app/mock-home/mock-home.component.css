@@ -1,0 +1,271 @@
+/* Center the dropdown below the nav item */
+.nav-item.dropdown {
+  position: relative;
+}
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+ 
+}
+.dropdown-menu {
+  min-width: 900px;
+  max-height: 1000px;
+  border-radius: 1.25rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(15px);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 2rem 3rem;
+  position: absolute;
+  top: 100%;
+}
+
+/* On hover, show dropdown */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  visibility: visible;
+}
+.text-custom {
+  color: #091C43 ;
+}
+
+/* Item layout */
+.dropdown-item {
+  font-size: 1.1rem;
+  padding: 1rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: flex-start;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  transform: translateX(6px);
+}
+
+.dropdown-item i {
+  font-size: 2rem; /* Bigger icons */
+  margin-right: 1rem;
+}
+
+/* Column titles */
+.dropdown-menu h5 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive: full width on small devices */
+@media (max-width: 991px) {
+  .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-height: none;
+    padding: 1.5rem 1rem;
+    border-radius: 0 !important;
+  }
+
+  .dropdown-menu .row {
+    flex-direction: column;
+  }
+
+  .dropdown-menu .col-md-6 {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .dropdown-item {
+    font-size: 1rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .dropdown-item i {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+  }
+
+  .dropdown-menu h5 {
+    font-size: 1.2rem;
+  }
+@media (max-width: 767px) {
+  
+  .bgi-no-repeat {
+    background-size: 100% 250% !important;
+    background-position: center bottom !important;
+  }
+
+  /* Adjust landing hero height */
+  .min-h-350px {
+  min-height: auto !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+  /* Make logo & toggler stack properly */
+  .landing-header .d-flex.align-items-center.justify-content-between {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 2rem; 
+  }
+
+  /* Reorder toggler to appear before logo */
+  .navbar-toggler {
+    order: -1;
+    margin-bottom: 0.5rem;
+    
+  }
+
+
+
+  /* Collapse menu full screen left slide */
+  #landingNavbar {
+    background: white;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 50vh;
+    width: 80%;
+    z-index: 9999;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+    padding: 2rem;
+  }
+
+  /* When navbar is shown */
+  .navbar-collapse.show {
+    left: 0 !important;
+  }
+
+  /* Navbar items mobile spacing */
+  .navbar-nav .nav-item {
+    margin-bottom: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.2rem;
+    color: #000 !important;
+  }
+
+  /* Dropdown menu fix */
+  .dropdown-menu {
+    position: static !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    padding: 1rem 0 !important;
+    background: #fff !important;
+  }
+
+  /* Hide dropdown hover on mobile */
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  /* Fix header spacing */
+  .landing-header .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Ensure hero section content is readable */
+  .text-center.mb-5.mb-lg-10.py-10.py-lg-20 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Reduce heading size */
+  h1.fs-2x.fs-lg-3x {
+    font-size: 1.8rem !important;
+  }
+
+ 
+  .d-flex.flex-center.flex-wrap.position-relative.px-5 {
+    padding: 1rem 0.5rem !important;
+    justify-content: center;
+  }
+
+  .d-flex.flex-center.m-3.m-md-6 img {
+    max-width: 90px;
+    height: auto;
+  }
+
+
+
+body.offcanvas-open {
+  overflow: hidden;
+}
+
+/* Make header row horizontal again for mobile */
+.landing-header .d-flex.align-items-center.justify-content-between {
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0 !important;
+}
+
+/* Adjust toggler position */
+.navbar-toggler {
+  order: 0 !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  margin-left: -2.5rem !important;  
+}
+
+/* Ensure sign-in button aligns properly */
+.landing-header .flex-equal.text-end.ms-1 {
+  order: 2 !important;
+  margin-left: auto !important;
+}
+
+/* Ensure logo doesn't overflow */
+.landing-header .logo-default,
+.landing-header .logo-sticky {
+  max-height: 50px;
+  width: auto;
+ 
+}
+
+/* Force the order of toggler, logo, and sign-in button */
+.navbar-toggler {
+  order: 0 !important;  /* First */
+}
+
+.landing-header .d-flex.align-items-center.flex-equal {
+  order: 1 !important;  /* Logo second */
+}
+
+.landing-header .flex-equal.text-end.ms-1 {
+  order: 2 !important;  
+}
+/* Reduce space between toggler and logo */
+.landing-header .d-flex.align-items-center.flex-equal {
+  padding-left: 0 !important;
+  margin-left: -2.2rem !important;  
+}
+
+
+.landing-header .logo-default,
+.landing-header .logo-sticky {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+
+}
+
+
+  @media (max-width: 767.98px) {
+    .feature-icon {
+      font-size: 9rem !important;
+    }
+  }
+}

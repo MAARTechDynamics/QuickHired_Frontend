@@ -1,0 +1,17 @@
+.blurred {
+    filter: blur(20px); 
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  
+  .swal2-container {
+    z-index: 9999 !important;
+  }
+  
+  .custom-swal-popup {
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 20px;
+  }
+  

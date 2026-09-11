@@ -1,0 +1,146 @@
+
+<!--begin::Content-->
+<div class="main-container mt-5 ">
+        <!-- Mobile Info Banner -->
+        <div *ngIf="isMobile && !isRecording" class="alert alert-info d-flex align-items-start gap-2 mb-3" 
+             style="border-radius: 14px; border-left: 4px solid #0d9488; background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%); box-shadow: 0 4px 12px rgba(13, 148, 136, 0.12);">
+          <i class="bi bi-mic-fill" style="font-size: 22px; color: #0d9488; margin-top: 2px;"></i>
+          <div style="font-size: 13px; line-height: 1.6; color: #0f766e;">
+            <strong style="display: block; margin-bottom: 4px; color: #0d9488;">📱 Mobile Mode Active</strong>
+            Your microphone will capture both interview questions and your responses. Keep volume up for best results.
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between py-8 px-8 rounded mb-4"
+          style="background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%); color: white;">
+
+        <!-- Left Title Section -->
+        <h1 class="h1 d-flex align-items-center gap-2 m-0 text-white">
+          <span class="d-inline-flex align-items-center justify-content-center bg-white bg-opacity-25  px-2 py-1"
+                style="width: 32px; height: 32px; font-size: 18px; border-radius: 10px;">
+            🤖
+          </span>
+          AI Interview Assistant
+        </h1>
+
+        <!-- Right Actions Section -->
+        <div class="d-flex flex-wrap align-items-center gap-3 position-relative">
+
+        <!-- START INTERVIEW Button -->
+        <button *ngIf="!isRecording"
+                (click)="startRecording()"
+                class="btn btn-light-info px-4 py-2 rounded-pill d-flex align-items-center gap-2 w-100 w-sm-auto"
+                [title]="isMobile ? 'Uses microphone on mobile' : 'Select window/tab to capture audio'">
+          <i class="bi bi-mic-fill fs-5"></i>
+          <span class="d-none d-md-inline">Start Interview</span>
+          <span class="d-md-none">Start (Mic)</span>
+        </button>
+
+        <!-- Active & Listening + STOP Button -->    
+        <ng-container *ngIf="isRecording">
+          <div class="position-relative d-flex flex-wrap flex-sm-nowrap align-items-center gap-2 w-100">
+
+            <!-- Tooltip -->
+            <span class="custom-tooltip text-white bg-dark px-3 py-1 rounded"
+                  style="position: absolute; bottom: 100%; left: 0; transform: translateY(-6px); white-space: nowrap;">
+              Interview in progress
+            </span>
+
+            <!-- Active & Listening -->
+            <div class="d-flex align-items-center gap-2 px-4 py-2 rounded-pill bg-white bg-opacity-25 text-white flex-grow-1"
+                style="font-size: 14px;">
+              <span class="status-dot"></span>
+              Active & Listening
+            </div>
+
+            <!-- STOP Button -->
+            <button (click)="stopRecording()"
+                    class="btn btn-light-danger px-4 py-2 rounded-pill d-flex align-items-center gap-2 w-100 w-sm-auto"
+                    style="font-size: 14px;">
+              <i class="bi bi-x-circle-fill fs-5"></i>
+              Stop Interview
+            </button>
+          </div>
+        </ng-container>
+
+      </div>
+
+      </div>
+
+      <div class="content-container">
+        <div class="history-section">
+          
+          <div class="video-container" *ngIf="!isRecording">
+            <div class="video-frame">
+              <div class="ai-avatar">🤖</div>
+            </div>
+            
+          </div>
+
+          <div class="history-item" *ngFor="let item of chatHistory">
+            <div class="history-question">{{ item.question }}</div>
+            <!-- <div class="history-answer" >{{ item.answer }}</div> -->
+          <div class="history-answer" [innerHTML]="item.answer"></div>
+
+          </div>
+        </div>
+
+        <div class="current-section">
+          <div class="current-question">
+            <h3>
+              <span>❓</span>
+              Current Question
+            </h3>
+            <div class="current-question-text">{{ currentQuestion }}</div>
+            <div class="listening-indicator" *ngIf="isQuestionTyping">
+              <div class="sound-waves">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+              </div>
+              Listening for next question...
+            </div>
+          </div>
+
+          <div class="current-answer">
+            <h3>
+              <span>💡</span>
+              AI Suggested Answer
+            </h3>
+            <!-- <div class="current-answer-text" *ngIf="!isTyping"  #answerContainer >{{ currentAnswer }}</div> -->
+            <div class="current-answer-text" *ngIf="!isTyping" #answerContainer [innerHTML]="currentAnswer"></div>
+
+            <div class="typing-indicator" *ngIf="isAnswerTyping">
+              <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+              </div>
+              AI is generating response...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="stats">
+          <div class="confidence-meter">
+            <span>Confidence:</span>
+          <div class="confidence-bar">
+            <div class="confidence-fill" [style.width.%]="confidence"></div>
+          </div>
+          <span>{{ confidence }}%</span>
+
+          </div>
+          <span>•</span>
+          <span >Response time: &nbsp;{{responseTime}} </span>
+        </div>
+        <div class="question-counter">
+          Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}
+        </div>
+      </div>
+</div>
+<!--end::Content wrapper-->
+    
+    

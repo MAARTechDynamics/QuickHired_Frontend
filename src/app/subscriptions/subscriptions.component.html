@@ -1,0 +1,238 @@
+<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+  <!--begin::Content-->
+  <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+      <!--begin::Container-->
+      <div id="kt_content_container" class="container-xxl">
+        <div class="d-flex flex-column flex-column-fluid">
+          <!--begin::Toolbar-->
+          <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6 mt-5">
+            <div class="app-container container-xxl d-flex flex-stack">
+              <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ms-10">
+                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-2 flex-column justify-content-center my-0">
+                  Subscriptions
+                </h1>
+
+                <!-- Custom Notice Box -->
+                <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6 mb-10 mt-5 mx-auto" style="max-width: 650px;">
+                  <div class="d-flex flex-grow-1 flex-wrap flex-md-nowrap text-start">
+                    <div class="fw-semibold mb-3 mb-md-0">
+                      <div class="fs-6 text-warning">
+                        Explore various subscription plans tailored to your needs.
+                        <br />
+                        Each plan offers unique features to enhance your experience.
+                        <br />
+                        Click <strong>View Details</strong> to manage or upgrade.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Toolbar-->
+
+          <!-- Card Table -->
+          <div class="card shadow-sm p-4 ms-10 me-10">
+            <div class="table-responsive mt-3">
+              <table class="table table-bordered table-hover text-start align-middle">
+                <thead class="bg-light-primary text-dark fw-bold">
+                  <tr>
+                    <th>Subscription Name</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let sub of subscriptions">
+                   <td>
+                    <span 
+                        class="badge rounded-pill px-4 py-2 fs-6"
+                        [ngClass]="{
+                        'badge-light-primary': sub.subscriptionName.includes('Free'),
+                        'badge-light-success': sub.subscriptionName.includes('Pro'),
+                        'badge-light-danger': sub.subscriptionName.includes('ProAnnual'),
+                        'badge-light-info': sub.subscriptionName.includes('Standard'),
+                        'badge-light-warning': sub.subscriptionName.includes('StandardAnnual')
+                        }"
+                    >
+                        {{ formatPlanName(sub.subscriptionName) }}
+                    </span>
+                   </td>
+
+                    <td>$ {{ sub.price }}</td>
+                    <td>
+                      <button class="btn btn-light-success btn-sm rounded-4" (click)="openModal(sub)">
+                        <i class="bi bi-eye"></i>
+                        <span class="fw-semibold">View Subscription</span>
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- Empty State -->
+                  <tr *ngIf="subscriptions.length === 0">
+                    <td colspan="3">
+                      <div class="text-center py-10" style="margin-top: 50px; margin-bottom:40px;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/7486/7486895.png" width="80" class="mb-3" />
+                        <h5 class="text-muted">No Subscriptions Found</h5>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Modal -->
+                <div class="modal fade show d-block" id="subscriptionModal" tabindex="-1" *ngIf="showModal" style="background-color: rgba(0,0,0,0.5);">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header bg-light-primary">
+                        <div class="d-flex align-items-center">
+                        <i class="bi bi-pencil-square fs-1 text-primary me-3"></i>
+                        <h5 class="modal-title text-gray-900 fw-bold">Edit Subscription</h5>
+                        </div>
+                        <button type="button" class="btn btn-icon btn-sm btn-light" (click)="closeModal()">
+                        <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Begin Form -->
+                    <form #form="ngForm" (ngSubmit)="updateSubscription(form)" novalidate>
+                        <div class="modal-body">
+                        <div class="row g-4">
+
+                            <!-- Subscription Name -->
+                            <div class="col-md-6">
+                            <label class="form-label fw-semibold">Subscription Name</label>
+                            <input
+                                class="form-control form-control-solid"
+                                name="subscriptionName"
+                                [(ngModel)]="selectedSubscription.subscriptionName"
+                                required
+                                #subscriptionName="ngModel"
+                            />
+                            <div *ngIf="subscriptionName.invalid && subscriptionName.touched" class="text-danger fs-7 mt-1">
+                                Subscription name is required.
+                            </div>
+                            </div>
+
+                            <!-- Session Length -->
+                            <div class="col-md-6">
+                            <label class="form-label fw-semibold">Session Length</label>
+                            <input
+                                class="form-control form-control-solid"
+                                name="sessionLength"
+                                [(ngModel)]="selectedSubscription.sessionLength"
+                                required
+                                #sessionLength="ngModel"
+                            />
+                            <div *ngIf="sessionLength.invalid && sessionLength.touched" class="text-danger fs-7 mt-1">
+                                Session length is required.
+                            </div>
+                            </div>
+
+                            <!-- AI Interview Copilot -->
+                            <div class="col-md-6">
+                            <label class="form-label fw-semibold">AI Interview Copilot</label>
+                            <input
+                                class="form-control form-control-solid"
+                                name="aiInterviewCopilot"
+                                [(ngModel)]="selectedSubscription.aiInterviewCopilot"
+                                required
+                                #aiInterviewCopilot="ngModel"
+                            />
+                            <div *ngIf="aiInterviewCopilot.invalid && aiInterviewCopilot.touched" class="text-danger fs-7 mt-1">
+                                AI Interview Copilot is required.
+                            </div>
+                            </div>
+
+                            <!-- AI Mock Interview -->
+                            <div class="col-md-6">
+                            <label class="form-label fw-semibold">AI Mock Interview</label>
+                            <input
+                                class="form-control form-control-solid"
+                                name="aiMockInterview"
+                                [(ngModel)]="selectedSubscription.aiMockInterview"
+                                required
+                                #aiMockInterview="ngModel"
+                            />
+                            <div *ngIf="aiMockInterview.invalid && aiMockInterview.touched" class="text-danger fs-7 mt-1">
+                                AI Mock Interview is required.
+                            </div>
+                            </div>
+
+                            <!-- AI Interview Reports -->
+                            <div class="col-md-6">
+                            <label class="form-label fw-semibold">AI Interview Reports</label>
+                            <input
+                                class="form-control form-control-solid"
+                                name="aiInterviewReports"
+                                [(ngModel)]="selectedSubscription.aiInterviewReports"
+                                required
+                                #aiInterviewReports="ngModel"
+                            />
+                            <div *ngIf="aiInterviewReports.invalid && aiInterviewReports.touched" class="text-danger fs-7 mt-1">
+                                AI Interview Reports is required.
+                            </div>
+                            </div>
+
+                            <!-- Meeting Recording -->
+                            <div class="col-md-6">
+                            <label class="form-label fw-semibold">Meeting Recording</label>
+                            <input
+                                type="number"
+                                class="form-control form-control-solid"
+                                name="meetingRecording"
+                                [(ngModel)]="selectedSubscription.meetingRecording"
+                                required
+                                min="0"
+                                #meetingRecording="ngModel"
+                            />
+                            <div *ngIf="meetingRecording.invalid && meetingRecording.touched" class="text-danger fs-7 mt-1">
+                                Meeting Recording is required and must be a number.
+                            </div>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="col-md-6">
+                            <label class="form-label fw-semibold">Price</label>
+                            <input
+                                type="number"
+                                class="form-control form-control-solid"
+                                name="price"
+                                [(ngModel)]="selectedSubscription.price"
+                                required
+                                min="0"
+                                #price="ngModel"
+                            />
+                            <div *ngIf="price.invalid && price.touched" class="text-danger fs-7 mt-1">
+                                Price is required and must be a valid number.
+                            </div>
+                            </div>
+
+                        </div>
+                        </div>
+
+                        <!-- Modal Footer -->
+                        <div class="modal-footer d-flex justify-content-end">
+                        <button class="btn btn-success" type="submit" [disabled]="form.invalid">
+                            <i class="bi bi-save me-1"></i> Update
+                        </button>
+                        <button class="btn btn-secondary" type="button" (click)="closeModal()">
+                            <i class="bi bi-x-circle me-1"></i> Close
+                        </button>
+                        </div>
+                    </form>
+                    <!-- End Form -->
+
+                    </div>
+                </div>
+                </div>
+          <!-- End Modal -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

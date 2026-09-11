@@ -1,0 +1,116 @@
+
+
+
+ <!--begin::Root-->
+ <div class="d-flex flex-column flex-root">
+    <!--begin::Page-->
+    <div class="page d-flex flex-row flex-column-fluid">
+       <!--begin::Wrapper-->
+      <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+            <!--begin::Footer-->
+            <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+                <!--begin::Container-->
+                <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+                    <!--begin::Copyright-->
+                    <div class="text-gray-900 order-2 order-md-1">
+                        <span class="text-muted fw-semibold me-1">2024&copy;</span>
+                        <a href="http://www.code-wode.com/" target="_blank" class="text-gray-800 text-hover-primary">Code-Wode</a>
+                    </div>
+                    <!--end::Copyright-->
+                    <!--begin::Menu-->
+                    <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                        <li class="menu-item">
+                            <a routerLink="/home" target="_blank" class="menu-link px-2">About</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_new_ticket" class="menu-link px-2">Support</a>
+                        </li>
+                        <li class="menu-item">
+                            <a routerLink="/faq" class="menu-link px-2">FAQ</a>
+                        </li>
+                    </ul>
+                    <!--end::Menu-->
+                    	<div class="modal fade" id="kt_modal_new_ticket" tabindex="-1" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered mw-750px">
+									<div class="modal-content rounded">
+									<div class="modal-header pb-0 border-0 justify-content-end">
+										<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+										<i class="ki-duotone ki-cross fs-1">
+											<span class="path1"></span>
+											<span class="path2"></span>
+										</i>
+										</div>
+									</div>
+									<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+										<form [formGroup]="supportForm" (ngSubmit)="submitSupportForm()">
+										<div class="mb-13 text-center">
+											<h1 class="mb-3">Contact Us</h1>
+											<div class="text-gray-500 fw-semibold fs-5">
+											If you have any queries, please email us. We'll get back to you within 2-3 business days.
+											</div>
+										</div>
+
+										<!-- Subject -->
+										<div class="d-flex flex-column mb-8 fv-row">
+											<label class="required fs-6 fw-semibold mb-2">Subject</label>
+											<input type="text" class="form-control form-control-solid" formControlName="subject" placeholder="Enter your subject" />
+											<div *ngIf="supportForm.get('subject')?.invalid && supportForm.get('subject')?.touched" class="text-danger mt-1">
+											Subject is required.
+											</div>
+										</div>
+
+										<!-- Name & Email -->
+										<div class="row g-9 mb-8">
+											<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2">Name</label>
+											<input type="text" class="form-control form-control-solid" formControlName="name" placeholder="Enter your name" />
+											<div *ngIf="supportForm.get('name')?.invalid && supportForm.get('name')?.touched" class="text-danger mt-1">
+												Name is required.
+											</div>
+											</div>
+
+											<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2">Email</label>
+											<input type="email" class="form-control form-control-solid" formControlName="email" placeholder="Enter your email" />
+											<div *ngIf="supportForm.get('email')?.invalid && supportForm.get('email')?.touched" class="text-danger mt-1">
+												<span *ngIf="supportForm.get('email')?.errors?.['required']">Email is required.</span>
+												<span *ngIf="supportForm.get('email')?.errors?.['email']">Invalid email format.</span>
+											</div>
+											</div>
+										</div>
+
+										<!-- Description -->
+										<div class="d-flex flex-column mb-8 fv-row">
+											<label class="fs-6 fw-semibold mb-2 required">Description</label>
+											<textarea class="form-control form-control-solid" rows="4" formControlName="message" placeholder="Type your ticket description"></textarea>
+											<div *ngIf="supportForm.get('message')?.invalid && supportForm.get('message')?.touched" class="text-danger mt-1">
+											Description is required.
+											</div>
+										</div>
+
+										<!-- Actions -->
+										<div class="text-center">
+											<button type="button" data-bs-dismiss="modal" class="btn btn-light me-3">Cancel</button>
+											<button type="submit" class="btn btn-primary" [disabled]="supportForm.invalid || isSubmitting">
+											<span *ngIf="!isSubmitting">Submit</span>
+											<span *ngIf="isSubmitting">
+												Please wait...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+											</span>
+											</button>
+										</div>
+
+										
+
+										</form>
+									</div>
+									</div>
+								</div>
+							</div>
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::Footer-->
+        </div>
+  </div>
+</div>

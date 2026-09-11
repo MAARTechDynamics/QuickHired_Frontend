@@ -1,0 +1,522 @@
+
+/* ========================================
+   PREMIUM UI ENHANCEMENTS
+   ======================================== */
+
+/* Premium Gradient Background */
+.premium-hero-gradient {
+  background: linear-gradient(135deg, #0a7068 0%, #0891b2 50%, #06b6d4 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-hero-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(18, 206, 93, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255, 216, 12, 0.15) 0%, transparent 50%);
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* Premium Card Hover Effects */
+.premium-feature-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 35px;
+  min-height: 320px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(10, 112, 104, 0.05) 0%, rgba(8, 145, 178, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.premium-feature-card:hover::before {
+  opacity: 1;
+}
+
+.premium-feature-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(10, 112, 104, 0.20);
+}
+
+/* Premium Icon Container */
+.premium-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a7068 0%, #0891b2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(10, 112, 104, 0.4); }
+  50% { box-shadow: 0 0 0 20px rgba(10, 112, 104, 0); }
+}
+
+/* Premium Badge Styles */
+.premium-badge {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #86efac;
+  border-radius: 16px;
+  padding: 12px 24px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(134, 239, 172, 0.25);
+  animation: badgeBounce 2s ease-in-out infinite;
+}
+
+@keyframes badgeBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Premium CTA Button */
+.premium-cta-button {
+  background: linear-gradient(135deg, #12CE5D 0%, #0ea54e 100%);
+  border: none;
+  border-radius: 16px;
+  padding: 20px 40px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(18, 206, 93, 0.35);
+}
+
+.premium-cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.premium-cta-button:hover::before {
+  left: 100%;
+}
+
+.premium-cta-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(18, 206, 93, 0.45);
+}
+
+/* Premium Text Gradient */
+.premium-text-gradient {
+  background: linear-gradient(135deg, #12CE5D 0%, #FFD80C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  animation: gradientText 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientText {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Premium Section Divider */
+.premium-section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0891b2, transparent);
+  margin: 60px 0;
+  animation: dividerGlow 3s ease-in-out infinite;
+}
+
+@keyframes dividerGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; box-shadow: 0 0 20px rgba(8, 145, 178, 0.5); }
+}
+
+/* Premium Feature Badge Pills */
+.premium-pill-badge {
+  background: linear-gradient(135deg, #dcfce7 0%, #86efac 100%);
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.premium-pill-badge:hover {
+  border-color: #12CE5D;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(18, 206, 93, 0.25);
+}
+
+/* Premium Floating Animation */
+.premium-float {
+  animation: floatAnimation 6s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Premium Card Shimmer Effect */
+.premium-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Responsive Premium Enhancements */
+@media (max-width: 992px) {
+  .premium-icon-circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .premium-feature-card {
+    min-height: 280px;
+    padding: 28px;
+  }
+  
+  .premium-cta-button {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .premium-icon-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .premium-feature-card {
+    min-height: 240px;
+    padding: 24px;
+  }
+  
+  .premium-cta-button {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   ORIGINAL STYLES (PRESERVED)
+   ======================================== */
+
+.nav-item.dropdown {
+  position: relative;
+}
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+ 
+}
+.dropdown-menu {
+  min-width: 900px;
+  max-height: 1000px;
+  border-radius: 1.25rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(15px);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 2rem 3rem;
+  position: absolute;
+  top: 100%;
+}
+
+/* On hover, show dropdown */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  visibility: visible;
+}
+.text-custom {
+  color: #091C43 ;
+}
+
+/* Item layout */
+.dropdown-item {
+  font-size: 1.1rem;
+  padding: 1rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: flex-start;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  transform: translateX(6px);
+}
+
+.dropdown-item i {
+  font-size: 2rem; /* Bigger icons */
+  margin-right: 1rem;
+}
+
+/* Column titles */
+.dropdown-menu h5 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive: full width on small devices */
+@media (max-width: 991px) {
+  .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-height: none;
+    padding: 1.5rem 1rem;
+    border-radius: 0 !important;
+  }
+
+  .dropdown-menu .row {
+    flex-direction: column;
+  }
+
+  .dropdown-menu .col-md-6 {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .dropdown-item {
+    font-size: 1rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .dropdown-item i {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+  }
+
+  .dropdown-menu h5 {
+    font-size: 1.2rem;
+  }
+
+ @media (max-width: 767px) {
+  
+  .bgi-no-repeat {
+    background-size: 100% 250% !important;
+    background-position: center bottom !important;
+  }
+
+  /* Adjust landing hero height */
+  .min-h-350px {
+  min-height: auto !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+  /* Make logo & toggler stack properly */
+  .landing-header .d-flex.align-items-center.justify-content-between {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 2rem; 
+  }
+
+  /* Reorder toggler to appear before logo */
+  .navbar-toggler {
+    order: -1;
+    margin-bottom: 0.5rem;
+    
+  }
+
+
+
+  /* Collapse menu full screen left slide */
+  #landingNavbar {
+    background: white;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 50vh;
+    width: 80%;
+    z-index: 9999;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+    padding: 2rem;
+  }
+
+  /* When navbar is shown */
+  .navbar-collapse.show {
+    left: 0 !important;
+  }
+
+  /* Navbar items mobile spacing */
+  .navbar-nav .nav-item {
+    margin-bottom: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.2rem;
+    color: #000 !important;
+  }
+
+  /* Dropdown menu fix */
+  .dropdown-menu {
+    position: static !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    padding: 1rem 0 !important;
+    background: #fff !important;
+  }
+
+  /* Hide dropdown hover on mobile */
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  /* Fix header spacing */
+  .landing-header .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Ensure hero section content is readable */
+  .text-center.mb-5.mb-lg-10.py-10.py-lg-20 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Reduce heading size */
+  h1.fs-2x.fs-lg-3x {
+    font-size: 1.8rem !important;
+  }
+
+ 
+  .d-flex.flex-center.flex-wrap.position-relative.px-5 {
+    padding: 1rem 0.5rem !important;
+    justify-content: center;
+  }
+
+  .d-flex.flex-center.m-3.m-md-6 img {
+    max-width: 90px;
+    height: auto;
+  }
+
+
+
+body.offcanvas-open {
+  overflow: hidden;
+}
+
+/* Make header row horizontal again for mobile */
+.landing-header .d-flex.align-items-center.justify-content-between {
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0 !important;
+}
+
+/* Adjust toggler position */
+.navbar-toggler {
+  order: 0 !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  margin-left: -2.5rem !important;  
+}
+
+/* Ensure sign-in button aligns properly */
+.landing-header .flex-equal.text-end.ms-1 {
+  order: 2 !important;
+  margin-left: auto !important;
+}
+
+/* Ensure logo doesn't overflow */
+.landing-header .logo-default,
+.landing-header .logo-sticky {
+  max-height: 50px;
+  width: auto;
+ 
+}
+
+/* Force the order of toggler, logo, and sign-in button */
+.navbar-toggler {
+  order: 0 !important;  /* First */
+}
+
+.landing-header .d-flex.align-items-center.flex-equal {
+  order: 1 !important;  /* Logo second */
+}
+
+.landing-header .flex-equal.text-end.ms-1 {
+  order: 2 !important;  
+}
+/* Reduce space between toggler and logo */
+.landing-header .d-flex.align-items-center.flex-equal {
+  padding-left: 0 !important;
+  margin-left: -2.2rem !important;  
+}
+
+
+.landing-header .logo-default,
+.landing-header .logo-sticky {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+
+}
+@media (max-width: 767.98px) {
+    .feature-icon {
+      font-size: 9rem !important;
+    }
+}
+}

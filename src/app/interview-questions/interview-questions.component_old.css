@@ -1,0 +1,136 @@
+.card {
+    transition: 0.3s ease-in-out;
+  }
+  .card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  .btn-outline-primary {
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .show-more-btn {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  .show-more-btn:hover {
+    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(185, 162, 162, 0.3);
+  }
+  
+  .show-more-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ask-ai-btn:hover {
+    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+  
+  .ask-ai-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ask-ai-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  
+  
+  .robot-icon {
+    width: 100px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
+  }
+  
+  .robot-icon:hover {
+    transform: scale(1.05) rotate(-2deg);
+  }
+  
+  .pattern {
+  height: 200px;
+  width: 100%;
+  background: url('/assets/media/patterns/4.png') center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.typing-dot {
+   width: 10px;            
+  height: 10px;
+  background: #6c757d; 
+  border-radius: 50%;
+  animation: typing 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+}
+
+/* Fading sides */
+.pattern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 255, 255, 0) 3%, 
+    rgba(255, 255, 255, 0) 90%, 
+    rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+}
+
+/* 📱 Mobile-specific fix */
+@media (max-width: 576px) {
+  .pattern {
+    background-size: contain; /* Ensures full image shows on mobile */
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+
+  
+
+
+ 
+  
+  
