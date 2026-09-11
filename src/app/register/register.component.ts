@@ -69,7 +69,7 @@ export class RegisterComponent implements OnInit{
     fbScriptTag.onload = () => {
       window.fbAsyncInit = function () {
         FB.init({
-          appId: '1715739222846818',
+          appId: '2919394641754981',
           cookie: true,
           xfbml: true,
           version: 'v19.0'
