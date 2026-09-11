@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit{
     };
   
     google.accounts.id.initialize({
-      client_id: '716947882975-bl7kvtjbh207qkru0ffus5fmn1lun4nm.apps.googleusercontent.com',
+      client_id: '985167242683-v3r7sablc05onr4mnnbklgb9abfun4h9.apps.googleusercontent.com',
       callback: window.handleCredentialResponse
     });
   
